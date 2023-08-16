@@ -25,7 +25,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nome"/>
+            android:text="Nome:"
+            android:layout_marginTop="70dp"/>
 
         <EditText
             android:layout_width="329dp"
@@ -38,7 +39,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CPF"/>
+            android:text="CPF:"/>
 
         <EditText
             android:layout_width="329dp"
@@ -51,7 +52,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Data de nascimento"/>
+        android:text="Data de nascimento:"/>
 
     <EditText
             android:layout_width="329dp"
