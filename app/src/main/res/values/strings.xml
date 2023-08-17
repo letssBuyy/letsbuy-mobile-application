@@ -8,4 +8,10 @@
     <string name="chat">chat</string>
     <string name="perfil">perfil</string>
     <string name="search_hint">O que você gostaria de encontrar hoje?</string>
+    <string name="compra_concluida">Compra concluida!</string>
+    <string name="texto_compra_concluida">Aguarde a entrega do seu novo produto  e usufrua ao máximo!</string>
+    <string name="minhas_compras">Minhas compras</string>
+    <string name="falha_pagamento">Falha no pagamento!</string>
+    <string name="texto_falha_pagamento">Ocorreu um erro ao tentar efetuar o pagamento.</string>
+    <string name="retornar">Retornar</string>
 </resources>
