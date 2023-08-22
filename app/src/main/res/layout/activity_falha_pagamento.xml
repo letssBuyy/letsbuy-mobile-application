@@ -1,0 +1,79 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_button"
+            android:layout_marginTop="30dp"/>
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="140dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="90dp"
+            android:src="@drawable/logo" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/gray"
+        android:layout_marginTop="60dp"
+        android:text="@string/falha_pagamento"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="3dp"
+        android:textColor="@color/dark_gray"
+        android:text="@string/texto_falha_pagamento"
+        android:textSize="17sp"
+        android:layout_marginBottom="20dp"
+        android:textAlignment="center"/>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_gravity="center"
+        android:src="@drawable/error_icon_4_1" />
+
+    <Button
+        android:id="@+id/btn_minhasCompras"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:width="329dp"
+        android:backgroundTint="@color/red"
+        android:text="@string/retornar"
+        android:textStyle="bold"
+        android:textSize="19sp"
+        android:layout_marginTop="100dp"
+        app:cornerRadius="5dp"/>
+
+</LinearLayout>
