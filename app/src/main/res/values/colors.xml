@@ -6,4 +6,5 @@
     <color name="gray">#555555</color>
     <color name="dark_gray">#3A3434</color>
     <color name="light_gray">#6F6F6F</color>
+    <color name="semi">#C8DFDFDF</color>
 </resources>
