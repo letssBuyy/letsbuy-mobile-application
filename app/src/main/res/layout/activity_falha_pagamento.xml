@@ -27,6 +27,12 @@
             android:src="@drawable/logo" />
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/semi"
+        android:layout_marginTop="10dp"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
