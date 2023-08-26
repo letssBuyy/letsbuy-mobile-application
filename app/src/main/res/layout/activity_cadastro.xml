@@ -12,63 +12,64 @@
         android:layout_width="178dp"
         android:layout_height="140dp"
         android:layout_gravity="center"
-        android:src="@drawable/logo"/>
+        android:src="@drawable/logo" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
         android:text="Crie sua conta"
-        android:textSize="20sp"
-        android:layout_marginBottom="20dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nome"/>
-
-        <EditText
-            android:layout_width="329dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="30dp"
-            android:inputType="text"
-            android:textSize="15sp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CPF"/>
-
-        <EditText
-            android:layout_width="329dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="30dp"
-            android:inputType="number"
-            android:textSize="15sp"/>
+        android:textSize="20sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Data de nascimento"/>
+        android:layout_marginTop="70dp"
+        android:text="Nome:" />
 
     <EditText
-            android:layout_width="329dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="30dp"
-            android:inputType="number"
-            android:textSize="15sp"/>
+        android:layout_width="329dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:inputType="text"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CPF:" />
+
+    <EditText
+        android:layout_width="329dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:inputType="number"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data de nascimento:" />
+
+    <EditText
+        android:layout_width="329dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:inputType="number"
+        android:textSize="15sp" />
 
     <Button
         android:id="@+id/btn_proximo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginBottom="15dp"
         android:width="329dp"
         android:backgroundTint="@color/red"
-        android:text="Proximo"
-        android:layout_marginBottom="15dp"/>
+        android:text="Proximo" />
 
 </LinearLayout>
