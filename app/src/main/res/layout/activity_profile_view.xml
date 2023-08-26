@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="27dp"
+            android:layout_marginEnd="27dp">
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/personName"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="96dp"
+                android:layout_marginTop="20dp"
+                android:text="Ana Julia"
+                android:fontFamily="@font/poppins"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/imageView1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/semi"
+                android:id="@+id/line"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/personName"/>
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/profileImage"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/perfil_image" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_shield_pink"
+                app:layout_constraintStart_toEndOf="@id/profileImage"
+                app:layout_constraintTop_toBottomOf="@id/line"
+                android:id="@+id/imageShieldPink"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="22dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vendedor verificado"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                android:id="@+id/verifiedSeller"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="5dp"
+                app:layout_constraintStart_toEndOf="@id/imageShieldPink"
+                app:layout_constraintTop_toBottomOf="@id/line"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="São Paulo, SP"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="6dp"
+                android:textSize="12sp"
+                android:id="@+id/citySeller"
+                app:layout_constraintStart_toEndOf="@id/profileImage"
+                app:layout_constraintTop_toBottomOf="@id/imageShieldPink" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Na LetsBuy desde 2023"
+                android:textSize="12sp"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                android:layout_marginLeft="50dp"
+                app:layout_constraintStart_toEndOf="@id/profileImage"
+                app:layout_constraintTop_toBottomOf="@id/citySeller" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/semi"
+                android:id="@+id/lineTwo"
+                android:layout_marginTop="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profileImage"/>
+
+
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:src="@drawable/badge"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lineTwo"
+                android:id="@+id/badgeImageOne"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"/>
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:text="R$200"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:id="@+id/priceImageOne"
+                android:textColor="#F14866"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/badgeImageOne"/>
+            
+            <TextView
+                android:text="bolsa marrom"
+                android:layout_width="100dp"
+                android:layout_height="18dp"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                android:textColor="#555555"
+                android:textSize="12sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/priceImageOne"
+                android:id="@+id/nameAdOne"/>
+
+            <TextView
+                android:text="Tommy"
+                android:layout_width="50dp"
+                android:layout_height="18dp"
+                android:fontFamily="@font/poppins"
+                android:textColor="#555555"
+                android:textSize="12sp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nameAdOne"
+                android:id="@+id/brandAdOne"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/curti"
+                app:layout_constraintStart_toEndOf="@id/nameAdOne"
+                app:layout_constraintTop_toBottomOf="@id/badgeImageOne"
+                android:id="@+id/likeOne"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"/>
+
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:src="@drawable/badge"
+                app:layout_constraintStart_toEndOf="@id/badgeImageOne"
+                app:layout_constraintTop_toBottomOf="@id/lineTwo"
+                android:id="@+id/badgeImageTwo"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="30dp"/>
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:text="R$200"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:id="@+id/priceImageTwo"
+                android:textColor="#F14866"
+                android:layout_marginRight="112dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/badgeImageTwo"/>
+
+            <TextView
+                android:text="bolsa marrom"
+                android:layout_width="100dp"
+                android:layout_height="18dp"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                android:textColor="#555555"
+                android:textSize="12sp"
+                android:layout_marginRight="62dp"
+                android:layout_marginTop="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/priceImageTwo"
+                android:id="@+id/nameAdTwo"/>
+
+            <TextView
+                android:text="Tommy"
+                android:layout_width="50dp"
+                android:layout_height="18dp"
+                android:fontFamily="@font/poppins"
+                android:textColor="#555555"
+                android:textSize="12sp"
+                android:layout_marginRight="112dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nameAdTwo"
+                android:id="@+id/brandAdTwo"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/curti"
+                app:layout_constraintStart_toEndOf="@id/nameAdTwo"
+                app:layout_constraintTop_toBottomOf="@id/badgeImageTwo"
+                android:id="@+id/likeTwo"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"/>
+
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:src="@drawable/badge"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/brandAdOne"
+                android:id="@+id/badgeImageThree"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="40dp"/>
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:text="R$200"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:id="@+id/priceImageThree"
+                android:textColor="#F14866"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/badgeImageThree"/>
+
+            <TextView
+                android:text="bolsa marrom"
+                android:layout_width="100dp"
+                android:layout_height="18dp"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                android:textColor="#555555"
+                android:textSize="12sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/priceImageThree"
+                android:id="@+id/nameAdThree"/>
+
+            <TextView
+                android:text="Tommy"
+                android:layout_width="50dp"
+                android:layout_height="18dp"
+                android:fontFamily="@font/poppins"
+                android:textColor="#555555"
+                android:textSize="12sp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nameAdThree"
+                android:id="@+id/brandAdThree"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/curti"
+                app:layout_constraintStart_toEndOf="@id/nameAdThree"
+                app:layout_constraintTop_toBottomOf="@id/badgeImageThree"
+                android:id="@+id/likeThree"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"/>
+
+
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:src="@drawable/badge"
+                app:layout_constraintStart_toEndOf="@id/badgeImageThree"
+                app:layout_constraintTop_toBottomOf="@id/brandAdTwo"
+                android:id="@+id/badgeImageFour"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="40dp"/>
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:text="R$200"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:id="@+id/priceImageFour"
+                android:textColor="#F14866"
+                android:layout_marginRight="112dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/badgeImageFour"/>
+
+            <TextView
+                android:text="bolsa marrom"
+                android:layout_width="100dp"
+                android:layout_height="18dp"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                android:textColor="#555555"
+                android:textSize="12sp"
+                android:layout_marginRight="62dp"
+                android:layout_marginTop="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/priceImageFour"
+                android:id="@+id/nameAdFour"/>
+
+            <TextView
+                android:text="Tommy"
+                android:layout_width="50dp"
+                android:layout_height="18dp"
+                android:fontFamily="@font/poppins"
+                android:textColor="#555555"
+                android:textSize="12sp"
+                android:layout_marginRight="112dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nameAdFour"
+                android:id="@+id/brandAdFour"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/curti"
+                app:layout_constraintStart_toEndOf="@id/nameAdFour"
+                app:layout_constraintTop_toBottomOf="@id/badgeImageFour"
+                android:id="@+id/likeFour"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"/>
+
+
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
