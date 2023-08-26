@@ -14,4 +14,6 @@
     <string name="falha_pagamento">Falha no pagamento!</string>
     <string name="texto_falha_pagamento">Ocorreu um erro ao tentar efetuar o pagamento.</string>
     <string name="retornar">Retornar</string>
+    <string name="publicar">Publicar</string>
+    <string name="atualizar">Atualizar</string>
 </resources>
