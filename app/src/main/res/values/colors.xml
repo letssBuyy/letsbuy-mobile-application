@@ -7,4 +7,8 @@
     <color name="dark_gray">#3A3434</color>
     <color name="light_gray">#6F6F6F</color>
     <color name="semi">#C8DFDFDF</color>
+    <color name="secondary_black">#555555</color>
+    <color name="primary_gray">#969696</color>
+    <color name="green">#05FF00</color>
+    <color name="very_light_gray">#D1D1D1</color>
 </resources>
