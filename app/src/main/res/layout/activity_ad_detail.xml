@@ -17,6 +17,28 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/back_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/semi"
+                app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="27dp"
             android:layout_marginEnd="27dp">
@@ -25,7 +47,7 @@
                 android:id="@+id/titleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="120dp"
                 android:text="Bolsa marrom"
                 android:textColor="@color/gray"
                 android:textSize="30sp"
@@ -249,6 +271,8 @@
                 android:text="Conversar"
                 app:layout_constraintTop_toBottomOf="@id/userProfileImageView"
                 android:textSize="18dp"
+                android:textStyle="bold"
+                app:cornerRadius="5dp"
                 android:fontFamily="@font/poppins" />
 
             <ImageView
@@ -316,36 +340,36 @@
                 android:src="@drawable/icon_mastercard"
                 app:layout_constraintStart_toEndOf="@id/visaImageView"
                 app:layout_constraintTop_toBottomOf="@id/tipsTextView"
-                android:contentDescription="icone mastercard"/>
-
-            <Button
-                android:id="@+id/Buybutton"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:text="Comprar"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/proposalButton"
-                android:backgroundTint="@color/red"
-                app:layout_constraintTop_toBottomOf="@id/masterCardImageView"
-                android:textSize="18sp"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="50dp"
-                android:fontFamily="@font/poppins"/>
-
-            <Button
-                android:id="@+id/proposalButton"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:text="Enviar proposta"
-                app:layout_constraintStart_toEndOf="@id/Buybutton"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/masterCardImageView"
-                android:textSize="18sp"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="50dp"
-                android:fontFamily="@font/poppins" />
+                android:contentDescription="icone mastercard" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/Buybutton"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="Comprar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/proposalButton"
+        android:backgroundTint="@color/red"
+        android:textSize="18sp"
+        android:fontFamily="@font/poppins"
+        app:cornerRadius="0dp"/>
+
+    <Button
+        android:id="@+id/proposalButton"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="Enviar proposta"
+        app:layout_constraintStart_toEndOf="@id/Buybutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="18sp"
+        android:fontFamily="@font/poppins"
+        app:cornerRadius="0dp"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/red"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
