@@ -8,11 +8,30 @@
     android:gravity="bottom"
     tools:context=".HomeActivity">
 
+    <EditText
+        android:id="@+id/editMobileNo"
+        android:layout_width="360dp"
+        android:layout_height="40dp"
+        android:padding="10dp"
+        android:background="@drawable/search_edittext"
+        android:ems="10"
+        android:hint="@string/search_hint"
+        android:drawableRight="@drawable/search"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/home_titulo_2"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_produtos"
         android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="0dp"/>
+        android:layout_height="wrap_content"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

@@ -3,10 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/heart"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/nome_Produto"
+        app:layout_constraintTop_toTopOf="@+id/nome_Produto"/>
     
     <ImageView
         android:id="@+id/img_produto"
-        android:layout_width="120dp"
+        android:layout_width="140dp"
         android:layout_height="120dp"
         android:src="@drawable/img_teste"
         android:layout_margin="10dp"
@@ -15,43 +23,36 @@
 
     <TextView
         android:id="@+id/nome_Produto"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
         android:text="Playtation 1"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/img_produto"
-        android:layout_marginStart="140dp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/preco_produto"
+        app:layout_constraintTop_toBottomOf="@+id/preco_produto" />
+
     <TextView
         android:id="@+id/descricao_produto"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:maxLines="5"
-        android:text="PlayStation 1 Mini classic Edition USADO com dois controles, cabo HDMI, e cabo de energia usb"
+        android:maxLines="1"
+        android:text="Yohan Hudson"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/nome_Produto"
-        app:layout_constraintStart_toEndOf="@id/img_produto"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    
+        app:layout_constraintStart_toStartOf="@+id/nome_Produto"
+        app:layout_constraintTop_toBottomOf="@+id/nome_Produto" />
+
     <TextView
         android:id="@+id/preco_produto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="R$ 800,00"
-        android:textSize="18sp"
         android:textColor="@color/red"
+        android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/descricao_produto"
-        app:layout_constraintStart_toEndOf="@id/img_produto"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"/>
+        app:layout_constraintStart_toStartOf="@+id/img_produto"
+        app:layout_constraintTop_toBottomOf="@+id/img_produto" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

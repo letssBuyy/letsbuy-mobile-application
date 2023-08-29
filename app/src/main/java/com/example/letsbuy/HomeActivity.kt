@@ -2,6 +2,7 @@ package com.example.letsbuy
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.letsbuy.adapter.AdapterProduto
@@ -13,7 +14,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         val recyclerView_produtos = findViewById<RecyclerView>(R.id.recyclerView_produtos)
-        recyclerView_produtos.layoutManager = LinearLayoutManager(this)
+        recyclerView_produtos.layoutManager = GridLayoutManager(this, 2, 1, false)
         recyclerView_produtos.setHasFixedSize(true)
 
         val listaProdutos: MutableList<Produto> = mutableListOf()
