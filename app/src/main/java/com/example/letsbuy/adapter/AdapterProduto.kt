@@ -13,7 +13,7 @@ import com.example.letsbuy.model.Produto
 class AdapterProduto(private val context: Context, private val produtos: MutableList<Produto>): RecyclerView.Adapter<AdapterProduto.ProdutoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProdutoViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.produto_item, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.activity_produto_item, parent, false)
         val holder = ProdutoViewHolder(view)
         return holder
     }
@@ -22,15 +22,15 @@ class AdapterProduto(private val context: Context, private val produtos: Mutable
 
     override fun onBindViewHolder(holder: ProdutoViewHolder, position: Int) {
         holder.imagem.setImageResource(produtos[position].imagem)
-        holder.nome.text = produtos[position].nome
-        holder.descricao.text = produtos[position].descricao
-        holder.preco.text = produtos[position].preco
+        holder.name.text = produtos[position].name
+        holder.sell.text = produtos[position].sell
+        holder.preco.text = produtos[position].price
     }
 
     inner class ProdutoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imagem = itemView.findViewById<ImageView>(R.id.img_produto)
-        val nome = itemView.findViewById<TextView>(R.id.nome_Produto)
-        val descricao = itemView.findViewById<TextView>(R.id.descricao_produto)
+        val name = itemView.findViewById<TextView>(R.id.nome_Produto)
+        val sell = itemView.findViewById<TextView>(R.id.descricao_produto)
         val preco = itemView.findViewById<TextView>(R.id.preco_produto)
     }
 }

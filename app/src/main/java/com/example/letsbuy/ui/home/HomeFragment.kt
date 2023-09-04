@@ -5,12 +5,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.letsbuy.R
+import com.example.letsbuy.adapter.AdapterProduto
+import com.example.letsbuy.model.Produto
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+private lateinit var adapterProduct: AdapterProduto
+private lateinit var recyclerView: RecyclerView
+private lateinit var listProduct: MutableList<Produto>
+lateinit var imagem: Array<Int>
+lateinit var name: Array<String>
+lateinit var sell: Array<String>
+lateinit var price: Array<String>
 
 /**
  * A simple [Fragment] subclass.
@@ -57,4 +69,73 @@ class HomeFragment : Fragment() {
                 }
             }
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        dataInit()
+
+//        val layoutManager = LinearLayoutManager(context)
+//        recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView_produtos)
+//        recyclerView.layoutManager = layoutManager
+//        recyclerView.setHasFixedSize(true)
+//
+//        adapterProduto = AdapterProduto(context, listProduct)
+
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView_produtos)
+        recyclerView.layoutManager = LinearLayoutManager(view.context)
+        recyclerView.setHasFixedSize(true)
+        val adapterProduct = AdapterProduto(view.context, listProduct)
+        recyclerView.adapter = adapterProduct
+    }
+
+    private fun dataInit() {
+        listProduct = mutableListOf<Produto>()
+
+        val produto1 = Produto(
+            R.drawable.img_teste,
+            "Playtation 1",
+            "Yohan Hudson",
+            "R$ 800,00"
+        )
+
+        val produto2 = Produto(
+            R.drawable.img_teste,
+            "Playtation 1",
+            "Yohan Hudson",
+            "R$ 800,00"
+        )
+
+        val produto3 = Produto(
+            R.drawable.img_teste,
+            "Playtation 1",
+            "Yohan Hudson",
+            "R$ 800,00"
+        )
+
+        val produto4 = Produto(
+            R.drawable.img_teste,
+            "Playtation 1",
+            "Yohan Hudson",
+            "R$ 800,00"
+        )
+
+        val produto5 = Produto(
+            R.drawable.img_teste,
+            "Playtation 1",
+            "Yohan Hudson",
+            "R$ 800,00"
+        )
+
+        listProduct.add(produto1)
+        listProduct.add(produto2)
+        listProduct.add(produto3)
+        listProduct.add(produto4)
+        listProduct.add(produto5)
+    }
+
+//        imagem = arrayOf(R.drawable.img_teste, R.drawable.img_teste, R.drawable.img_teste, R.drawable.img_teste)
+//        name = arrayOf("Playtation", "Playtation", "Playtation", "Playtation")
+//        sell = arrayOf("Yohan Hudson", "Yohan Hudson", "Yohan Hudson", "Yohan Hudson")
+//        price = arrayOf("800", "800", "800", "800")
+//}
 }

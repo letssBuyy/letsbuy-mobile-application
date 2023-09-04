@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="41dp"
+        android:layout_height="43dp"
         android:src="@drawable/heart"
-        android:layout_marginStart="10dp"
-        app:layout_constraintStart_toEndOf="@+id/nome_Produto"
-        app:layout_constraintTop_toTopOf="@+id/nome_Produto"/>
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/descricao_produto"
+        app:layout_constraintTop_toBottomOf="@+id/nome_Produto" />
     
     <ImageView
         android:id="@+id/img_produto"
         android:layout_width="140dp"
         android:layout_height="120dp"
         android:src="@drawable/img_teste"
-        android:layout_margin="10dp"
+        android:layout_margin="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/nome_Produto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
+        android:layout_width="103dp"
+        android:layout_height="24dp"
         android:text="Playtation 1"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/preco_produto"
-        app:layout_constraintTop_toBottomOf="@+id/preco_produto" />
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/img_produto"
+        app:layout_constraintTop_toTopOf="@+id/img_produto" />
 
     <TextView
         android:id="@+id/descricao_produto"
@@ -52,7 +52,7 @@
         android:textColor="@color/red"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/img_produto"
-        app:layout_constraintTop_toBottomOf="@+id/img_produto" />
+        app:layout_constraintStart_toStartOf="@+id/descricao_produto"
+        app:layout_constraintTop_toBottomOf="@+id/descricao_produto" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
