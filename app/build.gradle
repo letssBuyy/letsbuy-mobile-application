@@ -7,6 +7,10 @@ android {
     namespace 'com.example.letsbuy'
     compileSdk 33
 
+    viewBinding {
+        enable = true
+    }
+
     defaultConfig {
         applicationId "com.example.letsbuy"
         minSdk 24

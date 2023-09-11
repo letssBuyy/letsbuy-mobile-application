@@ -24,7 +24,7 @@ class Cadastro2Activity : AppCompatActivity() {
 
         btnConcluirCadastro.setOnClickListener {
             if (checkBox.isChecked()) {
-                val entrar = Intent(this, MainActivity::class.java);
+                val entrar = Intent(this, LoginActivity::class.java);
                 startActivity(entrar);
             }
         }

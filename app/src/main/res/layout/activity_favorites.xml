@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ProfileViewActivity">
+    tools:context=".FavoritesActivity">
+
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -32,16 +33,16 @@
                 android:layout_marginLeft="37dp"/>
 
             <TextView
-                android:id="@+id/personName"
+                android:id="@+id/favorites"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="100dp"
                 android:layout_marginTop="20dp"
-                android:text="Tommy"
+                android:text="Favoritos"
                 android:fontFamily="@font/poppins"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@id/imageView1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <View
@@ -51,63 +52,7 @@
                 android:id="@+id/line"
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/personName"/>
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/line"
-                android:layout_marginLeft="40dp"
-                android:id="@+id/profileImage"
-                android:layout_marginTop="15dp"
-                android:src="@drawable/perfil_image" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_shield_pink"
-                app:layout_constraintStart_toEndOf="@id/profileImage"
-                app:layout_constraintTop_toBottomOf="@id/line"
-                android:id="@+id/imageShieldPink"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="22dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Vendedor verificado"
-                android:fontFamily="@font/poppins"
-                android:textStyle="bold"
-                android:id="@+id/verifiedSeller"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="5dp"
-                app:layout_constraintStart_toEndOf="@id/imageShieldPink"
-                app:layout_constraintTop_toBottomOf="@id/line"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="São Paulo, SP"
-                android:fontFamily="@font/poppins"
-                android:textStyle="bold"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="6dp"
-                android:textSize="12sp"
-                android:id="@+id/citySeller"
-                app:layout_constraintStart_toEndOf="@id/profileImage"
-                app:layout_constraintTop_toBottomOf="@id/imageShieldPink" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Na LetsBuy desde 2023"
-                android:textSize="12sp"
-                android:fontFamily="@font/poppins"
-                android:textStyle="bold"
-                android:layout_marginLeft="50dp"
-                app:layout_constraintStart_toEndOf="@id/profileImage"
-                app:layout_constraintTop_toBottomOf="@id/citySeller" />
+                app:layout_constraintTop_toBottomOf="@id/favorites"/>
 
             <View
                 android:layout_width="match_parent"
@@ -124,7 +69,7 @@
                 android:layout_height="130dp"
                 android:src="@drawable/badge"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/lineTwo"
+                app:layout_constraintTop_toBottomOf="@id/line"
                 android:id="@+id/badgeImageOne"
                 android:layout_marginLeft="57dp"
                 android:layout_marginTop="30dp"/>
@@ -142,7 +87,7 @@
                 android:layout_marginTop="5dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/badgeImageOne"/>
-            
+
             <TextView
                 android:text="bolsa marrom"
                 android:layout_width="100dp"
@@ -184,7 +129,7 @@
                 android:layout_height="130dp"
                 android:src="@drawable/badge"
                 app:layout_constraintStart_toEndOf="@id/badgeImageOne"
-                app:layout_constraintTop_toBottomOf="@id/lineTwo"
+                app:layout_constraintTop_toBottomOf="@id/line"
                 android:id="@+id/badgeImageTwo"
                 android:layout_marginLeft="45dp"
                 android:layout_marginTop="30dp"/>
@@ -359,12 +304,6 @@
                 android:id="@+id/likeFour"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp"/>
-
-
-
-
-
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

@@ -1,5 +1,6 @@
 package com.example.letsbuy.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.letsbuy.R
+import com.example.letsbuy.WalletActivity
 import com.example.letsbuy.adapter.AdapterProduto
 import com.example.letsbuy.model.Produto
 
@@ -74,13 +76,6 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         dataInit()
 
-//        val layoutManager = LinearLayoutManager(context)
-//        recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView_produtos)
-//        recyclerView.layoutManager = layoutManager
-//        recyclerView.setHasFixedSize(true)
-//
-//        adapterProduto = AdapterProduto(context, listProduct)
-
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView_produtos)
         recyclerView.layoutManager = LinearLayoutManager(view.context)
         recyclerView.setHasFixedSize(true)
@@ -92,38 +87,43 @@ class HomeFragment : Fragment() {
         listProduct = mutableListOf<Produto>()
 
         val produto1 = Produto(
-            R.drawable.img_teste,
-            "Playtation 1",
-            "Yohan Hudson",
-            "R$ 800,00"
+            1,
+            R.drawable.badge,
+            "Bolsa Marrom",
+            "Tommy",
+            "R$200,00"
         )
 
         val produto2 = Produto(
-            R.drawable.img_teste,
-            "Playtation 1",
-            "Yohan Hudson",
-            "R$ 800,00"
+            2,
+            R.drawable.badge,
+            "Bolsa Marrom",
+            "Tommy",
+            "R$ 200,00"
         )
 
         val produto3 = Produto(
-            R.drawable.img_teste,
-            "Playtation 1",
-            "Yohan Hudson",
-            "R$ 800,00"
+            3,
+            R.drawable.badge,
+            "Bolsa Marrom",
+            "Tommy",
+            "R$ 200,00"
         )
 
         val produto4 = Produto(
-            R.drawable.img_teste,
-            "Playtation 1",
-            "Yohan Hudson",
-            "R$ 800,00"
+            4,
+            R.drawable.badge,
+            "Bolsa Marrom",
+            "Tommy",
+            "R$ 200,00"
         )
 
         val produto5 = Produto(
-            R.drawable.img_teste,
-            "Playtation 1",
-            "Yohan Hudson",
-            "R$ 800,00"
+            5,
+            R.drawable.badge,
+            "Bolsa Marrom",
+            "Tommy",
+            "R$ 200,00"
         )
 
         listProduct.add(produto1)
@@ -132,10 +132,4 @@ class HomeFragment : Fragment() {
         listProduct.add(produto4)
         listProduct.add(produto5)
     }
-
-//        imagem = arrayOf(R.drawable.img_teste, R.drawable.img_teste, R.drawable.img_teste, R.drawable.img_teste)
-//        name = arrayOf("Playtation", "Playtation", "Playtation", "Playtation")
-//        sell = arrayOf("Yohan Hudson", "Yohan Hudson", "Yohan Hudson", "Yohan Hudson")
-//        price = arrayOf("800", "800", "800", "800")
-//}
 }

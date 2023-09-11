@@ -13,7 +13,7 @@ class EsqueciSenhaActivity : AppCompatActivity() {
         val btnEnviar = findViewById<Button>(R.id.btn_enviar)
 
         btnEnviar.setOnClickListener {
-            val enviar = Intent(this, MainActivity::class.java)
+            val enviar = Intent(this, LoginActivity::class.java)
             startActivity(enviar)
         }
     }
