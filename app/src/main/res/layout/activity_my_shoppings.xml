@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MyShoppingsActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/img_back"
         android:layout_width="23dp"
         android:layout_height="23dp"
         android:layout_marginStart="10dp"
@@ -25,7 +26,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="@+id/img_back" />
 
     <View
         android:id="@+id/view"
@@ -40,7 +41,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        app:layout_constraintStart_toEndOf="@id/imageView"
+        app:layout_constraintStart_toEndOf="@id/img_back"
         app:layout_constraintTop_toBottomOf="@id/view">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -51,7 +52,7 @@
             android:padding="16dp">
 
             <ImageView
-                android:id="@+id/imageView34"
+                android:id="@+id/img_back34"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:src="@drawable/badge"
@@ -67,8 +68,8 @@
                 android:text="Bolsa Marrom"
                 android:textColor="@color/dark_gray"
                 android:textSize="17sp"
-                app:layout_constraintStart_toEndOf="@+id/imageView34"
-                app:layout_constraintTop_toTopOf="@+id/imageView34" />
+                app:layout_constraintStart_toEndOf="@+id/img_back34"
+                app:layout_constraintTop_toTopOf="@+id/img_back34" />
 
             <TextView
                 android:id="@+id/textView37"

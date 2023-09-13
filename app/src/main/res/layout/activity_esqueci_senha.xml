@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
+    android:layout_gravity="center"
     android:orientation="vertical"
     tools:context=".EsqueciSenhaActivity">
 
@@ -24,10 +24,9 @@
         android:layout_marginBottom="10dp"/>
 
     <TextView
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_marginTop="60dp"
         android:text="@string/texto_esqueci_senha"
         android:textSize="17sp"
         android:layout_marginBottom="20dp"/>
@@ -35,16 +34,16 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:text="Email"/>
+        android:text="Email"
+        android:layout_marginBottom="5dp"/>
 
     <EditText
         android:layout_width="329dp"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_gravity="center"
         android:layout_marginBottom="30dp"
         android:inputType="textEmailAddress"
+        android:background="@drawable/input_publish_edit_ad"
         android:textSize="15sp"/>
 
     <Button

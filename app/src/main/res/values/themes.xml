@@ -2,7 +2,6 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.LetsBuy" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/red</item>
-        <item name="colorSecondary">@color/red</item>
 
         <item name="android:windowActivityTransitions">true</item>
         <item name="android:windowEnterTransition">@android:transition/slide_right</item>

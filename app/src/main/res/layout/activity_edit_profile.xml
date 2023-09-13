@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".EditProfileActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="37dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Editar Anúncio"
+                android:id="@+id/publishAdTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="20sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/semi"
+                android:id="@+id/line"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/publishAdTitle"/>
+
+            <TextView
+                android:text="Dados Cadastrais"
+                android:id="@+id/phraseAd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="#555555"
+                android:textSize="20sp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line"/>
+
+            <ImageView
+                android:text="Título"
+                android:id="@+id/titleAd"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="14sp"
+                android:textColor="#555555"
+                android:layout_marginTop="25dp"
+                android:src="@drawable/perfil_image"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/phraseAd"/>
+
+            <TextView
+                android:id="@+id/tituloedit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Alterar foto de perfil"
+                android:textColor="#555555"
+                android:textSize="18sp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintStart_toEndOf="@+id/titleAd"
+                app:layout_constraintTop_toTopOf="@id/titleAd" />
+
+
+            <TextView
+                android:text="Nome"
+                android:id="@+id/NameAd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="14sp"
+                android:textColor="#555555"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/titleAd"/>
+
+
+            <EditText
+                android:layout_width="350dp"
+                android:layout_marginTop="10dp"
+                android:text="Carlos"
+                android:fontFamily="@font/poppins"
+                android:textColor="#969696"
+                android:layout_height="45dp"
+                android:inputType="text"
+                android:id="@+id/inputTitle"
+                android:padding="10dp"
+                android:textSize="15sp"
+                android:background="@drawable/input_publish_edit_ad"
+                app:layout_constraintStart_toStartOf="@id/NameAd"
+                app:layout_constraintTop_toBottomOf="@id/NameAd" />
+
+            <TextView
+                android:text="CPF"
+                android:id="@+id/descriptionAd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="14sp"
+                android:textColor="#555555"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputTitle"/>
+
+            <EditText
+                android:layout_width="350dp"
+                android:layout_marginTop="10dp"
+                android:text="000.000.00-00"
+                android:gravity="start"
+                android:fontFamily="@font/poppins"
+                android:textColor="#969696"
+                android:layout_height="45dp"
+                android:inputType="text"
+                android:id="@+id/inputDescription"
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:background="@drawable/input_publish_edit_ad"
+                app:layout_constraintStart_toStartOf="@id/NameAd"
+                app:layout_constraintTop_toBottomOf="@id/descriptionAd"
+                />
+
+            <TextView
+                android:text="Data de nascimento"
+                android:id="@+id/colorAd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="14sp"
+                android:textColor="#555555"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputDescription"/>
+
+            <EditText
+                android:layout_width="350dp"
+                android:layout_marginTop="10dp"
+                android:text="00/00/0000"
+                android:fontFamily="@font/poppins"
+                android:textColor="#969696"
+                android:layout_height="45dp"
+                android:inputType="text"
+                android:id="@+id/inputColor"
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:background="@drawable/input_publish_edit_ad"
+                app:layout_constraintStart_toStartOf="@id/NameAd"
+                app:layout_constraintTop_toBottomOf="@id/colorAd"
+                />
+
+            <TextView
+                android:text="Número de celular"
+                android:id="@+id/categoryAd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="14sp"
+                android:textColor="#555555"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputColor"/>
+
+            <EditText
+                android:layout_width="350dp"
+                android:layout_marginTop="10dp"
+                android:text="00 00000-0000"
+                android:fontFamily="@font/poppins"
+                android:textColor="#969696"
+                android:layout_height="45dp"
+                android:inputType="text"
+                android:id="@+id/inputCategory"
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:background="@drawable/input_publish_edit_ad"
+                app:layout_constraintStart_toStartOf="@id/NameAd"
+                app:layout_constraintTop_toBottomOf="@id/categoryAd"
+                />
+
+
+            <TextView
+                android:text="Seguraça e privacidade"
+                android:id="@+id/security"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="#555555"
+                android:textSize="20sp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputCategory"/>
+
+
+            <TextView
+                android:text="Email"
+                android:id="@+id/priceAd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="14sp"
+                android:textColor="#555555"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/security"/>
+
+            <EditText
+                android:layout_width="350dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins"
+                android:text="lestbuy.lest100@lestbuy.com"
+                android:textColor="#969696"
+                android:layout_height="45dp"
+                android:inputType="text"
+                android:id="@+id/inputPrice"
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:background="@drawable/input_publish_edit_ad"
+                app:layout_constraintStart_toStartOf="@id/NameAd"
+                app:layout_constraintTop_toBottomOf="@id/priceAd"
+                />
+
+            <TextView
+                android:text="Conta Bancaria"
+                android:id="@+id/contBank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="14sp"
+                android:textColor="#555555"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputPrice"/>
+
+            <TextView
+                android:text="Banco"
+                android:id="@+id/Bank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="14sp"
+                android:textColor="#555555"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contBank"/>
+
+            <EditText
+                android:layout_width="130dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins"
+                android:text="000000000"
+                android:textColor="#969696"
+                android:layout_height="45dp"
+                android:inputType="text"
+                android:id="@+id/inputBank"
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:background="@drawable/input_publish_edit_ad"
+                app:layout_constraintStart_toStartOf="@id/Bank"
+                app:layout_constraintTop_toBottomOf="@id/Bank"
+                />
+
+            <EditText
+                android:layout_width="134dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins"
+                android:text="000000000"
+                android:textColor="#969696"
+                android:layout_height="45dp"
+                android:inputType="text"
+                android:id="@+id/inputAg"
+                android:textSize="15sp"
+                android:layout_marginStart="5dp"
+                android:padding="10dp"
+                android:background="@drawable/input_publish_edit_ad"
+                app:layout_constraintStart_toEndOf="@id/inputBank"
+                app:layout_constraintTop_toBottomOf="@id/Bank"
+                />
+
+            <TextView
+                android:text="Agência"
+                android:id="@+id/ag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="14sp"
+                android:textColor="#555555"
+                android:layout_marginTop="25dp"
+                app:layout_constraintStart_toStartOf="@id/inputAg"
+                app:layout_constraintBottom_toTopOf="@id/inputAg"/>
+
+
+            <TextView
+                android:text="Conta"
+                android:id="@+id/count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="14sp"
+                android:textColor="#555555"
+                android:layout_marginTop="25dp"
+                app:layout_constraintStart_toStartOf="@id/inputCount"
+                app:layout_constraintBottom_toTopOf="@id/inputAg"/>
+
+            <EditText
+                android:layout_width="87dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins"
+                android:text="00000"
+                android:textColor="#969696"
+                android:layout_height="45dp"
+                android:inputType="text"
+                android:id="@+id/inputCount"
+                android:textSize="15sp"
+                android:layout_marginStart="5dp"
+                android:padding="10dp"
+                android:background="@drawable/input_publish_edit_ad"
+                app:layout_constraintStart_toEndOf="@id/inputAg"
+                app:layout_constraintTop_toBottomOf="@id/Bank"
+                />
+
+            <TextView
+                android:text="Endereço"
+                android:id="@+id/endereco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="#555555"
+                android:textSize="20sp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputBank"/>
+
+            <TextView
+                android:text="CEP"
+                android:id="@+id/CEP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="14sp"
+                android:textColor="#555555"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/endereco"/>
+
+            <EditText
+                android:layout_width="350dp"
+                android:layout_marginTop="10dp"
+                android:text="00000-000"
+                android:gravity="start"
+                android:fontFamily="@font/poppins"
+                android:textColor="#969696"
+                android:layout_height="45dp"
+                android:inputType="text"
+                android:id="@+id/inputCep"
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:background="@drawable/input_publish_edit_ad"
+                app:layout_constraintStart_toStartOf="@id/NameAd"
+                app:layout_constraintTop_toBottomOf="@id/CEP"
+               />
+
+            <TextView
+                android:text="Rua"
+                android:id="@+id/rua"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="14sp"
+                android:textColor="#555555"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputCep"/>
+
+
+            <EditText
+                android:layout_width="350dp"
+                android:layout_marginTop="10dp"
+                android:text="Rua Lestbuy lobo"
+                android:gravity="start"
+                android:fontFamily="@font/poppins"
+                android:textColor="#969696"
+                android:layout_height="45dp"
+                android:inputType="text"
+                android:id="@+id/inputRua"
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:background="@drawable/input_publish_edit_ad"
+                app:layout_constraintStart_toStartOf="@id/NameAd"
+                app:layout_constraintTop_toBottomOf="@id/rua"
+                />
+
+            <TextView
+                android:text="Número"
+                android:id="@+id/number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="14sp"
+                android:textColor="#555555"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputRua"/>
+
+
+            <EditText
+                android:layout_width="350dp"
+                android:layout_marginTop="10dp"
+                android:text="00"
+                android:gravity="start"
+                android:fontFamily="@font/poppins"
+                android:textColor="#969696"
+                android:layout_height="45dp"
+                android:inputType="text"
+                android:id="@+id/inputNumero"
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:background="@drawable/input_publish_edit_ad"
+                app:layout_constraintStart_toStartOf="@id/NameAd"
+                app:layout_constraintTop_toBottomOf="@id/number" />
+
+            <TextView
+                android:text="Complemento"
+                android:id="@+id/complement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="14sp"
+                android:textColor="#555555"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputNumero"/>
+
+
+            <EditText
+                android:layout_width="350dp"
+                android:layout_marginTop="10dp"
+                android:text="00"
+                android:gravity="start"
+                android:fontFamily="@font/poppins"
+                android:textColor="#969696"
+                android:layout_height="45dp"
+                android:inputType="text"
+                android:id="@+id/inputComplement"
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:background="@drawable/input_publish_edit_ad"
+                app:layout_constraintStart_toStartOf="@id/NameAd"
+                app:layout_constraintTop_toBottomOf="@id/complement" />
+
+            <Button
+                android:id="@+id/btnPublish"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:width="329dp"
+                android:backgroundTint="@color/red"
+                android:text="@string/atualizar"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                app:cornerRadius="5dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputComplement" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
