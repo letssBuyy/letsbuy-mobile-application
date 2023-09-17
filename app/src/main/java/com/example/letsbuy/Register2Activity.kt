@@ -6,10 +6,10 @@ import android.widget.Button
 import android.widget.CheckBox
 import androidx.appcompat.app.AppCompatActivity
 
-class Cadastro2Activity : AppCompatActivity() {
+class Register2Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cadastro2)
+        setContentView(R.layout.activity_register2)
 
         val checkBox = findViewById<CheckBox>(R.id.checkbox);
         val btnConcluirCadastro = findViewById<Button>(R.id.btn_concluirCadastro);

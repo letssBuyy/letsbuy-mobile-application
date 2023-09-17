@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_gravity="center"
+    android:layout_gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".EsqueciSenhaActivity">
+    tools:context=".Register2Activity">
 
     <ImageView
         android:layout_width="178dp"
@@ -17,43 +17,59 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:text="@string/titulo_esqueci_senha"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginTop="70dp"
+        android:text="Número de celular"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <EditText
+        android:layout_width="329dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/texto_esqueci_senha"
-        android:textSize="17sp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="30dp"
+        android:inputType="phone"
+        android:textSize="15sp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
-        android:layout_marginBottom="5dp"/>
+        android:text="Email"/>
 
     <EditText
         android:layout_width="329dp"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="30dp"
         android:inputType="textEmailAddress"
-        android:background="@drawable/input_publish_edit_ad"
         android:textSize="15sp"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Senha"/>
+
+    <EditText
+        android:layout_width="329dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:inputType="textPassword"
+        android:textSize="15sp"/>
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onCheckboxClicked"
+        android:text="@string/checkbox"
+        android:layout_marginBottom="30dp"/>
+
     <Button
-        android:id="@+id/btn_enviar"
+        android:id="@+id/btn_concluirCadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:width="329dp"
         android:backgroundTint="@color/red"
-        android:text="Enviar"
+        android:text="Cadastre-se"
         android:layout_marginBottom="15dp"/>
 
 </LinearLayout>

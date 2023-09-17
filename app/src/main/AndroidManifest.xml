@@ -61,13 +61,13 @@
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".EsqueciSenhaActivity"
+            android:name=".RedefinePasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".Cadastro2Activity"
+            android:name=".Register2Activity"
             android:exported="false" />
         <activity
-            android:name=".CadastroActivity"
+            android:name=".RegisterActivity"
             android:exported="false"
             android:screenOrientation="portrait"/>
 
