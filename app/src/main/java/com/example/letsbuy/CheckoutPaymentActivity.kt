@@ -1,11 +1,11 @@
 package com.example.letsbuy
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 
-class EsqueciSenhaActivity : AppCompatActivity() {
+class CheckoutPaymentActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_esqueci_senha)
+        setContentView(R.layout.activity_checkout_payment)
     }
 }

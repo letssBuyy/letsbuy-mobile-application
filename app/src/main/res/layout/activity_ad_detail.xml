@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".AdDetailActivity">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -80,7 +82,7 @@
                 android:fontFamily="@font/poppins"/>
 
             <ImageView
-                android:id="@+id/cardImageView"
+                android:id="@+id/cardMainImageView"
                 android:layout_width="300dp"
                 android:layout_height="300dp"
                 android:layout_marginTop="27dp"
@@ -98,7 +100,7 @@
                 android:src="@drawable/badge"
                 app:layout_constraintLeft_toRightOf="@id/cardImageView"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/cardImageView" />
+                app:layout_constraintTop_toTopOf="@+id/cardMainImageView" />
 
             <ImageView
                 android:id="@+id/cardImageView3"
@@ -107,7 +109,7 @@
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="17dp"
                 android:src="@drawable/badge"
-                app:layout_constraintLeft_toRightOf="@id/cardImageView"
+                app:layout_constraintLeft_toRightOf="@id/cardMainImageView"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardImageView2" />
 
@@ -118,7 +120,7 @@
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="17dp"
                 android:src="@drawable/badge"
-                app:layout_constraintLeft_toRightOf="@id/cardImageView"
+                app:layout_constraintLeft_toRightOf="@id/cardMainImageView"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardImageView3" />
 
@@ -129,7 +131,7 @@
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="17dp"
                 android:src="@drawable/badge"
-                app:layout_constraintLeft_toRightOf="@id/cardImageView"
+                app:layout_constraintLeft_toRightOf="@id/cardMainImageView"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardImageView4" />
 
@@ -148,11 +150,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="27dp"
-                android:text="Descrição"
+                android:text="Descrição:"
                 android:textColor="@color/gray"
                 android:textSize="20sp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardImageView"
+                app:layout_constraintTop_toBottomOf="@id/cardMainImageView"
                 android:fontFamily="@font/poppins"/>
 
             <TextView
@@ -261,13 +263,13 @@
                 android:src="@drawable/icon_shield_pink"
                 app:layout_constraintBottom_toBottomOf="@id/userProfileImageView"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/userProfileImageView" />
+                app:layout_constraintTop_toTopOf="@id/userCityTextView" />
 
             <Button
                 android:id="@+id/userChatButton"
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:text="Conversar"
                 app:layout_constraintTop_toBottomOf="@id/userProfileImageView"
                 android:textSize="18dp"
@@ -289,7 +291,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="60dp"
-                android:text="Para proteger sua compra nunca transfira dinheiro ou se comunique fora do site ou aplicativo. mais dicas de segurança"
+                android:text="Para proteger sua compra recomendamos que nunca transfira dinheiro ou se comunique por outra plataforma. mais dicas de segurança"
                 android:textColor="@color/primary_gray"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
