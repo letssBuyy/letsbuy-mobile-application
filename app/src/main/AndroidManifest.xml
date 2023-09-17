@@ -64,9 +64,6 @@
             android:name=".RedefinePasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".Register2Activity"
-            android:exported="false" />
-        <activity
             android:name=".RegisterActivity"
             android:exported="false"
             android:screenOrientation="portrait"/>
