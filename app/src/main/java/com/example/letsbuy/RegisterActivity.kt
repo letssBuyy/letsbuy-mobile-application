@@ -2,20 +2,17 @@ package com.example.letsbuy
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.CheckBox
 import androidx.appcompat.app.AppCompatActivity
-import com.example.letsbuy.databinding.ActivityCadastroBinding
-import com.example.letsbuy.databinding.ActivityPerfilBinding
+import com.example.letsbuy.databinding.ActivityRegisterBinding
 
-class CadastroActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityCadastroBinding
+    private lateinit var binding: ActivityRegisterBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cadastro)
+        setContentView(R.layout.activity_register)
 
-        binding =  ActivityCadastroBinding.inflate(layoutInflater)
+        binding =  ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.checkbox.setOnClickListener {

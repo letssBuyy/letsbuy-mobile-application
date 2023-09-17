@@ -16,12 +16,12 @@ class LoginActivity : AppCompatActivity() {
         val btnEntrar = findViewById<Button>(R.id.btn_entrar)
 
         btnCadastrar.setOnClickListener {
-            val cadastrar = Intent(this, CadastroActivity::class.java)
+            val cadastrar = Intent(this, RegisterActivity::class.java)
             startActivity(cadastrar)
         }
 
         btnEsqueciSenha.setOnClickListener {
-            val esqueciSenha = Intent(this, EsqueciSenhaActivity::class.java)
+            val esqueciSenha = Intent(this, RedefinePasswordActivity::class.java)
             startActivity(esqueciSenha)
         }
 
