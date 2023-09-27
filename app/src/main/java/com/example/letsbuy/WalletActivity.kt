@@ -2,6 +2,7 @@ package com.example.letsbuy
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.letsbuy.adapter.AdapterTransaction
@@ -15,15 +16,13 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class WalletActivity: AppCompatActivity() {
-
     private lateinit var binding: ActivityWalletBinding
+    private var amount = "••••••••"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_wallet)
-        getWalletData()
         binding =  ActivityWalletBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        getWalletData()
 
 
         binding.imgBack.setOnClickListener() {
@@ -32,14 +31,15 @@ class WalletActivity: AppCompatActivity() {
         }
 
         binding.eye.setOnClickListener{
-            if (binding.eye.drawable == getDrawable(R.drawable.icon_eye_closed)){
-                binding.textView2.text = "•••••••"
-                binding.eye.setImageDrawable(getDrawable(R.drawable.eye))
-            } else {
-                getWalletData()
-                binding.eye.setImageDrawable(getDrawable(R.drawable.icon_eye_closed))
-            }
+            binding.textView2.text = amount
+            binding.eye.visibility = View.GONE
+            binding.eyeClosed.visibility = View.VISIBLE
+        }
 
+        binding.eyeClosed.setOnClickListener {
+            binding.textView2.text = "••••••••"
+            binding.eye.visibility = View.VISIBLE
+            binding.eyeClosed.visibility = View.GONE
         }
 
     }
@@ -58,7 +58,7 @@ class WalletActivity: AppCompatActivity() {
             override fun onResponse(call: Call<Wallet>, response: Response<Wallet>) {
                 if (response.isSuccessful) {
                     val wallet = response.body()
-                    binding.textView2.text = "R$ ${wallet?.balance}"
+                    amount = "R$ ${wallet?.balance}"
                     val transactions = wallet?.transactions
                     if (!transactions.isNullOrEmpty()) {
                         initRecyclerView(transactions)
