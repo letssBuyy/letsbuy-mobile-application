@@ -17,7 +17,7 @@ import retrofit2.Response
 
 class WalletActivity: AppCompatActivity() {
     private lateinit var binding: ActivityWalletBinding
-    private var amount = "••••••••"
+    private var amount = "R$ 0.00"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding =  ActivityWalletBinding.inflate(layoutInflater)
@@ -60,14 +60,20 @@ class WalletActivity: AppCompatActivity() {
                     val wallet = response.body()
                     amount = "R$ ${wallet?.balance}"
                     val transactions = wallet?.transactions
-                    if (!transactions.isNullOrEmpty()) {
+                    if (transactions.isNullOrEmpty()) {
+                        binding.scroll.visibility = View.GONE
+                        binding.emptyTransactions.visibility = View.VISIBLE
+                    } else {
+                        binding.scroll.visibility = View.VISIBLE
+                        binding.emptyTransactions.visibility = View.GONE
                         initRecyclerView(transactions)
                     }
                 }
             }
 
             override fun onFailure(call: Call<Wallet>, t: Throwable) {
-                binding.textView4.text = t.message
+                binding.scroll.visibility = View.GONE
+                binding.emptyTransactions.visibility = View.VISIBLE
             }
         })
     }
