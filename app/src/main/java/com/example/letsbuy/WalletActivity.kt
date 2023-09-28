@@ -10,12 +10,13 @@ import com.example.letsbuy.api.Rest
 import com.example.letsbuy.databinding.ActivityWalletBinding
 import com.example.letsbuy.model.Transaction
 import com.example.letsbuy.model.Wallet
+import com.example.letsbuy.listener.BottomSheetListener
 import com.example.letsbuy.service.WalletService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class WalletActivity: AppCompatActivity() {
+class WalletActivity: AppCompatActivity(), BottomSheetListener {
     private lateinit var binding: ActivityWalletBinding
     private var amount = "R$ 0.00"
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +43,15 @@ class WalletActivity: AppCompatActivity() {
             binding.eyeClosed.visibility = View.GONE
         }
 
+        val bottomSheetWithdrawFragment = BottomSheetWithdrawFragment()
+        binding.tvWithdraw.setOnClickListener {
+            bottomSheetWithdrawFragment.show(supportFragmentManager, "BottomSheetDialog")
+        }
+
+    }
+
+    override fun onWithdrawCompleted() {
+        getWalletData()
     }
 
     private fun initRecyclerView(transactions: List<Transaction>){
