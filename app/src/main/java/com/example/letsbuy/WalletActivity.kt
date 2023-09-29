@@ -62,7 +62,6 @@ class WalletActivity: AppCompatActivity(), BottomSheetListener {
 
     private fun getWalletData(){
         val api = Rest.getInstance().create(WalletService::class.java)
-
         api.getWallet().enqueue(object: Callback<Wallet> {
 
             override fun onResponse(call: Call<Wallet>, response: Response<Wallet>) {
