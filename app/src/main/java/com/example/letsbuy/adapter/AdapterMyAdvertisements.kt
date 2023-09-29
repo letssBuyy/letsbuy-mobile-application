@@ -1,5 +1,7 @@
 package com.example.letsbuy.adapter
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.util.Log
@@ -8,14 +10,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.letsbuy.EditAdActivity
 import com.example.letsbuy.R
 import com.example.letsbuy.model.AdvertisementResponse
 
 class AdapterMyAdvertisements (
-    private val advertisements: List<AdvertisementResponse>
+    private val advertisements: List<AdvertisementResponse>,
+    private val context: Context
 ): RecyclerView.Adapter<AdapterMyAdvertisements.MyViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -47,6 +50,12 @@ class AdapterMyAdvertisements (
 
         holder.priceAdvertisement.text = advertisement.price.toString()
 
+        holder.iconEdit.setOnClickListener {
+            val intent = Intent(holder.itemView.context, EditAdActivity::class.java)
+            intent.putExtra("idAdvertisement", advertisement.id)
+            context.startActivity(intent)
+        }
+
     }
 
     class MyViewHolder(itemAdvertisement: View) : RecyclerView.ViewHolder(itemAdvertisement){
@@ -54,5 +63,6 @@ class AdapterMyAdvertisements (
         val titleAdvertisement: TextView = itemAdvertisement.findViewById(R.id.textView36)
         val priceAdvertisement: TextView = itemAdvertisement.findViewById(R.id.textView30)
         val dateAdvertisement: TextView = itemAdvertisement.findViewById(R.id.textView35)
+        val iconEdit: ImageView = itemAdvertisement.findViewById(R.id.imageView36)
     }
 }

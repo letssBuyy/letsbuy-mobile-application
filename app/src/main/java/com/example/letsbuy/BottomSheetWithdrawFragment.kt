@@ -23,7 +23,7 @@ class BottomSheetWithdrawFragment: BottomSheetDialogFragment(){
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = BottomsheetWithdrawFragmentBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -45,7 +45,12 @@ class BottomSheetWithdrawFragment: BottomSheetDialogFragment(){
 
 
         binding.btnWithdraw.setOnClickListener {
-            createTransaction(3,binding.editText2.text.toString().toDouble(), "WITHDRAW")
+            if(binding.editText2.text.isNotBlank() && binding.editText2.text.toString().toDouble() > 0.0){
+                createTransaction(3,binding.editText2.text.toString().toDouble(), "WITHDRAW")
+            } else {
+                binding.textView13.text = "Valor Inválido!"
+                binding.textView13.setTextColor(Color.parseColor("#F14866"))
+            }
         }
 
     }

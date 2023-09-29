@@ -71,7 +71,7 @@ class MyAdvertisementsActivity: AppCompatActivity() {
     private fun initRecyclerView(advertisements: List<AdvertisementResponse>){
         binding.recyclerViewAdvertisements.layoutManager = LinearLayoutManager(this)
         binding.recyclerViewAdvertisements.setHasFixedSize(true)
-        binding.recyclerViewAdvertisements.adapter = AdapterMyAdvertisements(advertisements)
+        binding.recyclerViewAdvertisements.adapter = AdapterMyAdvertisements(advertisements,this)
     }
 
     private fun getAdvertisements(status: String){
@@ -95,7 +95,6 @@ class MyAdvertisementsActivity: AppCompatActivity() {
             override fun onFailure(call: Call<List<AdvertisementResponse>>, t: Throwable) {
                 binding.scroll.visibility = View.GONE
                 binding.emptyAdvertisements.visibility = View.VISIBLE
-                binding.errorMessage.text = t.message
             }
         })
     }
