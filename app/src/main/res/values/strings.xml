@@ -19,4 +19,10 @@
     <string name="publicar">Publicar</string>
     <string name="atualizar">Atualizar</string>
     <string name="category">Categoria</string>
+
+    <string-array name="my_advertisements_type">
+        <item>Publicados</item>
+        <item>Vendidos</item>
+        <item>Desativados</item>
+    </string-array>
 </resources>

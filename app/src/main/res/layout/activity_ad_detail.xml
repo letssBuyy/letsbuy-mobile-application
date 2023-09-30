@@ -98,7 +98,7 @@
                 android:layout_height="60dp"
                 android:layout_marginStart="25dp"
                 android:src="@drawable/badge"
-                app:layout_constraintLeft_toRightOf="@id/cardImageView"
+                app:layout_constraintLeft_toRightOf="@id/cardMainImageView"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/cardMainImageView" />
 

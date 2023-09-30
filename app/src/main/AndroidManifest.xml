@@ -31,6 +31,9 @@
             android:name=".EditProfileActivity"
             android:exported="false" />
         <activity
+            android:name=".EditAdActivity"
+            android:exported="false" />
+        <activity
             android:name=".CheckoutPaymentActivity"
             android:exported="false" />
         <activity
