@@ -1,5 +1,5 @@
 package com.example.letsbuy.listener
 
-interface BottomSheetListener {
+interface BottomSheetWithdrawListener {
     fun onWithdrawCompleted()
 }

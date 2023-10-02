@@ -10,16 +10,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.letsbuy.BottomSheetDeleteAdFragment
 import com.example.letsbuy.EditAdActivity
+import com.example.letsbuy.MyAdvertisementsActivity
 import com.example.letsbuy.R
+import com.example.letsbuy.databinding.ActivityMyAdvertisementsBinding
+import com.example.letsbuy.listener.BottomSheetDeleteAdListener
 import com.example.letsbuy.model.AdvertisementResponse
 
-class AdapterMyAdvertisements (
+class AdapterMyAdvertisements(
     private val advertisements: List<AdvertisementResponse>,
-    private val context: Context
-): RecyclerView.Adapter<AdapterMyAdvertisements.MyViewHolder>(){
+    private val context: Context,
+    private val supportFragmentManager: FragmentManager
+): RecyclerView.Adapter<AdapterMyAdvertisements.MyViewHolder>()
+{
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemMyAdvertisementsView =
@@ -41,9 +49,9 @@ class AdapterMyAdvertisements (
         holder.dateAdvertisement.text = advertisement.postDate
 
         if (advertisement.images.isNullOrEmpty()){
-            holder.imgAdvetisement.setImageResource(R.drawable.broke_image)
+            holder.imgAdvertisement.setImageResource(R.drawable.broke_image)
         } else {
-            Glide.with(holder.itemView.context).load(advertisement.images.first().url).into(holder.imgAdvetisement)
+            Glide.with(holder.itemView.context).load(advertisement.images.first().url).into(holder.imgAdvertisement)
         }
 
         holder.titleAdvertisement.text = advertisement.title
@@ -56,13 +64,19 @@ class AdapterMyAdvertisements (
             context.startActivity(intent)
         }
 
+        val bottomSheetDeleteAdFragment = BottomSheetDeleteAdFragment(advertisement.id)
+        holder.iconLixeira.setOnClickListener {
+            bottomSheetDeleteAdFragment.show(supportFragmentManager, "BottomSheetDialog")
+        }
+
     }
 
     class MyViewHolder(itemAdvertisement: View) : RecyclerView.ViewHolder(itemAdvertisement){
-        val imgAdvetisement: ImageView = itemAdvertisement.findViewById(R.id.img_advertisements)
+        val imgAdvertisement: ImageView = itemAdvertisement.findViewById(R.id.img_advertisements)
         val titleAdvertisement: TextView = itemAdvertisement.findViewById(R.id.textView36)
         val priceAdvertisement: TextView = itemAdvertisement.findViewById(R.id.textView30)
         val dateAdvertisement: TextView = itemAdvertisement.findViewById(R.id.textView35)
         val iconEdit: ImageView = itemAdvertisement.findViewById(R.id.imageView36)
+        val iconLixeira: ImageView = itemAdvertisement.findViewById(R.id.trash)
     }
 }

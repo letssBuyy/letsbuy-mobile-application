@@ -1,6 +1,6 @@
 package com.example.letsbuy.dto
 
-import java.time.LocalDateTime
+import com.example.letsbuy.model.Payment
 
 data class PaymentUserAdvertisementResponseDto (
     private val user: UserDtoResponse? = null,
