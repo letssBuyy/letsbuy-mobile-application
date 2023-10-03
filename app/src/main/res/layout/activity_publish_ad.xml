@@ -94,11 +94,37 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/et_title"
+                app:layout_constraintTop_toBottomOf="@id/et_title"
+                />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Digite o título"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_title"
+                app:layout_constraintTop_toBottomOf="@id/et_title"
+                />
+
             <TextView
                 android:id="@+id/tv_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Descrição"
                 android:textColor="#555555"
@@ -127,7 +153,7 @@
                 android:id="@+id/tv_color"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Cor"
                 android:textColor="#555555"
@@ -141,9 +167,9 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="330dp"
                 android:layout_height="48dp"
-                android:background="@drawable/input_publish_edit_ad"
                 android:fontFamily="@font/poppins"
                 android:inputType="text"
+                android:background="@drawable/bg_spinner"
                 android:paddingStart="10dp"
                 android:textColor="#969696"
                 android:textSize="15sp"
@@ -151,11 +177,37 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_color" />
 
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/spinner_color"
+                app:layout_constraintTop_toBottomOf="@id/spinner_color"
+                />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Escolha a cor"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_color"
+                app:layout_constraintTop_toBottomOf="@id/spinner_color"
+                />
+
             <TextView
                 android:id="@+id/tv_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Categoria"
                 android:textColor="#555555"
@@ -168,7 +220,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="330dp"
                 android:layout_height="48dp"
-                android:background="@drawable/input_publish_edit_ad"
+                android:background="@drawable/bg_spinner"
                 android:fontFamily="@font/poppins"
                 android:inputType="text"
                 android:paddingStart="10dp"
@@ -178,11 +230,37 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_category" />
 
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/spinner_category"
+                app:layout_constraintTop_toBottomOf="@id/spinner_category"
+                />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Escolha a categoria"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_category"
+                app:layout_constraintTop_toBottomOf="@id/spinner_category"
+                />
+
             <TextView
                 android:id="@+id/tv_quality"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Qualidade do produto"
                 android:textColor="#555555"
@@ -195,7 +273,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="330dp"
                 android:layout_height="48dp"
-                android:background="@drawable/input_publish_edit_ad"
+                android:background="@drawable/bg_spinner"
                 android:fontFamily="@font/poppins"
                 android:inputType="text"
                 android:paddingStart="10dp"
@@ -205,11 +283,37 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_quality"/>
 
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_quality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/spinner_quality"
+                app:layout_constraintTop_toBottomOf="@id/spinner_quality"
+                />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_quality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Escolha a qualidade do seu produto"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_quality"
+                app:layout_constraintTop_toBottomOf="@id/spinner_quality"
+                />
+
             <TextView
                 android:id="@+id/tv_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Preço"
                 android:textColor="#555555"
@@ -233,11 +337,37 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_price" />
 
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/et_price"
+                app:layout_constraintTop_toBottomOf="@id/et_price"
+                />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Preço inválido"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_price"
+                app:layout_constraintTop_toBottomOf="@id/et_price"
+                />
+
             <TextView
                 android:id="@+id/tv_photos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Fotos"
                 android:textColor="#555555"
@@ -259,20 +389,20 @@
 
             <ImageButton
                 android:id="@+id/image_button_photo2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:src="@drawable/image_button_photo_menor"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:backgroundTint="#80FFFFFF"
                 app:layout_constraintStart_toStartOf="@id/image_button_photo1"
                 app:layout_constraintTop_toBottomOf="@id/image_button_photo1" />
 
             <ImageButton
                 android:id="@+id/image_button_photo3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:src="@drawable/image_button_photo_menor"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:backgroundTint="#80FFFFFF"
                 app:layout_constraintStart_toEndOf="@+id/image_button_photo2"
                 app:layout_constraintEnd_toStartOf="@id/image_button_photo4"
@@ -280,20 +410,45 @@
 
             <ImageButton
                 android:id="@+id/image_button_photo4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:src="@drawable/image_button_photo_menor"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:backgroundTint="#80FFFFFF"
-
                 app:layout_constraintEnd_toEndOf="@+id/image_button_photo1"
                 app:layout_constraintTop_toBottomOf="@id/image_button_photo1" />
 
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="@id/tv_photos"
+                app:layout_constraintTop_toBottomOf="@id/image_button_photo2"
+                />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fotos obrigatórias (Insira todas as imagens)"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="10dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_image"
+                app:layout_constraintTop_toBottomOf="@id/image_button_photo2"
+                />
+
             <Button
-                android:id="@+id/btnPublish"
+                android:id="@+id/btn_publish"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="50dp"
                 android:width="329dp"
                 android:backgroundTint="@color/red"
                 android:text="@string/publicar"
