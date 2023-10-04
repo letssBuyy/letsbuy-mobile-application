@@ -2,14 +2,19 @@ package com.example.letsbuy.adapter
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.letsbuy.AdDetailActivity
+import com.example.letsbuy.MyShoppingsActivity
+import com.example.letsbuy.MyShoppingsTrackingActivity
 import com.example.letsbuy.R
 import com.example.letsbuy.api.Rest
 import com.example.letsbuy.dto.AdTrackingPayload
@@ -76,6 +81,19 @@ class AdapterMyAdvertisementsBought(
             }
         }
 
+        holder.card.setOnClickListener {
+            val intent = Intent(holder.itemView.context,MyShoppingsTrackingActivity::class.java)
+            intent.putExtra("idAdvertisement", advertisement.id)
+            intent.putExtra("title", advertisement.title)
+            intent.putExtra("price", advertisement.price)
+            intent.putExtra("images", advertisement.images?.first()?.url)
+            intent.putExtra("saleDate", advertisement.saleDate)
+            intent.putExtra("sellerName", advertisement.user.name)
+            intent.putExtra("sellerCpf", advertisement.user.cpf)
+            intent.putExtra("trackingSize", advertisement.trackings.size)
+            context.startActivity(intent)
+        }
+
     }
 
     private fun createTracking(idUser: Long, idAd: Long, button: TextView){
@@ -111,5 +129,6 @@ class AdapterMyAdvertisementsBought(
         val priceAdvertisement: TextView = itemAdvertisement.findViewById(R.id.textView30)
         val dateAdvertisement: TextView = itemAdvertisement.findViewById(R.id.textView35)
         val trackingButton: TextView = itemAdvertisement.findViewById(R.id.btn_tracking)
+        val card: ConstraintLayout = itemAdvertisement.findViewById(R.id.ln_advertisements2)
     }
 }
