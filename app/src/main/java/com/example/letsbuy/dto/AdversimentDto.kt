@@ -5,11 +5,11 @@ import com.example.letsbuy.model.enums.CategoryEnum
 import com.example.letsbuy.model.enums.QualityEnum
 
 data class AdversimentDto(
-    private val userId: Long,
-    private val title: String,
-    private val description: String,
-    private val price: Double,
-    private val color: AdversimentColorEnum,
-    private val category: CategoryEnum,
-    private val quality: QualityEnum
+     val userId: Long,
+     val title: String,
+     val description: String,
+     val price: Double,
+     val color: AdversimentColorEnum,
+     val category: CategoryEnum,
+     val quality: QualityEnum
 )

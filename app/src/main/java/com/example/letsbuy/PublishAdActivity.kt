@@ -31,7 +31,6 @@ import retrofit2.Response
 import java.io.File
 
 class PublishAdActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityPublishAdBinding
     private lateinit var selectedColor: String
     private lateinit var selectedCategory: String
@@ -43,18 +42,30 @@ class PublishAdActivity : AppCompatActivity() {
     private var photoCounter = 0
     private val PICK_MULTIPLE_IMAGES_FROM_GALLERY_REQUEST_CODE = 400
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_publish_ad)
-
         binding = ActivityPublishAdBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnPublish.setOnClickListener {
+        callSpinnerColor()
+        callSpinnerCategory()
+        callSpinnerQuality()
+        getImages()
 
+        binding.ivImageBack.setOnClickListener {
+            val back = Intent(this, HomeActivity::class.java)
+            startActivity(back)
+        }
+
+
+        binding.imageButtonPhoto1.setOnClickListener {
+            pickImageGallery()
+        }
+
+        binding.btnPublish.setOnClickListener {
             val title = binding.etTitle.text.toString()
-            val description = binding.etDescription.text.toString()
+            val description = binding.etDescription.text?.toString()?.takeIf { it.isNotEmpty() } ?: "."
             val price = binding.etPrice.text.toString()
             val color = colorToEnum(selectedColor)
             val category = categoryToEnum(selectedCategory)
@@ -66,94 +77,58 @@ class PublishAdActivity : AppCompatActivity() {
                 publishAd(title, description, price, color, category, quality)
             }
         }
+    }
 
-        binding.ivImageBack.setOnClickListener() {
-            val back = Intent(this, HomeActivity::class.java)
-            startActivity(back)
-        }
+    private fun getImages() {
+        imageButton1 = binding.imageButtonPhoto1
+        imageButton2 = binding.imageButtonPhoto2
+        imageButton3 = binding.imageButtonPhoto3
+        imageButton4 = binding.imageButtonPhoto4
+    }
 
-        // select color
-        val spinnerColor: Spinner = findViewById(R.id.spinner_color)
-
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.colors_array,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spinnerColor.adapter = adapter
-        }
+    private fun callSpinnerColor() {
+        val types = resources.getStringArray(R.array.colors_array)
+        val spinnerColor = binding.spinnerColor
+        val arrayColorAdapter = ArrayAdapter(baseContext, android.R.layout.simple_spinner_dropdown_item, types)
+        spinnerColor.adapter = arrayColorAdapter
 
         spinnerColor.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 selectedColor = parent.getItemAtPosition(position).toString()
             }
 
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
         }
+    }
 
-        // select category
-        val spinnerCategory: Spinner = findViewById(R.id.spinner_category)
-
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.category_array,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spinnerCategory.adapter = adapter
-        }
+    private fun callSpinnerCategory() {
+        val types = resources.getStringArray(R.array.category_array)
+        val spinnerCategory = binding.spinnerCategory
+        val arrayCategoryAdapter = ArrayAdapter(baseContext, android.R.layout.simple_spinner_dropdown_item, types)
+        spinnerCategory.adapter = arrayCategoryAdapter
 
         spinnerCategory.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 selectedCategory = parent.getItemAtPosition(position).toString()
             }
 
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
         }
+    }
 
-        //select quality
-        val spinnerQuality: Spinner = findViewById(R.id.spinner_quality)
-
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.quality_array,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spinnerQuality.adapter = adapter
-        }
+    private fun callSpinnerQuality() {
+        val types = resources.getStringArray(R.array.quality_array)
+        val spinnerQuality = binding.spinnerQuality
+        val arrayQualityAdapter = ArrayAdapter(baseContext, android.R.layout.simple_spinner_dropdown_item, types)
+        spinnerQuality.adapter = arrayQualityAdapter
 
         spinnerQuality.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 selectedQuality = parent.getItemAtPosition(position).toString()
             }
 
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
         }
-
-        binding.imageButtonPhoto1.setOnClickListener {
-            pickImageGallery()
-        }
-
-        imageButton1 = binding.imageButtonPhoto1
-        imageButton2 = binding.imageButtonPhoto2
-        imageButton3 = binding.imageButtonPhoto3
-        imageButton4 = binding.imageButtonPhoto4
-
     }
 
     private fun pickImageGallery() {
@@ -201,35 +176,28 @@ class PublishAdActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
     }
 
-    private fun validInputs(
-        title: String,
-        price: String,
-        color: AdversimentColorEnum,
-        category: CategoryEnum,
-        quality: QualityEnum
-    ): Boolean {
+    private fun validInputs(title: String, price: String, color: AdversimentColorEnum, category: CategoryEnum, quality: QualityEnum): Boolean {
         var valid = true
-        val ivIconErrorTitle = findViewById<ImageView>(R.id.iv_icon_error_title)
-        val tvMessageErrorTitle = findViewById<TextView>(R.id.tv_message_error_title)
+        val ivIconErrorTitle = binding.ivIconErrorTitle
+        val tvMessageErrorTitle = binding.tvMessageErrorTitle
 
-        val ivIconErrorColor = findViewById<ImageView>(R.id.iv_icon_error_color)
-        val tvMessageErrorColor = findViewById<TextView>(R.id.tv_message_error_color)
+        val ivIconErrorColor = binding.ivIconErrorColor
+        val tvMessageErrorColor = binding.tvMessageErrorColor
 
-        val ivIconErrorCategory = findViewById<ImageView>(R.id.iv_icon_error_category)
-        val tvMessageErrorCategory = findViewById<TextView>(R.id.tv_message_error_category)
+        val ivIconErrorCategory = binding.ivIconErrorCategory
+        val tvMessageErrorCategory = binding.tvMessageErrorCategory
 
-        val ivIconErrorQuality = findViewById<ImageView>(R.id.iv_icon_error_quality)
-        val tvMessageErrorQuality = findViewById<TextView>(R.id.tv_message_error_quality)
+        val ivIconErrorQuality = binding.ivIconErrorQuality
+        val tvMessageErrorQuality = binding.tvMessageErrorQuality
 
-        val ivIconErrorPrice = findViewById<ImageView>(R.id.iv_icon_error_price)
-        val tvMessageErrorPrice = findViewById<TextView>(R.id.tv_message_error_price)
+        val ivIconErrorPrice = binding.ivIconErrorPrice
+        val tvMessageErrorPrice = binding.tvMessageErrorPrice
 
-        val ivIconErrorImage = findViewById<ImageView>(R.id.iv_icon_error_image)
-        val tvMessageErrorImage = findViewById<TextView>(R.id.tv_message_error_image)
+        val ivIconErrorImage = binding.ivIconErrorImage
+        val tvMessageErrorImage = binding.tvMessageErrorImage
 
         val imageOld1 = binding.imageButtonPhotoOld1.drawable.constantState
         val imageOld234 = binding.imageButtonPhotoOld234.drawable.constantState
-
 
         if(title.isEmpty()) {
             valid = false
@@ -292,14 +260,7 @@ class PublishAdActivity : AppCompatActivity() {
 
         return valid
     }
-    private fun publishAd(
-        title: String,
-        description: String,
-        price: String,
-        color: AdversimentColorEnum,
-        category: CategoryEnum,
-        quality: QualityEnum
-    ) {
+    private fun publishAd(title: String, description: String, price: String, color: AdversimentColorEnum, category: CategoryEnum, quality: QualityEnum) {
         val api = Rest.getInstance().create(AdversimentService::class.java)
 
         val adversimentDto = AdversimentDto(
@@ -313,11 +274,7 @@ class PublishAdActivity : AppCompatActivity() {
         )
 
         api.createAdversiment(adversimentDto).enqueue(object: Callback<AdvertisementResponse> {
-
-            override fun onResponse(
-                call: Call<AdvertisementResponse>,
-                response: Response<AdvertisementResponse>
-            ) {
+            override fun onResponse(call: Call<AdvertisementResponse>, response: Response<AdvertisementResponse>) {
                 if(response.isSuccessful) {
                     Toast.makeText(this@PublishAdActivity, "Anúncio criado com sucesso!", Toast.LENGTH_SHORT).show()
                     val publish = Intent(this@PublishAdActivity, HomeActivity::class.java)
@@ -330,6 +287,5 @@ class PublishAdActivity : AppCompatActivity() {
             }
         })
     }
-
 }
 
