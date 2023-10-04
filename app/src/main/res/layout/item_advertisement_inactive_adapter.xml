@@ -10,7 +10,7 @@
         android:layout_width="325dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:background="@drawable/bg_transaction"
+        android:background="@drawable/bg_ad_inactive"
         android:paddingTop="20dp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
@@ -71,27 +71,6 @@
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@+id/textView36"
             app:layout_constraintTop_toBottomOf="@+id/textView36" />
-
-        <ImageView
-            android:id="@+id/imageView36"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/edit"
-
-            app:layout_constraintEnd_toStartOf="@+id/trash"
-            app:layout_constraintTop_toBottomOf="@+id/textView37"
-            app:layout_constraintBottom_toBottomOf="@id/textView35"/>
-
-        <ImageView
-            android:id="@+id/trash"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="7dp"
-            android:layout_marginBottom="5dp"
-            android:src="@drawable/trash"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView36"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView36" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

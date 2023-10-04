@@ -1,4 +1,4 @@
-package com.example.letsbuy.dto
+package com.example.letsbuy.model
 
 import java.math.BigDecimal
 import java.time.LocalDateTime

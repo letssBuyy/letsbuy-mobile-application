@@ -1,4 +1,4 @@
-package com.example.letsbuy.model
+package com.example.letsbuy.dto
 
 data class TransactionPayload(
     val userId: Long,
