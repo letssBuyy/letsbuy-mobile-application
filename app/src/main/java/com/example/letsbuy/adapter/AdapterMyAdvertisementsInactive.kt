@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.letsbuy.R
-import com.example.letsbuy.model.AdvertisementResponse
+import com.example.letsbuy.dto.AdvertisementResponse
 
 class AdapterMyAdvertisementsInactive(
     private val advertisements: List<AdvertisementResponse>

@@ -14,7 +14,7 @@ import com.example.letsbuy.adapter.AdapterMyAdvertisementsSold
 import com.example.letsbuy.api.Rest
 import com.example.letsbuy.databinding.ActivityMyAdvertisementsBinding
 import com.example.letsbuy.listener.BottomSheetDeleteAdListener
-import com.example.letsbuy.model.AdvertisementResponse
+import com.example.letsbuy.dto.AdvertisementResponse
 import com.example.letsbuy.service.MyAdvertisementService
 import retrofit2.Call
 import retrofit2.Callback

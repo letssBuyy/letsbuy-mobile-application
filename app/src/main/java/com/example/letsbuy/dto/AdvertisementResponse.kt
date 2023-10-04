@@ -1,9 +1,4 @@
-package com.example.letsbuy.model
-
-import com.example.letsbuy.dto.ImageDtoResponse
-import com.example.letsbuy.dto.PaymentUserAdvertisementResponseDto
-import com.example.letsbuy.dto.TrackingResponseDto
-import com.example.letsbuy.dto.UserDtoResponse
+package com.example.letsbuy.dto
 
 data class AdvertisementResponse (
     val userId: Long,

@@ -14,17 +14,18 @@ import com.example.letsbuy.R
 import com.example.letsbuy.api.Rest
 import com.example.letsbuy.dto.AdTrackingPayload
 import com.example.letsbuy.dto.TrackingResponseDto
-import com.example.letsbuy.dto.AdvertisementResponse
+import com.example.letsbuy.dto.MyBoughtsResponse
 import com.example.letsbuy.model.Tracking
 import com.example.letsbuy.service.MyAdvertisementService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AdapterMyAdvertisementsSold(
-    private val advertisements: List<AdvertisementResponse>,
+class AdapterMyAdvertisementsBought(
+    private val advertisements: List<MyBoughtsResponse>,
+    private val userId: Long,
     private val context: Context
-): RecyclerView.Adapter<AdapterMyAdvertisementsSold.MyViewHolder>(){
+): RecyclerView.Adapter<AdapterMyAdvertisementsBought.MyViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemMyAdvertisementsView =
@@ -57,12 +58,12 @@ class AdapterMyAdvertisementsSold(
 
         if (!advertisement.trackings.isNullOrEmpty()){
             Log.w("TRACKING", advertisement.trackings.toString())
-            if (advertisement.trackings.size == 2){
+            if (advertisement.trackings.size == 5){
 
-                holder.trackingButton.text = "Enviado"
+                holder.trackingButton.text = "Recebido"
                 holder.trackingButton.setBackgroundResource(R.drawable.bg_button)
                 holder.trackingButton.setOnClickListener {
-                    createTracking(idUser = advertisement.userId, advertisement.id, holder.trackingButton)
+                    createTracking(idUser = userId, advertisement.id, holder.trackingButton)
                 }
             } else if (advertisement.trackings.size == 6){
 
@@ -83,14 +84,14 @@ class AdapterMyAdvertisementsSold(
             userId = idUser,
             idAd = idAd,
             Tracking(
-                status = "SENT",
+                status = "DELIVERED",
                 adversiment = AdTrackingPayload(
                     id = idAd
                 ))).enqueue(object: Callback<List<TrackingResponseDto>> {
 
             override fun onResponse(call: Call<List<TrackingResponseDto>>, response: Response<List<TrackingResponseDto>>) {
                 if (response.isSuccessful) {
-                    button.text = "Aguarde"
+                    button.text = "Entregue"
                     button.setBackgroundResource(R.drawable.bg_button_inactive)
                 }
             }

@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide
 import com.example.letsbuy.BottomSheetDeleteAdFragment
 import com.example.letsbuy.EditAdActivity
 import com.example.letsbuy.R
-import com.example.letsbuy.model.AdvertisementResponse
+import com.example.letsbuy.dto.AdvertisementResponse
 
 class AdapterMyAdvertisements(
     private val advertisements: List<AdvertisementResponse>,

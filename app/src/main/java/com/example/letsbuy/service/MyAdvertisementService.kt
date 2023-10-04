@@ -1,7 +1,7 @@
 package com.example.letsbuy.service
 
 import com.example.letsbuy.dto.TrackingResponseDto
-import com.example.letsbuy.model.AdvertisementResponse
+import com.example.letsbuy.dto.AdvertisementResponse
 import com.example.letsbuy.model.Tracking
 import retrofit2.Call
 import retrofit2.http.Body
