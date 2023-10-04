@@ -53,7 +53,7 @@ class AdapterMyAdvertisementsSold(
 
         holder.titleAdvertisement.text = advertisement.title
 
-        holder.priceAdvertisement.text = advertisement.price.toString()
+        holder.priceAdvertisement.text = "R$ ${advertisement.price}"
 
         if (!advertisement.trackings.isNullOrEmpty()){
             Log.w("TRACKING", advertisement.trackings.toString())

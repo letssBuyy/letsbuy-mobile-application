@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.letsbuy.adapter.AdapterMyAdvertisements
+import com.example.letsbuy.adapter.AdapterMyAdvertisementsInactive
 import com.example.letsbuy.adapter.AdapterMyAdvertisementsSold
 import com.example.letsbuy.api.Rest
 import com.example.letsbuy.databinding.ActivityMyAdvertisementsBinding
@@ -70,6 +71,8 @@ class MyAdvertisementsActivity: AppCompatActivity(), BottomSheetDeleteAdListener
         binding.recyclerViewAdvertisements.setHasFixedSize(true)
         if (status == "SALLED"){
             binding.recyclerViewAdvertisements.adapter = AdapterMyAdvertisementsSold(advertisements, this)
+        } else if (status == "INACTIVE"){
+            binding.recyclerViewAdvertisements.adapter = AdapterMyAdvertisementsInactive(advertisements)
         } else {
             binding.recyclerViewAdvertisements.adapter = AdapterMyAdvertisements(advertisements,this, supportFragmentManager)
         }
