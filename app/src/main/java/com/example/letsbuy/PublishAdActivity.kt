@@ -8,15 +8,12 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.Spinner
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.letsbuy.api.Rest
 import com.example.letsbuy.databinding.ActivityPublishAdBinding
 import com.example.letsbuy.dto.AdversimentDto
-import com.example.letsbuy.model.AdvertisementResponse
+import com.example.letsbuy.dto.AdvertisementResponse
 import com.example.letsbuy.model.enums.AdversimentColorEnum
 import com.example.letsbuy.model.enums.AdversimentColorEnum.Companion.colorToEnum
 import com.example.letsbuy.model.enums.AdversimentColorEnum.NOT_MAPPED

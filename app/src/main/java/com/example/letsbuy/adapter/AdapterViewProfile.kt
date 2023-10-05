@@ -46,6 +46,5 @@ class AdapterViewProfile (
         } else {
             Glide.with(holder.itemView.context).load(adversiment.images.first().url).into(holder.imgAdversiment)
         }
-
     }
 }

@@ -1,8 +1,8 @@
 package com.example.letsbuy.service
 
 import com.example.letsbuy.dto.AdversimentDto
+import com.example.letsbuy.dto.AdvertisementResponse
 import com.example.letsbuy.dto.AllAdversimentsAndLikeDtoResponse
-import com.example.letsbuy.model.AdvertisementResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
