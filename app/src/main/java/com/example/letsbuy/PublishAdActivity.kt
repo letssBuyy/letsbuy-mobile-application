@@ -53,6 +53,11 @@ class PublishAdActivity : AppCompatActivity() {
         callSpinnerQuality()
         getImages()
 
+        binding.tvPublishAdTitle.setOnClickListener {
+            val back = Intent(this, ProfileViewActivity::class.java)
+            startActivity(back)
+        }
+
         binding.ivImageBack.setOnClickListener {
             val back = Intent(this, HomeActivity::class.java)
             startActivity(back)
