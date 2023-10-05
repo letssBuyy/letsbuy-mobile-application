@@ -1,6 +1,6 @@
 package com.example.letsbuy.service
 
-import com.example.letsbuy.model.TransactionPayload
+import com.example.letsbuy.dto.TransactionPayload
 import com.example.letsbuy.model.Wallet
 import retrofit2.Call
 import retrofit2.http.Body

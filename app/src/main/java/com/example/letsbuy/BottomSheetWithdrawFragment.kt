@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.letsbuy.api.Rest
 import com.example.letsbuy.databinding.BottomsheetWithdrawFragmentBinding
-import com.example.letsbuy.model.TransactionPayload
-import com.example.letsbuy.listener.BottomSheetListener
+import com.example.letsbuy.dto.TransactionPayload
+import com.example.letsbuy.listener.BottomSheetWithdrawListener
 import com.example.letsbuy.service.WalletService
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import retrofit2.Call
@@ -28,12 +28,12 @@ class BottomSheetWithdrawFragment: BottomSheetDialogFragment(){
         return binding.root
     }
 
-    private var bottomSheetListener: BottomSheetListener? = null
+    private var bottomSheetWithdrawListener: BottomSheetWithdrawListener? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is BottomSheetListener) {
-            bottomSheetListener = context
+        if (context is BottomSheetWithdrawListener) {
+            bottomSheetWithdrawListener = context
         } else {
             throw ClassCastException("$context must implement BottomSheetListener")
         }
@@ -70,7 +70,7 @@ class BottomSheetWithdrawFragment: BottomSheetDialogFragment(){
                 if (response.isSuccessful) {
                     binding.textView13.text = "Valor Sacado!"
                     binding.textView13.setTextColor(Color.parseColor("#05B501"))
-                    bottomSheetListener?.onWithdrawCompleted()
+                    bottomSheetWithdrawListener?.onWithdrawCompleted()
 
                 }
             }
@@ -78,7 +78,7 @@ class BottomSheetWithdrawFragment: BottomSheetDialogFragment(){
             override fun onFailure(call: Call<TransactionPayload>, t: Throwable) {
                 binding.textView13.text = "Erro durante o saque!"
                 binding.textView13.setTextColor(Color.parseColor("#F14866"))
-                bottomSheetListener?.onWithdrawCompleted()
+                bottomSheetWithdrawListener?.onWithdrawCompleted()
 
             }
         })

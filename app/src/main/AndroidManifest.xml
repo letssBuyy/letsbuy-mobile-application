@@ -69,6 +69,10 @@
         <activity
             android:name=".RedefinePasswordActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".MyShoppingsTrackingActivity"
+            android:exported="false" />
         <activity
             android:name=".RegisterActivity"
             android:exported="false"

@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ln_advertisements2"
         android:layout_width="325dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:background="@drawable/bg_transaction"
-        android:paddingTop="20dp"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:paddingBottom="10dp"
+        android:padding="16dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -39,6 +36,18 @@
             app:layout_constraintStart_toEndOf="@+id/img_advertisements"
             app:layout_constraintTop_toTopOf="@+id/img_advertisements" />
 
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:text="R$200"
+            android:textColor="@color/red"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/textView36"
+            app:layout_constraintTop_toBottomOf="@+id/textView36" />
+
         <TextView
             android:id="@+id/textView37"
             android:layout_width="wrap_content"
@@ -62,36 +71,19 @@
             app:layout_constraintTop_toBottomOf="@+id/textView37" />
 
         <TextView
-            android:id="@+id/textView30"
+            android:id="@+id/btn_tracking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_bold"
-            android:text="R$200"
-            android:textColor="@color/red"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/textView36"
-            app:layout_constraintTop_toBottomOf="@+id/textView36" />
-
-        <ImageView
-            android:id="@+id/imageView36"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/edit"
-
-            app:layout_constraintEnd_toStartOf="@+id/trash"
-            app:layout_constraintTop_toBottomOf="@+id/textView37"
-            app:layout_constraintBottom_toBottomOf="@id/textView35"/>
-
-        <ImageView
-            android:id="@+id/trash"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="7dp"
-            android:layout_marginBottom="5dp"
-            android:src="@drawable/trash"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView36"
+            android:background="@drawable/bg_button"
+            android:fontFamily="@font/poppins"
+            android:padding="8dp"
+            android:text="Aguarde"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_advertisements"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView36" />
+            app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

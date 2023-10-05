@@ -10,13 +10,13 @@ import com.example.letsbuy.api.Rest
 import com.example.letsbuy.databinding.ActivityWalletBinding
 import com.example.letsbuy.model.Transaction
 import com.example.letsbuy.model.Wallet
-import com.example.letsbuy.listener.BottomSheetListener
+import com.example.letsbuy.listener.BottomSheetWithdrawListener
 import com.example.letsbuy.service.WalletService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class WalletActivity: AppCompatActivity(), BottomSheetListener {
+class WalletActivity: AppCompatActivity(), BottomSheetWithdrawListener {
     private lateinit var binding: ActivityWalletBinding
     private var amount = "R$ 0.00"
     override fun onCreate(savedInstanceState: Bundle?) {
