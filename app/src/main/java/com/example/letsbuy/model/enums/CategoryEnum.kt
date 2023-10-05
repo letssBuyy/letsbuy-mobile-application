@@ -48,5 +48,22 @@ enum class CategoryEnum(val description: String, val position: Int) {
                 else -> NOT_MAPPED.position
             }
         }
+
+        fun enumCategoryToDescription(enumCategory: CategoryEnum): String {
+            return when(enumCategory) {
+                VEHICLES -> VEHICLES.description
+                ELECTRONICS -> ELECTRONICS.description
+                FASHION_ACESSORIES -> FASHION_ACESSORIES.description
+                HOUSE_DECORATION -> HOUSE_DECORATION.description
+                BOOKS -> BOOKS.description
+                FILMS -> FILMS.description
+                HOBBIES -> HOBBIES.description
+                AUTO_PARTS -> AUTO_PARTS.description
+                SPORTS_LEISURE -> SPORTS_LEISURE.description
+                PETS -> PETS.description
+                CHILDREN  -> CHILDREN.description
+                else -> NOT_MAPPED.description
+            }
+        }
     }
 }
