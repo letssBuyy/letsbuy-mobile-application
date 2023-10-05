@@ -22,52 +22,52 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageBack"
+                android:id="@+id/iv_image_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="37dp"
+                android:layout_marginStart="37dp"
                 android:layout_marginTop="30dp"
                 android:src="@drawable/back_button"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/publishAdTitle"
+                android:id="@+id/tv_publish_ad_title"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_gravity="bottom"
-                android:layout_marginLeft="85dp"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Publicar anúncio"
                 android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/imageBack"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <View
-                android:id="@+id/line"
+                android:id="@+id/v_line"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="20dp"
                 android:background="@color/semi"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/publishAdTitle" />
+                app:layout_constraintTop_toBottomOf="@id/tv_publish_ad_title" />
 
             <TextView
-                android:id="@+id/phraseAd"
+                android:id="@+id/tv_phrase_ad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/poppins"
                 android:text="Capriche nas fotos e na descrição do seu produto"
                 android:textColor="#555555"
-                android:textSize="14sp"
+                android:textSize="13sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/line" />
+                app:layout_constraintTop_toBottomOf="@id/v_line" />
 
             <TextView
-                android:id="@+id/titleAd"
+                android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
@@ -75,40 +75,66 @@
                 android:text="Título"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                android:layout_marginStart="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/phraseAd" />
+                app:layout_constraintStart_toStartOf="@id/et_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_phrase_ad" />
 
             <EditText
-                android:id="@+id/inputTitle"
-                android:layout_width="350dp"
-                android:layout_height="45dp"
+                android:id="@+id/et_title"
+                android:layout_width="330dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
                 android:fontFamily="@font/poppins"
                 android:inputType="text"
                 android:paddingStart="10dp"
-                android:text="Bolsa Marrom"
+                android:hint="Bolsa Marrom"
                 android:textColor="#969696"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@+id/titleAd"
-                app:layout_constraintTop_toBottomOf="@id/titleAd" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
-            <TextView
-                android:id="@+id/descriptionAd"
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/et_title"
+                app:layout_constraintTop_toBottomOf="@id/et_title"
+                />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Digite o título"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_title"
+                app:layout_constraintTop_toBottomOf="@id/et_title"
+                />
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Descrição"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="@+id/inputTitle"
-                app:layout_constraintTop_toBottomOf="@id/inputTitle" />
+                app:layout_constraintStart_toStartOf="@+id/et_description"
+                app:layout_constraintTop_toBottomOf="@id/et_title" />
 
             <EditText
-                android:id="@+id/inputDescription"
-                android:layout_width="350dp"
+                android:id="@+id/et_description"
+                android:layout_width="330dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
@@ -116,144 +142,335 @@
                 android:gravity="start"
                 android:inputType="text"
                 android:padding="10dp"
-                android:text="anúncio bacana"
+                android:hint="anúncio bacana"
                 android:textColor="#969696"
                 android:textSize="15sp"
-                app:layout_constraintHorizontal_bias="0.54"
-                app:layout_constraintStart_toStartOf="@+id/descriptionAd"
-                app:layout_constraintTop_toBottomOf="@id/descriptionAd" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_description" />
 
             <TextView
-                android:id="@+id/colorAd"
+                android:id="@+id/tv_color"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Cor"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="@+id/inputDescription"
-                app:layout_constraintTop_toBottomOf="@id/inputDescription" />
+                app:layout_constraintStart_toStartOf="@+id/spinner_color"
+                app:layout_constraintTop_toBottomOf="@id/et_description" />
 
-            <EditText
-                android:id="@+id/inputColor"
-                android:layout_width="350dp"
-                android:layout_height="45dp"
+
+            <Spinner
+                android:id="@+id/spinner_color"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/input_publish_edit_ad"
+                android:layout_width="330dp"
+                android:layout_height="48dp"
                 android:fontFamily="@font/poppins"
                 android:inputType="text"
+                android:background="@drawable/bg_spinner"
                 android:paddingStart="10dp"
                 android:textColor="#969696"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@+id/colorAd"
-                app:layout_constraintTop_toBottomOf="@id/colorAd" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_color" />
 
-            <TextView
-                android:id="@+id/categoryAd"
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_color"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/spinner_color"
+                app:layout_constraintTop_toBottomOf="@id/spinner_color"
+                />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Escolha a cor"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_color"
+                app:layout_constraintTop_toBottomOf="@id/spinner_color"
+                />
+
+            <TextView
+                android:id="@+id/tv_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Categoria"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="@+id/inputColor"
-                app:layout_constraintTop_toBottomOf="@id/inputColor" />
+                app:layout_constraintStart_toStartOf="@+id/spinner_category"
+                app:layout_constraintTop_toBottomOf="@id/spinner_color" />
 
-            <EditText
-                android:id="@+id/inputCategory"
-                android:layout_width="350dp"
-                android:layout_height="45dp"
+            <Spinner
+                android:id="@+id/spinner_category"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/input_publish_edit_ad"
+                android:layout_width="330dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_spinner"
                 android:fontFamily="@font/poppins"
                 android:inputType="text"
                 android:paddingStart="10dp"
                 android:textColor="#969696"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@+id/categoryAd"
-                app:layout_constraintTop_toBottomOf="@id/categoryAd" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_category" />
 
-            <TextView
-                android:id="@+id/qualityAd"
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/spinner_category"
+                app:layout_constraintTop_toBottomOf="@id/spinner_category"
+                />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Escolha a categoria"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_category"
+                app:layout_constraintTop_toBottomOf="@id/spinner_category"
+                />
+
+            <TextView
+                android:id="@+id/tv_quality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Qualidade do produto"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="@+id/inputCategory"
-                app:layout_constraintTop_toBottomOf="@id/inputCategory" />
+                app:layout_constraintStart_toStartOf="@+id/spinner_quality"
+                app:layout_constraintTop_toBottomOf="@id/spinner_category" />
 
-            <EditText
-                android:id="@+id/inputQuality"
-                android:layout_width="350dp"
-                android:layout_height="45dp"
+            <Spinner
+                android:id="@+id/spinner_quality"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/input_publish_edit_ad"
+                android:layout_width="330dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_spinner"
                 android:fontFamily="@font/poppins"
                 android:inputType="text"
                 android:paddingStart="10dp"
                 android:textColor="#969696"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@+id/qualityAd"
-                app:layout_constraintTop_toBottomOf="@id/qualityAd" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_quality"/>
 
-            <TextView
-                android:id="@+id/priceAd"
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_quality"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/spinner_quality"
+                app:layout_constraintTop_toBottomOf="@id/spinner_quality"
+                />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_quality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Escolha a qualidade do seu produto"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_quality"
+                app:layout_constraintTop_toBottomOf="@id/spinner_quality"
+                />
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Preço"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="@+id/inputQuality"
-                app:layout_constraintTop_toBottomOf="@id/inputQuality" />
+                app:layout_constraintStart_toStartOf="@+id/spinner_quality"
+                app:layout_constraintTop_toBottomOf="@id/spinner_quality" />
 
             <EditText
-                android:id="@+id/inputPrice"
-                android:layout_width="350dp"
-                android:layout_height="45dp"
+                android:id="@+id/et_price"
+                android:layout_width="330dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
                 android:fontFamily="@font/poppins"
-                android:inputType="text"
+                android:hint="R$ 0,00"
+                android:inputType="numberDecimal"
                 android:paddingStart="10dp"
                 android:textColor="#969696"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@+id/priceAd"
-                app:layout_constraintTop_toBottomOf="@id/priceAd" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_price" />
 
-            <TextView
-                android:id="@+id/photoAd"
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/et_price"
+                app:layout_constraintTop_toBottomOf="@id/et_price"
+                />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Preço inválido"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_price"
+                app:layout_constraintTop_toBottomOf="@id/et_price"
+                />
+
+            <TextView
+                android:id="@+id/tv_photos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Fotos"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="@+id/inputPrice"
-                app:layout_constraintTop_toBottomOf="@id/inputPrice" />
+                app:layout_constraintStart_toStartOf="@+id/et_price"
+                app:layout_constraintTop_toBottomOf="@id/et_price"/>
 
-            <ImageView
-                android:id="@+id/photosImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageButton
+                android:id="@+id/image_button_photo1"
+                android:layout_width="250dp"
+                android:layout_height="160dp"
+                android:src="@drawable/image_input_photo"
                 android:layout_marginTop="15dp"
-                android:src="@drawable/group_photos"
+                android:backgroundTint="#80FFFFFF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/photoAd" />
+                app:layout_constraintTop_toBottomOf="@id/tv_photos" />
+
+            <ImageButton
+                android:visibility="gone"
+                android:id="@+id/image_button_photo_old1"
+                android:layout_width="250dp"
+                android:layout_height="160dp"
+                android:src="@drawable/image_input_photo"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#80FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_photos" />
+
+            <ImageButton
+                android:id="@+id/image_button_photo2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/image_button_photo_menor"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#80FFFFFF"
+                app:layout_constraintStart_toStartOf="@id/image_button_photo1"
+                app:layout_constraintTop_toBottomOf="@id/image_button_photo1" />
+
+            <ImageButton
+                android:visibility="gone"
+                android:id="@+id/image_button_photo_old234"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/image_button_photo_menor"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#80FFFFFF"
+                app:layout_constraintStart_toStartOf="@id/image_button_photo1"
+                app:layout_constraintTop_toBottomOf="@id/image_button_photo1" />
+
+            <ImageButton
+                android:id="@+id/image_button_photo3"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/image_button_photo_menor"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#80FFFFFF"
+                app:layout_constraintStart_toEndOf="@+id/image_button_photo2"
+                app:layout_constraintEnd_toStartOf="@id/image_button_photo4"
+                app:layout_constraintTop_toBottomOf="@id/image_button_photo1" />
+
+            <ImageButton
+                android:id="@+id/image_button_photo4"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/image_button_photo_menor"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#80FFFFFF"
+                app:layout_constraintEnd_toEndOf="@+id/image_button_photo1"
+                app:layout_constraintTop_toBottomOf="@id/image_button_photo1" />
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="@id/tv_photos"
+                app:layout_constraintTop_toBottomOf="@id/image_button_photo2"
+                />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fotos obrigatórias (Insira todas as imagens)"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="10dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_image"
+                app:layout_constraintTop_toBottomOf="@id/image_button_photo2"
+                />
 
             <Button
-                android:id="@+id/btnPublish"
+                android:id="@+id/btn_publish"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="50dp"
                 android:width="329dp"
                 android:backgroundTint="@color/red"
                 android:text="@string/publicar"
@@ -262,7 +479,7 @@
                 app:cornerRadius="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/photosImage" />
+                app:layout_constraintTop_toBottomOf="@id/image_button_photo2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

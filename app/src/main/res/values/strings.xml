@@ -20,6 +20,48 @@
     <string name="atualizar">Atualizar</string>
     <string name="category">Categoria</string>
 
+    <string-array name="colors_array">
+        <item>Selecione uma cor</item>
+        <item>Vermelho</item>
+        <item>Verde</item>
+        <item>Azul</item>
+        <item>Amarelo</item>
+        <item>Laranja</item>
+        <item>Roxo</item>
+        <item>Rosa</item>
+        <item>Preto</item>
+        <item>Branco</item>
+        <item>Cinza</item>
+        <item>Marrom</item>
+        <item>Prata</item>
+        <item>Dourado</item>
+        <item>Azul marinho</item>
+        <item>Verde azulado</item>
+    </string-array>
+
+    <string-array name="category_array">
+        <item>Selecione uma categoria</item>
+        <item>Veículos</item>
+        <item>Eletrônicos</item>
+        <item>Acessórios</item>
+        <item>Casa e decoração</item>
+        <item>Livros</item>
+        <item>Filmes</item>
+        <item>Hobbies</item>
+        <item>Auto peças</item>
+        <item>Esporte e lazer</item>
+        <item>Pets</item>
+        <item>Bebês e crianças</item>
+    </string-array>
+
+    <string-array name="quality_array">
+        <item>Selecione a qualidade</item>
+        <item>Novo</item>
+        <item>Semi Novo</item>
+        <item>Usado</item>
+        <item>Defeituoso</item>
+    </string-array>
+
     <string-array name="my_advertisements_type">
         <item>Publicados</item>
         <item>Vendidos</item>
