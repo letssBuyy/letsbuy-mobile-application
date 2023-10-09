@@ -2,6 +2,8 @@ package com.example.letsbuy
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
@@ -321,22 +323,33 @@ class PublishAdActivity : AppCompatActivity() {
         })
     }
 
+    fun uriToMultipartBodyPart(context: Context, uri: Uri, paramName: String): MultipartBody.Part? {
+        val maxWidth = 800
+        val maxHeight = 600
+        val quality = 80
 
-    private fun uriToMultipartBodyPart(context: Context, uri: Uri, paramName: String): MultipartBody.Part? {
         try {
             val inputStream = context.contentResolver.openInputStream(uri)
 
-            val fileExtenson = getFileExtension(context, uri)
-            val fileName = "${System.currentTimeMillis()}.$fileExtenson"
+            val fileExtension = getFileExtension(context, uri)
+            val fileName = "${System.currentTimeMillis()}.$fileExtension"
+
             val file = File(context.cacheDir, fileName)
 
             inputStream?.use { input ->
-                FileOutputStream(file).use { output ->
-                    input.copyTo(output)
-                }
+                val options = BitmapFactory.Options()
+                options.inJustDecodeBounds = false
+                val bitmap = BitmapFactory.decodeStream(input, null, options)
+
+                val scaledBitmap = scaleBitmap(bitmap!!, maxWidth, maxHeight)
+
+                val outputStream = FileOutputStream(file)
+                scaledBitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream)
+                outputStream.close()
             }
 
-            val requestFile = file.asRequestBody("image/*".toMediaTypeOrNull())
+            val mediaType = "image/$fileExtension".toMediaTypeOrNull()
+            val requestFile = file.asRequestBody(mediaType)
             return MultipartBody.Part.createFormData(paramName, fileName, requestFile)
         } catch (e: IOException) {
             e.printStackTrace()
@@ -344,11 +357,32 @@ class PublishAdActivity : AppCompatActivity() {
         return null
     }
 
-    private fun getFileExtension(context: Context, uri: Uri): String {
+    fun getFileExtension(context: Context, uri: Uri): String {
         val resolver = context.contentResolver
         val mimeTypeMap = MimeTypeMap.getSingleton()
         return mimeTypeMap.getExtensionFromMimeType(resolver.getType(uri)) ?: "jpg"
     }
+
+    fun scaleBitmap(bitmap: Bitmap, maxWidth: Int, maxHeight: Int): Bitmap {
+        val originalWidth = bitmap.width
+        val originalHeight = bitmap.height
+        val scaleWidth: Float
+        val scaleHeight: Float
+
+        if (originalWidth > originalHeight) {
+            scaleWidth = maxWidth.toFloat() / originalWidth
+            scaleHeight = maxHeight.toFloat() / originalHeight
+        } else {
+            scaleWidth = maxHeight.toFloat() / originalWidth
+            scaleHeight = maxWidth.toFloat() / originalHeight
+        }
+
+        val matrix = android.graphics.Matrix()
+        matrix.postScale(scaleWidth, scaleHeight)
+
+        return Bitmap.createBitmap(bitmap, 0, 0, originalWidth, originalHeight, matrix, true)
+    }
+
 
     private fun uploadImages(id: Long) {
         val paramName1 = "img1"
