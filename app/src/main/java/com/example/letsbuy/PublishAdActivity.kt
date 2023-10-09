@@ -323,7 +323,7 @@ class PublishAdActivity : AppCompatActivity() {
         })
     }
 
-    fun uriToMultipartBodyPart(context: Context, uri: Uri, paramName: String): MultipartBody.Part? {
+    private fun uriToMultipartBodyPart(context: Context, uri: Uri, paramName: String): MultipartBody.Part? {
         val maxWidth = 800
         val maxHeight = 600
         val quality = 80
@@ -357,13 +357,13 @@ class PublishAdActivity : AppCompatActivity() {
         return null
     }
 
-    fun getFileExtension(context: Context, uri: Uri): String {
+    private fun getFileExtension(context: Context, uri: Uri): String {
         val resolver = context.contentResolver
         val mimeTypeMap = MimeTypeMap.getSingleton()
         return mimeTypeMap.getExtensionFromMimeType(resolver.getType(uri)) ?: "jpg"
     }
 
-    fun scaleBitmap(bitmap: Bitmap, maxWidth: Int, maxHeight: Int): Bitmap {
+    private fun scaleBitmap(bitmap: Bitmap, maxWidth: Int, maxHeight: Int): Bitmap {
         val originalWidth = bitmap.width
         val originalHeight = bitmap.height
         val scaleWidth: Float
