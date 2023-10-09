@@ -1,15 +1,21 @@
 package com.example.letsbuy
 
+import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.webkit.MimeTypeMap
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.net.toUri
 import com.example.letsbuy.api.Rest
 import com.example.letsbuy.databinding.ActivityPublishAdBinding
 import com.example.letsbuy.dto.AdversimentDto
@@ -22,10 +28,19 @@ import com.example.letsbuy.model.enums.CategoryEnum.Companion.categoryToEnum
 import com.example.letsbuy.model.enums.QualityEnum
 import com.example.letsbuy.model.enums.QualityEnum.Companion.qualityToEnum
 import com.example.letsbuy.service.AdversimentService
+import com.example.letsbuy.service.ImageService
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+import java.net.URI
 
 class PublishAdActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPublishAdBinding
@@ -36,6 +51,10 @@ class PublishAdActivity : AppCompatActivity() {
     private lateinit var imageButton2: ImageButton
     private lateinit var imageButton3: ImageButton
     private lateinit var imageButton4: ImageButton
+    private lateinit var imageUri1: Uri
+    private lateinit var imageUri2: Uri
+    private lateinit var imageUri3: Uri
+    private lateinit var imageUri4: Uri
     private var photoCounter = 0
     private val PICK_MULTIPLE_IMAGES_FROM_GALLERY_REQUEST_CODE = 400
 
@@ -155,11 +174,24 @@ class PublishAdActivity : AppCompatActivity() {
                     photoCounter++
 
                     when(i){
-                        0 -> imageButton1.setImageURI(data.clipData!!.getItemAt(0).uri)
-                        1 -> imageButton2.setImageURI(data.clipData!!.getItemAt(1).uri)
-                        2 -> imageButton3.setImageURI(data.clipData!!.getItemAt(2).uri)
-                        3 -> imageButton4.setImageURI(data.clipData!!.getItemAt(3).uri)
+                        0 -> {
+                            imageButton1.setImageURI(data.clipData!!.getItemAt(0).uri)
+                            imageUri1 = data.clipData!!.getItemAt(0).uri
+                        }
+                        1 -> {
+                            imageButton2.setImageURI(data.clipData!!.getItemAt(1).uri)
+                            imageUri2 = data.clipData!!.getItemAt(1).uri
+                        }
+                        2 -> {
+                            imageButton3.setImageURI(data.clipData!!.getItemAt(2).uri)
+                            imageUri3 = data.clipData!!.getItemAt(2).uri
+                        }
+                        3 -> {
+                            imageButton4.setImageURI(data.clipData!!.getItemAt(3).uri)
+                            imageUri4 = data.clipData!!.getItemAt(3).uri
+                        }
                     }
+
                     if(photoCounter >= 4) {
                         Toast.makeText(
                             this,
@@ -278,6 +310,7 @@ class PublishAdActivity : AppCompatActivity() {
         api.createAdversiment(adversimentDto).enqueue(object: Callback<AdvertisementResponse> {
             override fun onResponse(call: Call<AdvertisementResponse>, response: Response<AdvertisementResponse>) {
                 if(response.isSuccessful) {
+                    uploadImages(response.body()!!.id)
                     Toast.makeText(this@PublishAdActivity, "Anúncio criado com sucesso!", Toast.LENGTH_SHORT).show()
                     val publish = Intent(this@PublishAdActivity, HomeActivity::class.java)
                     startActivity(publish)
@@ -285,7 +318,99 @@ class PublishAdActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<AdvertisementResponse>, t: Throwable) {
-                Toast.makeText(this@PublishAdActivity, "Verifique os campos que não foram preenchidos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@PublishAdActivity, "Ocorreu um erro ao publicar o anúncio!", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun uriToMultipartBodyPart(context: Context, uri: Uri, paramName: String): MultipartBody.Part? {
+        val maxWidth = 800
+        val maxHeight = 600
+        val quality = 80
+
+        try {
+            val inputStream = context.contentResolver.openInputStream(uri)
+
+            val fileExtension = getFileExtension(context, uri)
+            val fileName = "${System.currentTimeMillis()}.$fileExtension"
+
+            val file = File(context.cacheDir, fileName)
+
+            inputStream?.use { input ->
+                val options = BitmapFactory.Options()
+                options.inJustDecodeBounds = false
+                val bitmap = BitmapFactory.decodeStream(input, null, options)
+
+                val scaledBitmap = scaleBitmap(bitmap!!, maxWidth, maxHeight)
+
+                val outputStream = FileOutputStream(file)
+                scaledBitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream)
+                outputStream.close()
+            }
+
+            val mediaType = "image/$fileExtension".toMediaTypeOrNull()
+            val requestFile = file.asRequestBody(mediaType)
+            return MultipartBody.Part.createFormData(paramName, fileName, requestFile)
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        return null
+    }
+
+    private fun getFileExtension(context: Context, uri: Uri): String {
+        val resolver = context.contentResolver
+        val mimeTypeMap = MimeTypeMap.getSingleton()
+        return mimeTypeMap.getExtensionFromMimeType(resolver.getType(uri)) ?: "jpg"
+    }
+
+    private fun scaleBitmap(bitmap: Bitmap, maxWidth: Int, maxHeight: Int): Bitmap {
+        val originalWidth = bitmap.width
+        val originalHeight = bitmap.height
+        val scaleWidth: Float
+        val scaleHeight: Float
+
+        if (originalWidth > originalHeight) {
+            scaleWidth = maxWidth.toFloat() / originalWidth
+            scaleHeight = maxHeight.toFloat() / originalHeight
+        } else {
+            scaleWidth = maxHeight.toFloat() / originalWidth
+            scaleHeight = maxWidth.toFloat() / originalHeight
+        }
+
+        val matrix = android.graphics.Matrix()
+        matrix.postScale(scaleWidth, scaleHeight)
+
+        return Bitmap.createBitmap(bitmap, 0, 0, originalWidth, originalHeight, matrix, true)
+    }
+
+
+    private fun uploadImages(id: Long) {
+        val paramName1 = "img1"
+        val imagePart1 = uriToMultipartBodyPart(this, imageUri1, paramName1)
+
+        val paramName2 = "img2"
+        val imagePart2 = uriToMultipartBodyPart(this, imageUri2, paramName2)
+
+        val paramName3 = "img3"
+        val imagePart3 = uriToMultipartBodyPart(this, imageUri3, paramName3)
+
+        val paramName4 = "img4"
+        val imagePart4 = uriToMultipartBodyPart(this, imageUri4, paramName4)
+
+        val api = Rest.getInstance().create(ImageService::class.java)
+
+        api.uploadImages(id, imagePart1!!, imagePart2!!, imagePart3!!, imagePart4!!).enqueue(object: Callback<AdvertisementResponse> {
+            override fun onResponse(call: Call<AdvertisementResponse>, response: Response<AdvertisementResponse>) {
+                if (response.isSuccessful) {
+                    Log.d("UploadImages", "Response code: ${response.code()}")
+                } else {
+                    Toast.makeText(this@PublishAdActivity, "Falha ao enviar as imagens!", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<AdvertisementResponse>, t: Throwable) {
+                Log.e("UploadImages", "Erro ao enviar imagens", t)
+                Toast.makeText(this@PublishAdActivity, "Ocorreu um erro ao enviar as imagens!", Toast.LENGTH_SHORT).show()
             }
         })
     }
