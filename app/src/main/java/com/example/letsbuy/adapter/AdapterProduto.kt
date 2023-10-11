@@ -28,9 +28,9 @@ class AdapterProduto(private val context: Context, private val produtos: Mutable
     }
 
     inner class ProdutoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imagem = itemView.findViewById<ImageView>(R.id.img_produto)
-        val name = itemView.findViewById<TextView>(R.id.nome_Produto)
-        val sell = itemView.findViewById<TextView>(R.id.descricao_produto)
-        val preco = itemView.findViewById<TextView>(R.id.preco_produto)
+        val imagem = itemView.findViewById<ImageView>(R.id.img_advertisement)
+        val name = itemView.findViewById<TextView>(R.id.tv_name_advertisement)
+        val sell = itemView.findViewById<TextView>(R.id.tv_seller)
+        val preco = itemView.findViewById<TextView>(R.id.tv_price_advertisement)
     }
 }
