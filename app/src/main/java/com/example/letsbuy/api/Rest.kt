@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object Rest {
     fun getInstance(): Retrofit {
-        return Retrofit.Builder().baseUrl("http://10.0.2.2:8080/")
+        return Retrofit.Builder().baseUrl("https://letsbuy-api-dev.azurewebsites.net/")
             .addConverterFactory(GsonConverterFactory.create()).build()
     }
 }
