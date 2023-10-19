@@ -10,8 +10,11 @@ import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
 import retrofit2.http.Query
+import java.util.Optional
 
 interface AdversimentService {
+    @GET("/adversiments/androidAdversiment/{idUser}")
+    fun retrieveAdversiment(@Path("idUser") userId: Long): Call<List<AllAdversimentsAndLikeDtoResponse>>
 
     @POST("/adversiments")
     fun createAdversiment(@Body adversimentDto: AdversimentDto): Call<AdvertisementResponse>

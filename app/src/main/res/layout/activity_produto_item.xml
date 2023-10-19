@@ -10,9 +10,12 @@
         android:id="@+id/img_like"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="94dp"
         android:src="@drawable/heart"
-        app:layout_constraintStart_toEndOf="@+id/tv_seller"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="100dp"
+        app:layout_constraintStart_toEndOf="@+id/tv_category"
+        app:layout_constraintStart_toStartOf="@+id/tv_price_advertisement"
         app:layout_constraintTop_toTopOf="@+id/tv_price_advertisement" />
 
     <ImageView
@@ -36,7 +39,7 @@
         app:layout_constraintTop_toTopOf="@+id/img_advertisement" />
 
     <TextView
-        android:id="@+id/tv_seller"
+        android:id="@+id/tv_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
@@ -54,7 +57,7 @@
         android:textColor="@color/red"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/tv_seller"
-        app:layout_constraintTop_toBottomOf="@+id/tv_seller" />
+        app:layout_constraintStart_toStartOf="@+id/tv_category"
+        app:layout_constraintTop_toBottomOf="@+id/tv_category" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

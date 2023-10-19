@@ -7,6 +7,6 @@ data class UserDto (
     var email: String,
     var cpf: String,
     var password: String,
-    var birthDate: LocalDate,
+    var birthDate: String,
     var phoneNumber: String
 )

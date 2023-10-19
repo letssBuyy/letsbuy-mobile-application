@@ -1,13 +1,11 @@
 package com.example.letsbuy
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.letsbuy.api.Rest
 import com.example.letsbuy.databinding.ActivityRegisterBinding
@@ -17,6 +15,7 @@ import com.example.letsbuy.service.UserService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.net.URI
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.util.Locale
@@ -40,7 +39,6 @@ class RegisterActivity : AppCompatActivity() {
             val birthDate = findViewById<EditText>(R.id.edit_birth_date).text.toString()
             val phoneNumber = findViewById<EditText>(R.id.edit_phone).text.toString()
 
-            Log.w("INICIOPHONE", phoneNumber)
             val isValid = validInputs(name, email, cpf, password, birthDate, phoneNumber)
 
             if (isValid) {
@@ -49,14 +47,8 @@ class RegisterActivity : AppCompatActivity() {
                     val outputDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
                     val date = dateFormat.parse(birthDate)
                     val formattedDate = outputDateFormat.format(date)
-                    val birth = LocalDate.parse(formattedDate)
-                    Log.w("NAME", name)
-                    Log.w("Email", email)
-                    Log.w("CPF", cpf)
-                    Log.w("PASSWORD", password)
-                    Log.w("PHONE", phoneNumber)
-                    Log.w("DATA", birth.toString())
-                    register(name, email, cpf, password, birth, phoneNumber)
+                    val birth = LocalDate.parse(formattedDate).toString()
+                    registerUser(name, email, cpf, password, birth, phoneNumber)
                 } else {
                     toast()
                 }
@@ -74,12 +66,12 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun register(
+    private fun registerUser(
         name: String,
         email: String,
         cpf: String,
         password: String,
-        birthDate: LocalDate,
+        birthDate: String,
         phoneNumber: String
     ) {
         val api = Rest.getInstance().create(UserService::class.java)
@@ -92,9 +84,7 @@ class RegisterActivity : AppCompatActivity() {
                 response: Response<UserDtoResponse>
             ) {
                 if (response.isSuccessful) {
-                    Log.w("CODE", response.code().toString())
-                    val entrar = Intent(baseContext, LoginActivity::class.java);
-                    startActivity(entrar);
+                    startActivity(Intent(baseContext, LoginActivity::class.java));
                 }
             }
 
