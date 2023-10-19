@@ -72,7 +72,31 @@
             android:background="@drawable/input_publish_edit_ad"
             app:layout_constraintStart_toStartOf="@+id/tv_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_name"
-            android:paddingStart="10dp"/>
+            android:paddingStart="10dp" />
+
+        <ImageView
+            android:id="@+id/iv_icon_error_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_error_png"
+            android:visibility="gone"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="@+id/edit_name"
+            app:layout_constraintTop_toBottomOf="@+id/edit_name" />
+
+        <TextView
+            android:id="@+id/tv_message_error_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Digite o nome"
+            android:textColor="@color/red"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toEndOf="@+id/iv_icon_error_name"
+            app:layout_constraintTop_toBottomOf="@+id/edit_name" />
 
         <TextView
             android:id="@+id/tv_cpf"
@@ -96,6 +120,30 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_cpf"
             android:paddingStart="10dp" />
 
+        <ImageView
+            android:id="@+id/iv_icon_error_cpf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_error_png"
+            android:visibility="gone"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="@+id/edit_cpf"
+            app:layout_constraintTop_toBottomOf="@+id/edit_cpf" />
+
+        <TextView
+            android:id="@+id/tv_message_error_cpf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Digite o cpf"
+            android:textColor="@color/red"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toEndOf="@+id/iv_icon_error_cpf"
+            app:layout_constraintTop_toBottomOf="@+id/edit_cpf" />
+
         <TextView
             android:id="@+id/tv_birth_date"
             android:layout_width="wrap_content"
@@ -107,16 +155,39 @@
             android:layout_marginBottom="5dp"/>
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/edit_birth_date"
             android:layout_width="329dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
-            android:inputType="number"
             android:textSize="15sp"
             android:background="@drawable/input_publish_edit_ad"
             app:layout_constraintStart_toStartOf="@+id/tv_birth_date"
             app:layout_constraintTop_toBottomOf="@+id/tv_birth_date"
             android:paddingStart="10dp" />
+
+        <ImageView
+            android:id="@+id/iv_icon_error_birth_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_error_png"
+            android:visibility="gone"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="@+id/edit_birth_date"
+            app:layout_constraintTop_toBottomOf="@+id/edit_birth_date" />
+
+        <TextView
+            android:id="@+id/tv_message_error_birth_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Digite a Data de nascimento"
+            android:textColor="@color/red"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toEndOf="@+id/iv_icon_error_birth_date"
+            app:layout_constraintTop_toBottomOf="@+id/edit_birth_date" />
 
         <TextView
             android:id="@+id/tv_cell_phone"
@@ -124,8 +195,8 @@
             android:layout_height="wrap_content"
             android:text="Número de celular"
             android:layout_marginTop="30dp"
-            app:layout_constraintStart_toStartOf="@+id/editText"
-            app:layout_constraintTop_toBottomOf="@+id/editText"
+            app:layout_constraintStart_toStartOf="@+id/edit_birth_date"
+            app:layout_constraintTop_toBottomOf="@+id/edit_birth_date"
             android:layout_marginBottom="5dp"/>
 
         <EditText
@@ -139,6 +210,30 @@
             app:layout_constraintStart_toStartOf="@+id/tv_cell_phone"
             app:layout_constraintTop_toBottomOf="@+id/tv_cell_phone"
             android:paddingStart="10dp" />
+
+        <ImageView
+            android:id="@+id/iv_icon_error_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_error_png"
+            android:visibility="gone"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="@+id/edit_phone"
+            app:layout_constraintTop_toBottomOf="@+id/edit_phone" />
+
+        <TextView
+            android:id="@+id/tv_message_error_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Digite o celular"
+            android:textColor="@color/red"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toEndOf="@+id/iv_icon_error_phone"
+            app:layout_constraintTop_toBottomOf="@+id/edit_phone" />
 
         <TextView
             android:id="@+id/tv_email"
@@ -162,6 +257,30 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_email"
             android:paddingStart="10dp" />
 
+        <ImageView
+            android:id="@+id/iv_icon_error_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_error_png"
+            android:visibility="gone"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="@+id/edit_email"
+            app:layout_constraintTop_toBottomOf="@+id/edit_email" />
+
+        <TextView
+            android:id="@+id/tv_message_error_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Digite o email"
+            android:textColor="@color/red"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toEndOf="@+id/iv_icon_error_email"
+            app:layout_constraintTop_toBottomOf="@+id/edit_email" />
+
         <TextView
             android:id="@+id/tv_password"
             android:layout_width="wrap_content"
@@ -183,6 +302,30 @@
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="@+id/tv_password"
             app:layout_constraintTop_toBottomOf="@+id/tv_password" />
+
+        <ImageView
+            android:id="@+id/iv_icon_error_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_error_png"
+            android:visibility="gone"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="@+id/edit_password"
+            app:layout_constraintTop_toBottomOf="@+id/edit_password" />
+
+        <TextView
+            android:id="@+id/tv_message_error_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Digite a senha"
+            android:textColor="@color/red"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toEndOf="@+id/iv_icon_error_password"
+            app:layout_constraintTop_toBottomOf="@+id/edit_password" />
 
         <CheckBox
             android:id="@+id/checkbox"

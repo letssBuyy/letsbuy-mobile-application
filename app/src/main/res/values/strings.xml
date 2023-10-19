@@ -3,10 +3,10 @@
     <string name="checkbox">Estou de acordo com os <font color="#F14866"> termos de serviço</font> e a <font color="#F14866">política de privacidade</font></string>
     <string name="titulo_esqueci_senha">Não consegue acessar sua conta?</string>
     <string name="texto_esqueci_senha">Insira o seu endereço de e-mail abaixo e enviaremos as instruções necessárias para redefinir a sua senha.</string>
-    <string name="home">home</string>
-    <string name="curti">curti</string>
-    <string name="chat">chat</string>
-    <string name="perfil">perfil</string>
+    <string name="home">Home</string>
+    <string name="curti">Curti</string>
+    <string name="chat">Chat</string>
+    <string name="perfil">Perfil</string>
     <string name="search_hint">O que você gostaria de encontrar hoje?</string>
     <string name="home_titulo_2">Mais relevantes</string>
     <string name="title_activity_login">LoginActivity</string>

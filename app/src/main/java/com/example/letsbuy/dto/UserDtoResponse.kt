@@ -1,7 +1,7 @@
 package com.example.letsbuy.dto
 
 data class UserDtoResponse(
-    private val id: Long,
+    val id: Long,
     private val name: String,
     private val email: String,
     private val cpf: String,

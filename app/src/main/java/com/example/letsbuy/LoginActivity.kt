@@ -2,33 +2,72 @@ package com.example.letsbuy
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.letsbuy.api.Rest
+import com.example.letsbuy.databinding.ActivityLoginBinding
+import com.example.letsbuy.dto.AuthenticationRequestDto
+import com.example.letsbuy.dto.TokenDto
+import com.example.letsbuy.service.AuthenticationService
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding =  ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val btnCadastrar = findViewById<TextView>(R.id.btn_cadastrar)
-        val btnEsqueciSenha = findViewById<TextView>(R.id.btn_esqueciSenha)
-        val btnEntrar = findViewById<Button>(R.id.btn_entrar)
-
-        btnCadastrar.setOnClickListener {
+        binding.btnCadastrar.setOnClickListener {
             val cadastrar = Intent(this, RegisterActivity::class.java)
             startActivity(cadastrar)
         }
 
-        btnEsqueciSenha.setOnClickListener {
+        binding.btnEsqueciSenha.setOnClickListener {
             val esqueciSenha = Intent(this, RedefinePasswordActivity::class.java)
             startActivity(esqueciSenha)
         }
 
-        btnEntrar.setOnClickListener {
-            val entrar = Intent(this, HomeActivity::class.java)
-            startActivity(entrar)
+        binding.btnEntrar.setOnClickListener {
+            val email = findViewById<EditText>(R.id.et_email).text.toString()
+            val password = findViewById<EditText>(R.id.et_password).text.toString()
+            authentication(email, password)
         }
+    }
 
+    private fun authentication(email: String, password: String) {
+        val api = Rest.getInstance().create(AuthenticationService::class.java)
+        var login = AuthenticationRequestDto(email, password)
+
+        api.authentication(login).enqueue(object: Callback<TokenDto> {
+
+            override fun onResponse(call: Call<TokenDto>, response: Response<TokenDto>) {
+                if (response.isSuccessful) {
+                    val prefs = getSharedPreferences("AUTH", MODE_PRIVATE)
+                    val editor = prefs.edit()
+                    editor.putString("TOKEN", response.body()?.token)
+                    editor.putString("TIPO", response.body()?.tipo)
+                    editor.putString("ID", response.body()?.user?.id.toString())
+                    editor.apply()
+                    startActivity(Intent(baseContext, HomeActivity::class.java))
+                } else {
+                    toast()
+                }
+            }
+
+            override fun onFailure(call: Call<TokenDto>, t: Throwable) {
+                Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
+            }
+        })
+    }
+
+    private fun toast() {
+        Toast.makeText(
+            this,
+            "Dados do login incorretos",
+            Toast.LENGTH_LONG).show()
     }
 }

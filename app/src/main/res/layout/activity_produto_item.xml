@@ -7,15 +7,19 @@
     android:id="@+id/product">
 
     <ImageView
-        android:layout_width="41dp"
-        android:layout_height="43dp"
+        android:id="@+id/img_like"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="94dp"
         android:src="@drawable/heart"
-        android:layout_marginStart="40dp"
-        app:layout_constraintStart_toEndOf="@+id/descricao_produto"
-        app:layout_constraintTop_toBottomOf="@+id/nome_Produto" />
-    
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="100dp"
+        app:layout_constraintStart_toEndOf="@+id/tv_category"
+        app:layout_constraintStart_toStartOf="@+id/tv_price_advertisement"
+        app:layout_constraintTop_toTopOf="@+id/tv_price_advertisement" />
+
     <ImageView
-        android:id="@+id/img_produto"
+        android:id="@+id/img_advertisement"
         android:layout_width="140dp"
         android:layout_height="120dp"
         android:src="@drawable/badge"
@@ -24,36 +28,36 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/nome_Produto"
+        android:id="@+id/tv_name_advertisement"
         android:layout_width="wrap_content"
         android:layout_height="24dp"
         android:text="Bolsa Marrom"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginStart="10dp"
-        app:layout_constraintStart_toEndOf="@+id/img_produto"
-        app:layout_constraintTop_toTopOf="@+id/img_produto" />
+        app:layout_constraintStart_toEndOf="@+id/img_advertisement"
+        app:layout_constraintTop_toTopOf="@+id/img_advertisement" />
 
     <TextView
-        android:id="@+id/descricao_produto"
+        android:id="@+id/tv_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:maxLines="1"
         android:text="Tommy"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/nome_Produto"
-        app:layout_constraintTop_toBottomOf="@+id/nome_Produto" />
+        app:layout_constraintStart_toStartOf="@+id/tv_name_advertisement"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_advertisement" />
 
     <TextView
-        android:id="@+id/preco_produto"
+        android:id="@+id/tv_price_advertisement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="R$200,00"
         android:textColor="@color/red"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/descricao_produto"
-        app:layout_constraintTop_toBottomOf="@+id/descricao_produto" />
+        app:layout_constraintStart_toStartOf="@+id/tv_category"
+        app:layout_constraintTop_toBottomOf="@+id/tv_category" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
