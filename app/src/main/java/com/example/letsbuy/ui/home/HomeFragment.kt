@@ -83,7 +83,7 @@ class HomeFragment : Fragment() {
         listProduct = mutableListOf<AllAdversimentsAndLikeDtoResponse>()
 
         val api = Rest.getInstance().create(AdversimentService::class.java)
-        api.retrieveAdversiment(19).enqueue(object : Callback<List<AllAdversimentsAndLikeDtoResponse>> {
+        api.retrieveAdversiment(id).enqueue(object : Callback<List<AllAdversimentsAndLikeDtoResponse>> {
                 override fun onResponse(
                     call: Call<List<AllAdversimentsAndLikeDtoResponse>>,
                     response: Response<List<AllAdversimentsAndLikeDtoResponse>>

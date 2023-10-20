@@ -14,7 +14,7 @@ import java.util.Optional
 
 interface AdversimentService {
     @GET("/adversiments/androidAdversiment/{idUser}")
-    fun retrieveAdversiment(@Path("idUser") userId: Long): Call<List<AllAdversimentsAndLikeDtoResponse>>
+    fun retrieveAdversiment(@Path("idUser") userId: Long?): Call<List<AllAdversimentsAndLikeDtoResponse>>
 
     @POST("/adversiments")
     fun createAdversiment(@Body adversimentDto: AdversimentDto): Call<AdvertisementResponse>
