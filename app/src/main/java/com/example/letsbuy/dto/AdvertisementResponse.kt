@@ -17,5 +17,5 @@ data class AdvertisementResponse (
     val images: List<ImageDtoResponse>? = null,
     val trackings: List<TrackingResponseDto>? = null,
     val paymentUserAdversiment: PaymentUserAdvertisementResponseDto? = null,
-    val buyer: UserDtoResponse? = null
+    val userSellerLikeDto: UserDtoResponse? = null
 )

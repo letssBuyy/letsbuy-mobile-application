@@ -52,188 +52,345 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="27dp"
-            android:layout_marginEnd="27dp">
-
-            <TextView
-                android:id="@+id/titleDeliveryTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:text="Entrega"
-                android:textColor="@color/gray"
-                android:textSize="20sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:fontFamily="@font/poppins" />
-
-            <RadioButton
-                android:id="@+id/DeliveryRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Quero que o vendedor me envie"
-                android:checked="true"
-                app:layout_constraintTop_toBottomOf="@id/titleDeliveryTextView"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:fontFamily="@font/poppins"
-                android:layout_marginTop="19dp"/>
-
-            <RadioButton
-                android:id="@+id/withdrawRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Quero retirar"
-                android:checked="false"
-                android:fontFamily="@font/poppins"
-                app:layout_constraintTop_toBottomOf="@id/DeliveryRadioButton"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:layout_marginTop="30dp"/>
-
-            <TextView
-                android:id="@+id/titleAdressTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="55dp"
-                android:text="Endereço de entrega"
-                android:textColor="@color/gray"
-                android:textSize="20sp"
-                android:fontFamily="@font/poppins"
-                app:layout_constraintTop_toBottomOf="@id/withdrawRadioButton"
-                app:layout_constraintLeft_toLeftOf="parent"/>
-
-            <View
-                android:id="@+id/adressCustomView"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:background="@drawable/bg_transaction"
-                app:layout_constraintTop_toBottomOf="@id/titleAdressTextView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:layout_height="match_parent"
+                android:layout_marginStart="27dp"
+                android:layout_marginEnd="27dp">
 
-            <ImageView
-                android:id="@+id/homeCircleImageView"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_marginLeft="18dp"
-                android:src="@drawable/icon_home_with_circle"
-                app:layout_constraintLeft_toLeftOf="@id/adressCustomView"
-                app:layout_constraintTop_toTopOf="@id/adressCustomView"
-                android:contentDescription="endereço de entrega"
-                app:layout_constraintBottom_toBottomOf="@id/adressCustomView"/>
+                <TextView
+                    android:id="@+id/titleDeliveryTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="100dp"
+                    android:text="Entrega"
+                    android:textColor="@color/gray"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:fontFamily="@font/poppins" />
 
-            <TextView
-                android:id="@+id/adressRoadTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rua Santa Adelaide, 104"
-                android:textColor="@color/secondary_black"
-                android:textSize="18sp"
-                android:layout_marginStart="30dp"
-                android:fontFamily="@font/poppins"
-                app:layout_constraintTop_toTopOf="@id/homeCircleImageView"
-                app:layout_constraintLeft_toRightOf="@id/homeCircleImageView"/>
+                <RadioButton
+                    android:id="@+id/DeliveryRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quero que o vendedor me envie"
+                    android:checked="true"
+                    app:layout_constraintTop_toBottomOf="@id/titleDeliveryTextView"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:fontFamily="@font/poppins"
+                    android:layout_marginTop="19dp"/>
 
-            <TextView
-                android:id="@+id/adressRoadSubTitleTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Santa Etelvina, São Paulo - SP"
-                android:textColor="@color/secondary_black"
-                android:textSize="14sp"
-                android:layout_marginStart="30dp"
-                android:fontFamily="@font/poppins"
-                app:layout_constraintBottom_toBottomOf="@id/homeCircleImageView"
-                app:layout_constraintLeft_toRightOf="@id/homeCircleImageView" />
+                <RadioButton
+                    android:id="@+id/withdrawRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quero retirar"
+                    android:checked="false"
+                    android:fontFamily="@font/poppins"
+                    app:layout_constraintTop_toBottomOf="@id/DeliveryRadioButton"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginTop="10dp"/>
 
-            <TextView
-                android:id="@+id/titleProdutoTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="55dp"
-                android:text="Produto"
-                android:textColor="@color/gray"
-                android:textSize="20sp"
-                android:fontFamily="@font/poppins"
-                app:layout_constraintTop_toBottomOf="@id/adressCustomView"
-                app:layout_constraintLeft_toLeftOf="parent" />
+                <TextView
+                    android:id="@+id/titleAdressTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="55dp"
+                    android:text="Endereço de entrega"
+                    android:textColor="@color/gray"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/poppins"
+                    app:layout_constraintTop_toBottomOf="@id/withdrawRadioButton"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
 
-            <View
-                android:id="@+id/productCustomView"
-                android:layout_width="match_parent"
-                android:layout_height="175dp"
-                android:background="@drawable/bg_transaction"
-                app:layout_constraintTop_toBottomOf="@id/titleProdutoTextView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                <View
+                    android:id="@+id/adressCustomView"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:background="@drawable/bg_transaction"
+                    app:layout_constraintTop_toBottomOf="@id/titleAdressTextView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
-            <ImageView
-                android:id="@+id/productImageView"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="15dp"
-                android:src="@drawable/badge"
-                app:layout_constraintLeft_toLeftOf="@id/productCustomView"
-                app:layout_constraintTop_toTopOf="@id/productCustomView"
-                android:contentDescription="Produto"/>
+                <View
+                    android:id="@+id/tipsOfWithdraw"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:background="@drawable/bg_transaction"
+                    app:layout_constraintTop_toBottomOf="@id/titleAdressTextView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
-            <TextView
-                android:id="@+id/productNameTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bolsa marrom"
-                android:textColor="@color/secondary_black"
-                android:textSize="20sp"
-                android:layout_marginStart="30dp"
-                android:fontFamily="@font/poppins"
-                app:layout_constraintTop_toTopOf="@id/productImageView"
-                app:layout_constraintLeft_toRightOf="@id/productImageView" />
+                <ImageView
+                    android:id="@+id/tipsImageView"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/icon_shield_gray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/tipsOfWithdraw"
+                    app:flow_verticalAlign="center"
+                    android:visibility="invisible"
+                    android:layout_marginLeft="10dp"
+                    app:layout_constraintTop_toTopOf="@id/tipsOfWithdraw"
+                    app:layout_constraintBottom_toBottomOf="@id/tipsOfWithdraw"/>
 
-            <TextView
-                android:id="@+id/CategoryNameTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Moda e acessorios"
-                android:textColor="@color/secondary_black"
-                android:textSize="18sp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/poppins"
-                app:layout_constraintTop_toBottomOf="@id/productNameTextView"
-                app:layout_constraintLeft_toRightOf="@id/productImageView" />
+                <TextView
+                    android:id="@+id/tipsTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text=" Entre em contato com o vendedor para marcar um local de encontro. Indicamos para a sua segurança um local publico"
+                    android:textColor="@color/primary_gray"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="10dp"
+                    android:visibility="invisible"
+                    android:fontFamily="@font/poppins"
+                    app:layout_constraintEnd_toEndOf="@id/tipsOfWithdraw"
+                    app:layout_constraintStart_toEndOf="@id/tipsImageView"
+                    app:layout_constraintBottom_toBottomOf="@id/tipsOfWithdraw"
+                    app:layout_constraintTop_toTopOf="@id/tipsOfWithdraw"/>
 
-            <TextView
-                android:id="@+id/ownerNameTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Vendido por: LUIZ ALVES RODRIGUES
-                CPF: 022-***-***-**"
-                android:textColor="@color/secondary_black"
-                android:textSize="18sp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="15dp"
-                android:fontFamily="@font/poppins"
-                app:layout_constraintTop_toBottomOf="@id/productImageView"
-                app:layout_constraintLeft_toLeftOf="parent" />
+                <ImageView
+                    android:id="@+id/homeCircleImageView"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="18dp"
+                    android:src="@drawable/icon_home_with_circle"
+                    app:layout_constraintLeft_toLeftOf="@id/adressCustomView"
+                    app:layout_constraintTop_toTopOf="@id/adressCustomView"
+                    android:contentDescription="endereço de entrega"
+                    app:layout_constraintBottom_toBottomOf="@id/adressCustomView"/>
 
-            <Button
-                android:id="@+id/finalizedPaymentButton"
-                android:backgroundTint="@color/red"
-                android:text="Confirmar pagamento"
-                android:layout_width="0dp"
-                app:layout_constraintTop_toBottomOf="@id/productCustomView"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                android:layout_height="55dp"
-                android:textStyle="bold"
-                android:textSize="19sp"
-                app:cornerRadius="5dp"
-                android:layout_marginTop="30dp"/>
+                <TextView
+                    android:id="@+id/adressRoadTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/secondary_black"
+                    android:textSize="14sp"
+                    android:layout_marginStart="30dp"
+                    android:fontFamily="@font/poppins"
+                    app:layout_constraintBottom_toBottomOf="@id/homeCircleImageView"
+                    app:layout_constraintLeft_toRightOf="@id/homeCircleImageView" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/titleProdutoTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:text="Produto"
+                    android:textColor="@color/gray"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/poppins"
+                    app:layout_constraintTop_toBottomOf="@id/adressCustomView"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <View
+                    android:id="@+id/productCustomView"
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    android:background="@drawable/bg_transaction"
+                    app:layout_constraintTop_toBottomOf="@id/titleProdutoTextView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <ImageView
+                    android:id="@+id/productImageView"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintLeft_toLeftOf="@id/productCustomView"
+                    app:layout_constraintTop_toTopOf="@id/productCustomView"
+                    android:contentDescription="Produto"/>
+
+                <TextView
+                    android:id="@+id/productNameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/secondary_black"
+                    android:textSize="16sp"
+                    android:layout_marginStart="30dp"
+                    android:fontFamily="@font/poppins"
+                    app:layout_constraintTop_toTopOf="@id/productImageView"
+                    app:layout_constraintLeft_toRightOf="@id/productImageView" />
+
+                <TextView
+                    android:id="@+id/CategoryNameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/secondary_black"
+                    android:textSize="16sp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/poppins"
+                    app:layout_constraintTop_toBottomOf="@id/productNameTextView"
+                    app:layout_constraintLeft_toRightOf="@id/productImageView" />
+
+                <TextView
+                    android:id="@+id/ownerNameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/secondary_black"
+                    android:textSize="14sp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/poppins"
+                    app:layout_constraintTop_toBottomOf="@id/productImageView"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <TextView
+                    android:id="@+id/titleMethodPayment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="55dp"
+                    android:text="Forma de pagamento"
+                    android:textColor="@color/gray"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/poppins"
+                    app:layout_constraintTop_toBottomOf="@id/productCustomView"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <TextView
+                    android:id="@+id/inputCardNumberTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Número do cartão"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/titleMethodPayment"/>
+
+                <com.santalu.maskara.widget.MaskEditText
+                    android:id="@+id/inputCardNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:digits="1234567890"
+                    android:hint="0000 0000 0000 0000"
+                    app:mask="____ ____ ____ ____"
+                    app:maskCharacter="_"
+                    android:paddingStart="10dp"
+                    android:background="@drawable/input_publish_edit_ad"
+                    android:inputType="text"
+                    android:textSize="15sp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputCardNumberTitle"/>
+
+                <TextView
+                    android:id="@+id/inputNameTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nome no cartão"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintTop_toBottomOf="@+id/inputCardNumber"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <EditText
+                    android:id="@+id/inputName"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:paddingStart="10dp"
+                    android:background="@drawable/input_publish_edit_ad"
+                    android:inputType="text"
+                    android:textSize="15sp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputNameTitle"/>
+
+                <TextView
+                    android:id="@+id/inputDateExpirationTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Data de expiração"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintTop_toBottomOf="@+id/inputName"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <com.santalu.maskara.widget.MaskEditText
+                    android:id="@+id/inputDateExpiration"
+                    android:inputType="number"
+                    app:mask="__/____"
+                    app:maskCharacter="_"
+                    app:maskStyle="completable"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputDateExpirationTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:hint="00/0000"
+                    android:digits="1234567890"
+                    android:paddingStart="10dp"
+                    android:background="@drawable/input_publish_edit_ad"
+                    android:textSize="15sp"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/inputCvCTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CVV ou CVC"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintTop_toBottomOf="@+id/inputDateExpiration"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <com.santalu.maskara.widget.MaskEditText
+                    android:id="@+id/inputCvC"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    app:mask="___"
+                    app:maskCharacter="_"
+                    android:hint="000"
+                    android:paddingStart="10dp"
+                    android:background="@drawable/input_publish_edit_ad"
+                    android:inputType="number"
+                    android:textSize="15sp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputCvCTitle"/>
+
+                <TextView
+                    android:id="@+id/PriceTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/secondary_black"
+                    android:textSize="18sp"
+                    android:text="Total a pagar:"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:fontFamily="@font/poppins"
+                    app:layout_constraintTop_toBottomOf="@id/inputCvC"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <TextView
+                    android:id="@+id/PriceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/red"
+                    android:textSize="18sp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:fontFamily="@font/poppins"
+                    app:layout_constraintTop_toBottomOf="@id/inputCvC"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <Button
+                    android:id="@+id/finalizedPaymentButton"
+                    android:backgroundTint="@color/red"
+                    android:text="Confirmar pagamento"
+                    android:layout_width="0dp"
+                    app:layout_constraintTop_toBottomOf="@id/PriceTitleTextView"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_height="55dp"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    app:cornerRadius="5dp"
+                    android:layout_marginTop="30dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

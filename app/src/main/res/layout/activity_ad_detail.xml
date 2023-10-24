@@ -39,312 +39,269 @@
                 android:background="@color/semi"
                 app:layout_constraintTop_toBottomOf="@id/imageView" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="27dp"
-            android:layout_marginEnd="27dp">
-
-            <TextView
-                android:id="@+id/titleTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="120dp"
-                android:text="Bolsa marrom"
-                android:textColor="@color/gray"
-                android:textSize="30sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:fontFamily="@font/poppins" />
-
-            <TextView
-                android:id="@+id/dateTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="Publicado em 24/02/2023"
-                android:textColor="@color/primary_gray"
-                android:textSize="18sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/titleTextView"
-                android:fontFamily="@font/poppins"/>
-
-            <TextView
-                android:id="@+id/priceTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="17dp"
-                android:text="R$200"
-                android:textColor="@color/red"
-                android:textSize="25sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/dateTextView"
-                android:fontFamily="@font/poppins"/>
-
-            <ImageView
-                android:id="@+id/cardMainImageView"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:layout_marginTop="27dp"
-                android:layout_marginBottom="27dp"
-                android:backgroundTint="@color/red"
-                android:src="@drawable/badge"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/priceTextView" />
-
-            <ImageView
-                android:id="@+id/cardImageView2"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="25dp"
-                android:src="@drawable/badge"
-                app:layout_constraintLeft_toRightOf="@id/cardMainImageView"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/cardMainImageView" />
-
-            <ImageView
-                android:id="@+id/cardImageView3"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="17dp"
-                android:src="@drawable/badge"
-                app:layout_constraintLeft_toRightOf="@id/cardMainImageView"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardImageView2" />
-
-            <ImageView
-                android:id="@+id/cardImageView4"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="17dp"
-                android:src="@drawable/badge"
-                app:layout_constraintLeft_toRightOf="@id/cardMainImageView"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardImageView3" />
-
-            <ImageView
-                android:id="@+id/cardImageView5"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="17dp"
-                android:src="@drawable/badge"
-                app:layout_constraintLeft_toRightOf="@id/cardMainImageView"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardImageView4" />
-
-            <ImageView
-                android:id="@+id/likeImageView"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:backgroundTint="@color/red"
-                android:src="@drawable/curti"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/titleTextView" />
-
-            <TextView
-                android:id="@+id/descriptionTitleTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="27dp"
-                android:text="Descrição:"
-                android:textColor="@color/gray"
-                android:textSize="20sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardMainImageView"
-                android:fontFamily="@font/poppins"/>
-
-            <TextView
-                android:id="@+id/descriptionTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="9dp"
-                android:text="Lorem ipsum dolor sit amet consectetur. Mauris mauris viverra urna velit leo justo. Elit amet est posuere augue egestas eget dignissim quis. Amet eget enim id nec vulputate iaculis massa cras."
-                android:textColor="@color/gray"
-                android:textSize="20sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/descriptionTitleTextView"
-                android:fontFamily="@font/poppins"/>
-
-            <TextView
-                android:id="@+id/categoryTitleTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="27dp"
-                android:text="Categoria:"
-                android:textColor="@color/gray"
-                android:textSize="20sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/descriptionTextView"
-                android:fontFamily="@font/poppins"/>
-
-            <TextView
-                android:id="@+id/categoryTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="Moda"
-                android:textColor="@color/gray"
-                android:textSize="20sp"
-                app:layout_constraintLeft_toRightOf="@id/categoryTitleTextView"
-                app:layout_constraintTop_toBottomOf="@id/descriptionTextView"
-                app:layout_constraintTop_toTopOf="@id/categoryTitleTextView"
-                android:fontFamily="@font/poppins"/>
-
-            <TextView
-                android:id="@+id/colorTitleTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Cor:"
-                android:textColor="@color/gray"
-                android:textSize="20sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/categoryTitleTextView"
-                android:fontFamily="@font/poppins"/>
-
-            <TextView
-                android:id="@+id/colorTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="Marrom"
-                android:textColor="@color/gray"
-                android:textSize="20sp"
-                app:layout_constraintStart_toEndOf="@id/colorTitleTextView"
-                app:layout_constraintTop_toTopOf="@id/colorTitleTextView"
-                android:fontFamily="@font/poppins"/>
-
-            <ImageView
-                android:id="@+id/userProfileImageView"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="50dp"
-                android:src="@drawable/ellipse"
-                app:layout_constraintTop_toBottomOf="@id/colorTitleTextView"
-                app:layout_constraintStart_toStartOf="parent"
-                android:fontFamily="@font/poppins"/>
-
-            <TextView
-                android:id="@+id/userNameTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:text="Luiz"
-                android:textColor="@color/red"
-                android:textSize="20sp"
-                app:layout_constraintLeft_toRightOf="@id/userProfileImageView"
-                app:layout_constraintStart_toEndOf="@id/userProfileImageView"
-                app:layout_constraintTop_toTopOf="@id/userProfileImageView"
-                android:fontFamily="@font/poppins"/>
-
-            <TextView
-                android:id="@+id/userCityTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:text="São Paulo - SP"
-                android:textColor="@color/gray"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@id/userProfileImageView"
-                app:layout_constraintLeft_toRightOf="@id/userProfileImageView"
-                app:layout_constraintStart_toEndOf="@id/userProfileImageView"
-                app:layout_constraintTop_toBottomOf="@id/userNameTextView"
-                android:fontFamily="@font/poppins"/>
-
-            <ImageView
-                android:id="@+id/userVerifyImageView"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/icon_shield_pink"
-                app:layout_constraintBottom_toBottomOf="@id/userProfileImageView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/userCityTextView" />
-
-            <Button
-                android:id="@+id/userChatButton"
+            <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
-                android:layout_height="58dp"
-                android:layout_marginTop="30dp"
-                android:text="Conversar"
-                app:layout_constraintTop_toBottomOf="@id/userProfileImageView"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                app:cornerRadius="5dp"
-                android:fontFamily="@font/poppins" />
+                android:layout_height="match_parent"
+                android:layout_marginStart="27dp"
+                android:layout_marginEnd="27dp">
 
-            <ImageView
-                android:id="@+id/tipsImageView"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/icon_shield_gray"
-                app:layout_constraintBottom_toBottomOf="@id/tipsTextView"
-                app:layout_constraintTop_toTopOf="@id/tipsTextView"
-                app:layout_constraintStart_toStartOf="parent"/>
+                <TextView
+                    android:id="@+id/titleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="120dp"
+                    android:textColor="@color/gray"
+                    android:textSize="25sp"
+                    android:maxLines="8"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:fontFamily="@font/poppins" />
 
-            <TextView
-                android:id="@+id/tipsTextView"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
-                android:text="Para proteger sua compra recomendamos que nunca transfira dinheiro ou se comunique por outra plataforma. mais dicas de segurança"
-                android:textColor="@color/primary_gray"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tipsImageView"
-                app:layout_constraintTop_toBottomOf="@id/userChatButton"
-                android:fontFamily="@font/poppins"/>
+                <TextView
+                    android:id="@+id/dateTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/primary_gray"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/titleTextView"
+                    android:fontFamily="@font/poppins"/>
 
-            <ImageView
-                android:id="@+id/mercadoPagoImageView"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="50dp"
-                android:src="@drawable/icon_mercadopago"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tipsTextView"
-                android:layout_marginLeft="20dp"
-                android:contentDescription="icone mercado pago"
-                android:layout_marginStart="90dp"/>
+                <TextView
+                    android:id="@+id/priceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17dp"
+                    android:textColor="@color/red"
+                    android:textSize="25sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/dateTextView"
+                    android:fontFamily="@font/poppins"/>
 
-            <ImageView
-                android:id="@+id/payPalImageView"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="50dp"
-                android:src="@drawable/icon_paypal"
-                app:layout_constraintStart_toEndOf="@id/mercadoPagoImageView"
-                app:layout_constraintTop_toBottomOf="@id/tipsTextView"
-                android:contentDescription="icone paypal"/>
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/cardMainImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="300dp"
+                    app:iss_auto_cycle="true"
+                    app:iss_period="1000"
+                    app:iss_delay="1000"
+                    app:iss_text_align="CENTER"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/priceTextView"/>
 
-            <ImageView
-                android:id="@+id/visaImageView"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="50dp"
-                android:src="@drawable/icon_visa"
-                app:layout_constraintStart_toEndOf="@id/payPalImageView"
-                app:layout_constraintTop_toBottomOf="@id/tipsTextView"
-                android:contentDescription="icone visa"/>
+                <ImageView
+                    android:id="@+id/likeImageView"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/red"
+                    android:src="@drawable/heart"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/titleTextView" />
 
-            <ImageView
-                android:id="@+id/masterCardImageView"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="50dp"
-                android:src="@drawable/icon_mastercard"
-                app:layout_constraintStart_toEndOf="@id/visaImageView"
-                app:layout_constraintTop_toBottomOf="@id/tipsTextView"
-                android:contentDescription="icone mastercard" />
+                <TextView
+                    android:id="@+id/descriptionTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Descrição:"
+                    android:textColor="@color/gray"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardMainImageView"
+                    android:fontFamily="@font/poppins"/>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/descriptionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9dp"
+                    android:textColor="@color/gray"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/descriptionTitleTextView"
+                    android:fontFamily="@font/poppins"/>
+
+                <TextView
+                    android:id="@+id/categoryTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Categoria:"
+                    android:textColor="@color/gray"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/descriptionTextView"
+                    android:fontFamily="@font/poppins"/>
+
+                <TextView
+                    android:id="@+id/categoryTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@color/gray"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toRightOf="@id/categoryTitleTextView"
+                    app:layout_constraintTop_toBottomOf="@id/descriptionTextView"
+                    app:layout_constraintTop_toTopOf="@id/categoryTitleTextView"
+                    android:fontFamily="@font/poppins"/>
+
+                <TextView
+                    android:id="@+id/colorTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Cor:"
+                    android:textColor="@color/gray"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/categoryTitleTextView"
+                    android:fontFamily="@font/poppins"/>
+
+                <TextView
+                    android:id="@+id/colorTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@color/gray"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@id/colorTitleTextView"
+                    app:layout_constraintTop_toTopOf="@id/colorTitleTextView"
+                    android:fontFamily="@font/poppins"/>
+
+                <ImageView
+                    android:id="@+id/userProfileImageView"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="50dp"
+                    app:layout_constraintTop_toBottomOf="@id/colorTitleTextView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:scaleType="centerCrop"/>
+
+                <TextView
+                    android:id="@+id/userNameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/red"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toRightOf="@id/userProfileImageView"
+                    app:layout_constraintStart_toEndOf="@id/userProfileImageView"
+                    app:layout_constraintTop_toTopOf="@id/userProfileImageView"
+                    android:fontFamily="@font/poppins"/>
+
+                <TextView
+                    android:id="@+id/userCityTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/gray"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/userProfileImageView"
+                    app:layout_constraintLeft_toRightOf="@id/userProfileImageView"
+                    app:layout_constraintStart_toEndOf="@id/userProfileImageView"
+                    app:layout_constraintTop_toBottomOf="@id/userNameTextView"
+                    android:fontFamily="@font/poppins"/>
+
+                <ImageView
+                    android:id="@+id/userVerifyImageView"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/icon_shield_pink"
+                    app:layout_constraintBottom_toBottomOf="@id/userProfileImageView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/userCityTextView"
+                    android:contentDescription="usuario verificado"/>
+
+                <Button
+                    android:id="@+id/userChatButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Conversar"
+                    app:layout_constraintTop_toBottomOf="@id/userProfileImageView"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    app:cornerRadius="5dp"
+                    android:fontFamily="@font/poppins" />
+
+                <ImageView
+                    android:id="@+id/tipsImageView"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/icon_shield_gray"
+                    app:layout_constraintBottom_toBottomOf="@id/tipsTextView"
+                    app:layout_constraintTop_toTopOf="@id/tipsTextView"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    android:id="@+id/tipsTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:text="Para proteger sua compra recomendamos que nunca transfira dinheiro ou se comunique por outra plataforma. mais dicas de segurança"
+                    android:textColor="@color/primary_gray"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tipsImageView"
+                    app:layout_constraintTop_toBottomOf="@id/userChatButton"
+                    android:fontFamily="@font/poppins"/>
+
+                <ImageView
+                    android:id="@+id/mercadoPagoImageView"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="30dp"
+                    android:src="@drawable/icon_mercadopago"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tipsTextView"
+                    android:contentDescription="icone mercado pago"/>
+
+                <ImageView
+                    android:id="@+id/payPalImageView"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:src="@drawable/icon_paypal"
+                    app:layout_constraintStart_toEndOf="@id/mercadoPagoImageView"
+                    app:layout_constraintTop_toBottomOf="@id/tipsTextView"
+                    android:contentDescription="icone paypal"/>
+
+                <ImageView
+                    android:id="@+id/visaImageView"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:src="@drawable/icon_visa"
+                    app:layout_constraintStart_toEndOf="@id/payPalImageView"
+                    app:layout_constraintTop_toBottomOf="@id/tipsTextView"
+                    android:contentDescription="icone visa"/>
+
+                <ImageView
+                    android:id="@+id/masterCardImageView"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:src="@drawable/icon_mastercard"
+                    app:layout_constraintStart_toEndOf="@id/visaImageView"
+                    app:layout_constraintTop_toBottomOf="@id/tipsTextView"
+                    android:contentDescription="icone mastercard" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/payPalImageView"
+                    android:layout_marginTop="10dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -357,7 +314,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/proposalButton"
         android:backgroundTint="@color/red"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:fontFamily="@font/poppins"
         app:cornerRadius="0dp"/>
 
@@ -368,7 +325,7 @@
         android:text="Enviar proposta"
         app:layout_constraintStart_toEndOf="@id/Buybutton"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:fontFamily="@font/poppins"
         app:cornerRadius="0dp"
         android:backgroundTint="@color/white"
