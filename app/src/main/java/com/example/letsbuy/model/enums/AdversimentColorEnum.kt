@@ -62,5 +62,26 @@ enum class AdversimentColorEnum(val description: String, val position: Int) {
                 else -> NOT_MAPPED.position
             }
         }
+
+        fun enumColorToDescription(colorEnum: AdversimentColorEnum): String {
+            return when (colorEnum) {
+                AdversimentColorEnum.RED -> AdversimentColorEnum.RED.description
+                AdversimentColorEnum.GREEN -> AdversimentColorEnum.GREEN.description
+                AdversimentColorEnum.BLUE -> AdversimentColorEnum.BLUE.description
+                AdversimentColorEnum.YELLOW -> AdversimentColorEnum.YELLOW.description
+                AdversimentColorEnum.ORANGE -> AdversimentColorEnum.ORANGE.description
+                AdversimentColorEnum.PURPLE -> AdversimentColorEnum.PURPLE.description
+                AdversimentColorEnum.PINK -> AdversimentColorEnum.PINK.description
+                AdversimentColorEnum.BLACK -> AdversimentColorEnum.BLACK.description
+                AdversimentColorEnum.WHITE -> AdversimentColorEnum.WHITE.description
+                AdversimentColorEnum.GRAY -> AdversimentColorEnum.GRAY.description
+                AdversimentColorEnum.BROWN -> AdversimentColorEnum.BROWN.description
+                AdversimentColorEnum.SILVER -> AdversimentColorEnum.SILVER.description
+                AdversimentColorEnum.GOLD -> AdversimentColorEnum.GOLD.description
+                AdversimentColorEnum.NAVY -> AdversimentColorEnum.NAVY.description
+                AdversimentColorEnum.TEAL -> AdversimentColorEnum.TEAL.description
+                AdversimentColorEnum.NOT_MAPPED -> AdversimentColorEnum.NOT_MAPPED.description
+            }
+        }
     }
 }
