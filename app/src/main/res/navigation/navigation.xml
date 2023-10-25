@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_curti"
-        android:name="com.example.letsbuy.ui.curti.CurtiFragment"
+        android:name="com.example.letsbuy.ui.favorites.favoritesFragment"
         android:label="@string/curti"
-        tools:layout="@layout/fragment_curti"/>
+        tools:layout="@layout/fragment_favorites"/>
 
     <fragment
         android:id="@+id/navigation_chat"
