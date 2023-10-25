@@ -13,6 +13,10 @@ import retrofit2.http.Query
 import java.util.Optional
 
 interface AdversimentService {
+    @GET("/adversiments/like/{idUser}")
+    fun getAdversimentLike(@Path("idUser") idUser: Long?): Call<List<AllAdversimentsAndLikeDtoResponse>>
+
+
     @GET("/adversiments/androidAdversiment/{idUser}")
     fun retrieveAdversiment(@Path("idUser") userId: Long?): Call<List<AllAdversimentsAndLikeDtoResponse>>
 
