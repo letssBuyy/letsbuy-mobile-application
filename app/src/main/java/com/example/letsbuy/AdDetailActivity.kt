@@ -28,7 +28,7 @@ class AdDetailActivity: AppCompatActivity() {
     private var idUser: Long = 0
     private var isLiked: Boolean = false
     private var likeId: Int? = 0
-
+    private lateinit var sellerId: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding =  ActivityAdDetailBinding.inflate(layoutInflater)
@@ -65,6 +65,13 @@ class AdDetailActivity: AppCompatActivity() {
         binding.proposalButton.setOnClickListener {
             val chat = Intent(this, ChatActivity::class.java)
             startActivity(chat)
+        }
+
+        binding.userNameTextView.setOnClickListener {
+            val back = Intent(this, ProfileViewActivity::class.java)
+            back.putExtra("sellerId", sellerId.toLong())
+            startActivity(back)
+
         }
     }
 
@@ -156,6 +163,7 @@ class AdDetailActivity: AppCompatActivity() {
                     val data = response.body()?.first()
 
                     isLiked = data?.isLike ?: false
+                    sellerId = data?.adversiments?.userSellerLikeDto!!.id.toString()
 
                     if (isLiked) {
                         likeId = data?.likeId
@@ -169,13 +177,9 @@ class AdDetailActivity: AppCompatActivity() {
                     binding.priceTextView.text = "R$ " + data?.adversiments?.price.toString()
                     binding.descriptionTextView.text = data?.adversiments?.description
 
-                    binding.categoryTextView.text = CategoryEnum.enumCategoryToDescription(
-                        CategoryEnum.categoryToEnum(data?.adversiments?.category ?: "")
-                    )
+                    binding.categoryTextView.text = CategoryEnum.enumCategoryToDescription(data?.adversiments.category)
 
-                    binding.colorTextView.text = AdversimentColorEnum.enumColorToDescription(
-                        AdversimentColorEnum.colorToEnum(data?.adversiments?.color ?: "")
-                    )
+                    binding.colorTextView.text = AdversimentColorEnum.enumColorToDescription(data?.adversiments.color)
 
                     binding.userNameTextView.text = data?.adversiments?.userSellerLikeDto?.name
                     binding.userCityTextView.text = data?.adversiments?.userSellerLikeDto?.city

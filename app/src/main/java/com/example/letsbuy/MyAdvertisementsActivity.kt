@@ -80,8 +80,10 @@ class MyAdvertisementsActivity: AppCompatActivity(), BottomSheetDeleteAdListener
     }
 
      fun getAdvertisements(status: String){
-        val api = Rest.getInstance().create(MyAdvertisementService::class.java)
-        api.getAdvertisements(status).enqueue(object: Callback<List<AdvertisementResponse>> {
+         val pref = getSharedPreferences("AUTH", MODE_PRIVATE)
+         val id = pref?.getString("ID", null)?.toLong()
+         val api = Rest.getInstance().create(MyAdvertisementService::class.java)
+        api.getAdvertisements(id!!, status).enqueue(object: Callback<List<AdvertisementResponse>> {
 
             override fun onResponse(call: Call<List<AdvertisementResponse>>, response: Response<List<AdvertisementResponse>>) {
                 if (response.isSuccessful) {

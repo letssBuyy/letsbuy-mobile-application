@@ -3,6 +3,7 @@ package com.example.letsbuy
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,9 +17,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class BottomSheetWithdrawFragment: BottomSheetDialogFragment(){
+class BottomSheetWithdrawFragment(userId: Long) : BottomSheetDialogFragment(){
 
     private lateinit var binding: BottomsheetWithdrawFragmentBinding
+    private val idUser = userId
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -46,7 +48,7 @@ class BottomSheetWithdrawFragment: BottomSheetDialogFragment(){
 
         binding.btnWithdraw.setOnClickListener {
             if(binding.editText2.text.isNotBlank() && binding.editText2.text.toString().toDouble() > 0.0){
-                createTransaction(3,binding.editText2.text.toString().toDouble(), "WITHDRAW")
+                createTransaction(idUser, binding.editText2.text.toString().toDouble(), "WITHDRAW")
             } else {
                 binding.textView13.text = "Valor Inválido!"
                 binding.textView13.setTextColor(Color.parseColor("#F14866"))
@@ -67,6 +69,7 @@ class BottomSheetWithdrawFragment: BottomSheetDialogFragment(){
         ).enqueue(object: Callback<TransactionPayload> {
 
             override fun onResponse(call: Call<TransactionPayload>, response: Response<TransactionPayload>) {
+
                 if (response.isSuccessful) {
                     binding.textView13.text = "Valor Sacado!"
                     binding.textView13.setTextColor(Color.parseColor("#05B501"))

@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity.MODE_PRIVATE
 import androidx.core.net.toUri
 import com.example.letsbuy.api.Rest
 import com.example.letsbuy.databinding.ActivityPublishAdBinding
@@ -29,6 +30,7 @@ import com.example.letsbuy.model.enums.QualityEnum
 import com.example.letsbuy.model.enums.QualityEnum.Companion.qualityToEnum
 import com.example.letsbuy.service.AdversimentService
 import com.example.letsbuy.service.ImageService
+import com.example.letsbuy.ui.perfil.PerfilFragment
 import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -69,18 +71,21 @@ class PublishAdActivity : AppCompatActivity() {
         callSpinnerQuality()
         getImages()
 
-        binding.tvPublishAdTitle.setOnClickListener {
-            val back = Intent(this, ProfileViewActivity::class.java)
-            startActivity(back)
-        }
-
         binding.ivImageBack.setOnClickListener {
-            val back = Intent(this, HomeActivity::class.java)
+            val back = Intent(this, PerfilActivity::class.java)
             startActivity(back)
         }
-
 
         binding.imageButtonPhoto1.setOnClickListener {
+            pickImageGallery()
+        }
+        binding.imageButtonPhoto2.setOnClickListener {
+            pickImageGallery()
+        }
+        binding.imageButtonPhoto3.setOnClickListener {
+            pickImageGallery()
+        }
+        binding.imageButtonPhoto4.setOnClickListener {
             pickImageGallery()
         }
 
@@ -295,10 +300,13 @@ class PublishAdActivity : AppCompatActivity() {
         return valid
     }
     private fun publishAd(title: String, description: String, price: String, color: AdversimentColorEnum, category: CategoryEnum, quality: QualityEnum) {
+        val pref = getSharedPreferences("AUTH", MODE_PRIVATE)
+        val id = pref?.getString("ID", null)?.toLong()
+
         val api = Rest.getInstance().create(AdversimentService::class.java)
 
         val adversimentDto = AdversimentDto(
-            userId = 9L,
+            userId = id!!,
             title = title,
             description = description,
             price = price.toDouble(),

@@ -2,6 +2,7 @@ package com.example.letsbuy
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,12 +20,15 @@ import retrofit2.Response
 class WalletActivity: AppCompatActivity(), BottomSheetWithdrawListener {
     private lateinit var binding: ActivityWalletBinding
     private var amount = "R$ 0.00"
+    private lateinit var idUser: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding =  ActivityWalletBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        getWalletData()
-
+        val pref = getSharedPreferences("AUTH", MODE_PRIVATE)
+        val userId = pref?.getString("ID", null)?.toLong()
+        idUser = userId.toString()
+        getWalletData(userId!!)
 
         binding.imgBack.setOnClickListener() {
             val back = Intent(this, HomeActivity::class.java)
@@ -43,7 +47,7 @@ class WalletActivity: AppCompatActivity(), BottomSheetWithdrawListener {
             binding.eyeClosed.visibility = View.GONE
         }
 
-        val bottomSheetWithdrawFragment = BottomSheetWithdrawFragment()
+        val bottomSheetWithdrawFragment = BottomSheetWithdrawFragment(userId)
         binding.tvWithdraw.setOnClickListener {
             bottomSheetWithdrawFragment.show(supportFragmentManager, "BottomSheetDialog")
         }
@@ -51,7 +55,7 @@ class WalletActivity: AppCompatActivity(), BottomSheetWithdrawListener {
     }
 
     override fun onWithdrawCompleted() {
-        getWalletData()
+        getWalletData(idUser.toLong())
     }
 
     private fun initRecyclerView(transactions: List<Transaction>){
@@ -60,9 +64,9 @@ class WalletActivity: AppCompatActivity(), BottomSheetWithdrawListener {
         binding.recyclerViewTransactions.adapter = AdapterTransaction(transactions)
     }
 
-    private fun getWalletData(){
+    private fun getWalletData(userId: Long){
         val api = Rest.getInstance().create(WalletService::class.java)
-        api.getWallet().enqueue(object: Callback<Wallet> {
+        api.getWallet(userId).enqueue(object: Callback<Wallet> {
 
             override fun onResponse(call: Call<Wallet>, response: Response<Wallet>) {
                 if (response.isSuccessful) {
@@ -86,4 +90,5 @@ class WalletActivity: AppCompatActivity(), BottomSheetWithdrawListener {
             }
         })
     }
+
 }

@@ -31,6 +31,11 @@ class RegisterActivity : AppCompatActivity() {
             checkbox()
         }
 
+        binding.imgBack.setOnClickListener {
+            val back = Intent(this, LoginActivity::class.java)
+            startActivity(back)
+        }
+
         binding.btnConcluirCadastro.setOnClickListener {
             val name = findViewById<EditText>(R.id.edit_name).text.toString()
             val email = findViewById<EditText>(R.id.edit_email).text.toString()

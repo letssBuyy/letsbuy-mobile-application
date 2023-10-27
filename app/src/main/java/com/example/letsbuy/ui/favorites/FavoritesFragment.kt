@@ -1,5 +1,6 @@
 package com.example.letsbuy.ui.favorites
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,9 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.letsbuy.HomeActivity
+import com.example.letsbuy.PerfilActivity
+import com.example.letsbuy.PublishAdActivity
 import com.example.letsbuy.adapter.AdapterFavorites
 import com.example.letsbuy.api.Rest
 import com.example.letsbuy.databinding.FragmentFavoritesBinding
@@ -35,6 +39,10 @@ class FavoritesFragment : Fragment() {
         val id = pref?.getString("ID", null)?.toLong()
         getAdvertisementsLiked(id, view)
 
+        binding.imageView1.setOnClickListener {
+            val back = Intent(requireContext(), HomeActivity::class.java)
+            startActivity(back)
+        }
 
     }
 
@@ -42,7 +50,7 @@ class FavoritesFragment : Fragment() {
         binding.recyclerViewLike.layoutManager =
             GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
         binding.recyclerViewLike.setHasFixedSize(true)
-        binding.recyclerViewLike.adapter = AdapterFavorites(myList)
+        binding.recyclerViewLike.adapter = AdapterFavorites(myList, context!!)
     }
 
     private fun getAdvertisementsLiked(id: Long?, view: View) {

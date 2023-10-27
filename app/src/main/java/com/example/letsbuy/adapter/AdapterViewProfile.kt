@@ -1,6 +1,7 @@
 package com.example.letsbuy.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.letsbuy.AdDetailActivity
 import com.example.letsbuy.R
 import com.example.letsbuy.dto.UserAdversimentsDtoResponse
 import com.example.letsbuy.model.enums.CategoryEnum.Companion.enumCategoryToDescription
@@ -45,6 +47,12 @@ class AdapterViewProfile (
             holder.imgAdversiment.setImageResource(R.drawable.broke_image)
         } else {
             Glide.with(holder.itemView.context).load(adversiment.images.first().url).into(holder.imgAdversiment)
+        }
+
+        holder.imgAdversiment.setOnClickListener {
+            val intent = Intent(holder.itemView.context, AdDetailActivity::class.java)
+            intent.putExtra("ID_AD", adversiment.id)
+            context.startActivity(intent)
         }
     }
 }

@@ -2,6 +2,7 @@ package com.example.letsbuy
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
@@ -14,6 +15,7 @@ import com.example.letsbuy.api.Rest
 import com.example.letsbuy.databinding.ActivityProfileViewBinding
 import com.example.letsbuy.dto.UserAdversimentsDtoResponse
 import com.example.letsbuy.service.UserService
+import com.example.letsbuy.ui.home.sell
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,7 +28,9 @@ class ProfileViewActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profile_view)
         binding = ActivityProfileViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        updatePage()
+
+        val sellerId = intent.getLongExtra("sellerId", 0)
+        updatePage(sellerId)
 
         binding.ivImageBack.setOnClickListener {
             val back = Intent(this, HomeActivity::class.java)
@@ -41,9 +45,10 @@ class ProfileViewActivity : AppCompatActivity() {
             AdapterViewProfile(userAndAdversiments, this)
     }
 
-    private fun updatePage() {
+    private fun updatePage(sellerId: Long) {
+        Log.d("SELLERID", sellerId.toString())
         val api = Rest.getInstance().create(UserService::class.java)
-        api.getAdversimentsByUser(3, null).enqueue(object :
+        api.getAdversimentsByUser(sellerId, null).enqueue(object :
             Callback<UserAdversimentsDtoResponse> {
 
             override fun onResponse(

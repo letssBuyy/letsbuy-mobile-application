@@ -12,8 +12,8 @@ import retrofit2.http.Path
 
 interface MyAdvertisementService {
 
-    @GET("/adversiments/filters/3/{status}")
-    fun getAdvertisements(@Path("status") status: String): Call<List<AdvertisementResponse>>
+    @GET("/adversiments/filters/{id}/{status}")
+    fun getAdvertisements(@Path("id") id: Long, @Path("status") status: String): Call<List<AdvertisementResponse>>
 
     @DELETE("/adversiments/{idAd}")
     fun deleteAd(@Path("idAd") idAd: Long): Call<Any>
