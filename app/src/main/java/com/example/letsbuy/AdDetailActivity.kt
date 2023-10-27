@@ -164,8 +164,7 @@ class AdDetailActivity: AppCompatActivity() {
 
                     isLiked = data?.isLike ?: false
                     sellerId = data?.adversiments?.userSellerLikeDto!!.id.toString()
-                    Log.d("DATARES", data!!.adversiments.userSellerLikeDto!!.id.toString())
-                    Log.d("SELLERID", sellerId.toString())
+
                     if (isLiked) {
                         likeId = data?.likeId
                         binding.likeImageView.setImageResource(R.drawable.icon_heart_selected)
@@ -178,13 +177,9 @@ class AdDetailActivity: AppCompatActivity() {
                     binding.priceTextView.text = "R$ " + data?.adversiments?.price.toString()
                     binding.descriptionTextView.text = data?.adversiments?.description
 
-                    binding.categoryTextView.text = CategoryEnum.enumCategoryToDescription(
-                        CategoryEnum.categoryToEnum(data?.adversiments?.category ?: "")
-                    )
+                    binding.categoryTextView.text = CategoryEnum.enumCategoryToDescription(data?.adversiments.category)
 
-                    binding.colorTextView.text = AdversimentColorEnum.enumColorToDescription(
-                        AdversimentColorEnum.colorToEnum(data?.adversiments?.color ?: "")
-                    )
+                    binding.colorTextView.text = AdversimentColorEnum.enumColorToDescription(data?.adversiments.color)
 
                     binding.userNameTextView.text = data?.adversiments?.userSellerLikeDto?.name
                     binding.userCityTextView.text = data?.adversiments?.userSellerLikeDto?.city

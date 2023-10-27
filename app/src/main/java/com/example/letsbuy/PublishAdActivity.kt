@@ -71,18 +71,21 @@ class PublishAdActivity : AppCompatActivity() {
         callSpinnerQuality()
         getImages()
 
-        binding.tvPublishAdTitle.setOnClickListener {
-            val back = Intent(this, ProfileViewActivity::class.java)
-            startActivity(back)
-        }
-
         binding.ivImageBack.setOnClickListener {
             val back = Intent(this, PerfilActivity::class.java)
             startActivity(back)
         }
 
-
         binding.imageButtonPhoto1.setOnClickListener {
+            pickImageGallery()
+        }
+        binding.imageButtonPhoto2.setOnClickListener {
+            pickImageGallery()
+        }
+        binding.imageButtonPhoto3.setOnClickListener {
+            pickImageGallery()
+        }
+        binding.imageButtonPhoto4.setOnClickListener {
             pickImageGallery()
         }
 

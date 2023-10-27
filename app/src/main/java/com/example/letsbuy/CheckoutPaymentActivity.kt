@@ -152,9 +152,7 @@ class CheckoutPaymentActivity: AppCompatActivity() {
                     loadProductImage(data?.adversiments?.images?.get(0))
                     binding.adressRoadTextView.text = "$road, $number \n$neighborhood, $city - $state"
                     binding.productNameTextView.text = data?.adversiments?.title
-                    binding.CategoryNameTextView.text = CategoryEnum.enumCategoryToDescription(
-                        CategoryEnum.categoryToEnum(data?.adversiments?.category ?: "")
-                    )
+                    binding.CategoryNameTextView.text = CategoryEnum.enumCategoryToDescription(data?.adversiments!!.category)
                     binding.ownerNameTextView.text = "Vendido por: $name \nCPF: ${cpf?.take(3) + "-***-***-**"}"
                     binding.PriceTextView.text = "R$ $price"
                 }
