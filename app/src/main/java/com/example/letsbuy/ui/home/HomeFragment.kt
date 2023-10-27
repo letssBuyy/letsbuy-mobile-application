@@ -48,6 +48,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(layoutInflater)
+        Log.d("YOHAN", "CHEGUEIII")
         return binding.root
     }
 
@@ -67,6 +68,8 @@ class HomeFragment : Fragment() {
 
         val pref = context?.getSharedPreferences("AUTH", AppCompatActivity.MODE_PRIVATE)
         val id = pref?.getString("ID", null)?.toLong()
+
+        Log.w("IDUSUARIO", id.toString())
 
         retrieveAdversiment(id)
 

@@ -10,10 +10,14 @@ import com.bumptech.glide.Glide
 import com.example.letsbuy.R
 import com.example.letsbuy.dto.AllAdversimentsAndLikeDtoResponse
 import android.content.Context
+import android.content.Intent
+import com.example.letsbuy.AdDetailActivity
+import com.example.letsbuy.EditAdActivity
 import com.example.letsbuy.model.enums.CategoryEnum
 
 class AdapterFavorites(
-    private val myList: List<AllAdversimentsAndLikeDtoResponse>
+    private val myList: List<AllAdversimentsAndLikeDtoResponse>,
+    private val context: Context,
 ) : RecyclerView.Adapter<AdapterFavorites.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -34,6 +38,11 @@ class AdapterFavorites(
             Glide.with(holder.itemView.context).load(adversiment.adversiments.images.first().url).into(holder.imgAdvertisement)
         }
 
+        holder.imgAdvertisement.setOnClickListener {
+            val intent = Intent(holder.itemView.context, AdDetailActivity::class.java)
+            intent.putExtra("ID_AD", adversiment.adversiments.id)
+            context.startActivity(intent)
+        }
 
     }
 

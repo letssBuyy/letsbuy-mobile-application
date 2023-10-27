@@ -28,7 +28,7 @@ class AdDetailActivity: AppCompatActivity() {
     private var idUser: Long = 0
     private var isLiked: Boolean = false
     private var likeId: Int? = 0
-
+    private lateinit var sellerId: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding =  ActivityAdDetailBinding.inflate(layoutInflater)
@@ -65,6 +65,13 @@ class AdDetailActivity: AppCompatActivity() {
         binding.proposalButton.setOnClickListener {
             val chat = Intent(this, ChatActivity::class.java)
             startActivity(chat)
+        }
+
+        binding.userNameTextView.setOnClickListener {
+            val back = Intent(this, ProfileViewActivity::class.java)
+            back.putExtra("sellerId", sellerId.toLong())
+            startActivity(back)
+
         }
     }
 
@@ -156,7 +163,9 @@ class AdDetailActivity: AppCompatActivity() {
                     val data = response.body()?.first()
 
                     isLiked = data?.isLike ?: false
-
+                    sellerId = data?.adversiments?.userSellerLikeDto!!.id.toString()
+                    Log.d("DATARES", data!!.adversiments.userSellerLikeDto!!.id.toString())
+                    Log.d("SELLERID", sellerId.toString())
                     if (isLiked) {
                         likeId = data?.likeId
                         binding.likeImageView.setImageResource(R.drawable.icon_heart_selected)

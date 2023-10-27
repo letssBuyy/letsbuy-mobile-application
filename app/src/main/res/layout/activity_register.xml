@@ -154,8 +154,10 @@
             app:layout_constraintTop_toBottomOf="@+id/edit_cpf"
             android:layout_marginBottom="5dp"/>
 
-        <EditText
+        <com.santalu.maskara.widget.MaskEditText
             android:id="@+id/edit_birth_date"
+            app:mask="__/__/____"
+            app:maskCharacter="_"
             android:layout_width="329dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
@@ -199,8 +201,10 @@
             app:layout_constraintTop_toBottomOf="@+id/edit_birth_date"
             android:layout_marginBottom="5dp"/>
 
-        <EditText
+        <com.santalu.maskara.widget.MaskEditText
             android:id="@+id/edit_phone"
+            app:mask="(__) _____-____"
+            app:maskCharacter="_"
             android:layout_width="329dp"
             android:layout_height="45dp"
             android:layout_gravity="center"

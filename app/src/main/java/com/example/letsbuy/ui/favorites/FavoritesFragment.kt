@@ -35,14 +35,13 @@ class FavoritesFragment : Fragment() {
         val id = pref?.getString("ID", null)?.toLong()
         getAdvertisementsLiked(id, view)
 
-
     }
 
     private fun initRecyclerView(myList: List<AllAdversimentsAndLikeDtoResponse>) {
         binding.recyclerViewLike.layoutManager =
             GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
         binding.recyclerViewLike.setHasFixedSize(true)
-        binding.recyclerViewLike.adapter = AdapterFavorites(myList)
+        binding.recyclerViewLike.adapter = AdapterFavorites(myList, context!!)
     }
 
     private fun getAdvertisementsLiked(id: Long?, view: View) {

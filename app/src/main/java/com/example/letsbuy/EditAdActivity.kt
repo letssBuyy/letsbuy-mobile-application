@@ -2,6 +2,7 @@ package com.example.letsbuy
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -29,7 +30,6 @@ import retrofit2.Response
 class EditAdActivity: AppCompatActivity() {
 
     private lateinit var binding: ActivityEditAdBinding
-    private lateinit var userId: String
     private lateinit var adversimentId: String
     private lateinit var adversimentTitle: String
     private lateinit var adversimentDescription: String
@@ -141,7 +141,6 @@ class EditAdActivity: AppCompatActivity() {
                         spinnerQuality.setSelection(enumQualityToPosition(adversiment.quality))
 
                         adversimentId = adversiment.id.toString()
-                        userId = adversimentList[0].userId.toString()
                     }
                 }
             }
@@ -156,10 +155,13 @@ class EditAdActivity: AppCompatActivity() {
     }
 
     private fun updateAd() {
+        val pref = getSharedPreferences("AUTH", MODE_PRIVATE)
+        val id = pref?.getString("ID", null)?.toLong()
+        Log.d("IDUSUARIO", id.toString())
         val api = Rest.getInstance().create(AdversimentService::class.java)
 
         val adversimentDto = AdversimentDto(
-            userId = userId.toLong(),
+            userId = id!!,
             title = adversimentTitle,
             description = adversimentDescription,
             price = adversimentPrice.toDouble(),
