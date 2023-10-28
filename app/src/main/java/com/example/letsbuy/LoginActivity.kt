@@ -48,6 +48,8 @@ class LoginActivity : AppCompatActivity() {
         api.authentication(login).enqueue(object: Callback<TokenDto> {
 
             override fun onResponse(call: Call<TokenDto>, response: Response<TokenDto>) {
+                binding.progressBar.visibility = View.INVISIBLE
+                Log.d("RESPONSE_LOGIN", response.toString())
                 if (response.isSuccessful) {
                     val prefs = getSharedPreferences("AUTH", MODE_PRIVATE)
                     val editor = prefs.edit()
@@ -55,7 +57,6 @@ class LoginActivity : AppCompatActivity() {
                     editor.putString("TIPO", response.body()?.tipo)
                     editor.putString("ID", response.body()?.user?.id.toString())
                     editor.apply()
-                    binding.progressBar.visibility = View.INVISIBLE
                     startActivity(Intent(baseContext, HomeActivity::class.java))
                 } else {
                     toast()

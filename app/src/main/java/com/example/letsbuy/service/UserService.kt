@@ -15,12 +15,12 @@ import java.net.URI
 
 interface UserService {
 
-    @PUT("/users/{id}")
+    @PUT("/api/users/{id}")
     fun updateUser(@Path("id") id: Long?, @Body userDto: UserUpdateDto): Call<UserDtoResponse>
 
-    @GET("/users")
+    @GET("/api/users")
     fun getAdversimentsByUser(@Query("sellerId") sellerId: Long, @Query("buyerId") buyerId: Long?): Call<UserAdversimentsDtoResponse>
 
-    @POST("/users/register")
+    @POST("/api/users/register")
     fun createUser(@Body user: UserDto): Call<UserDtoResponse>
 }

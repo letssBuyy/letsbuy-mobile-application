@@ -7,6 +7,6 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface AuthenticationService {
-    @POST("/auth")
+    @POST("/api/auth")
     fun authentication(@Body dto: AuthenticationRequestDto): Call<TokenDto>
 }
