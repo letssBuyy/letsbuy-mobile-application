@@ -38,7 +38,7 @@
                 android:layout_gravity="bottom"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Editar Anúncio"
+                android:text="Editar Perfil"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -98,19 +98,18 @@
                 android:id="@+id/NameAd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Nome"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/inputName"
                 app:layout_constraintTop_toBottomOf="@id/titleAd" />
 
 
             <EditText
                 android:id="@+id/inputName"
-                android:layout_width="350dp"
+                android:layout_width="300dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
@@ -120,7 +119,8 @@
                 android:text="Carlos"
                 android:textColor="#969696"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@id/NameAd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/NameAd" />
 
 
@@ -154,18 +154,17 @@
                 android:id="@+id/descriptionAd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="CPF"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/inputCpf"
                 app:layout_constraintTop_toBottomOf="@id/inputName" />
 
             <EditText
                 android:id="@+id/inputCpf"
-                android:layout_width="350dp"
+                android:layout_width="300dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
@@ -176,7 +175,8 @@
                 android:text="000.000.00-00"
                 android:textColor="#969696"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@id/NameAd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/descriptionAd" />
 
 
@@ -211,18 +211,17 @@
                 android:id="@+id/colorAd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Data de nascimento"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/inputDtBirth"
                 app:layout_constraintTop_toBottomOf="@id/inputCpf" />
 
             <EditText
                 android:id="@+id/inputDtBirth"
-                android:layout_width="350dp"
+                android:layout_width="300dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
@@ -232,20 +231,20 @@
                 android:text="00/00/0000"
                 android:textColor="#969696"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@id/NameAd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/colorAd" />
 
             <TextView
                 android:id="@+id/categoryAd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Número de celular"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/inputPhNumber"
                 app:layout_constraintTop_toBottomOf="@id/inputDtBirth" />
 
             <ImageView
@@ -276,7 +275,7 @@
 
             <EditText
                 android:id="@+id/inputPhNumber"
-                android:layout_width="350dp"
+                android:layout_width="300dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
@@ -286,7 +285,8 @@
                 android:text="00 00000-0000"
                 android:textColor="#969696"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@id/NameAd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/categoryAd" />
 
 
@@ -317,35 +317,20 @@
                 />
 
             <TextView
-                android:id="@+id/security"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/poppins_bold"
-                android:text="Seguraça e privacidade"
-                android:textColor="#555555"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/inputPhNumber" />
-
-
-            <TextView
                 android:id="@+id/priceAd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Email"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/security" />
+                app:layout_constraintStart_toStartOf="@id/inputEmail"
+                app:layout_constraintTop_toBottomOf="@id/inputPhNumber" />
 
             <EditText
                 android:id="@+id/inputEmail"
-                android:layout_width="350dp"
+                android:layout_width="300dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
@@ -355,7 +340,8 @@
                 android:text="lestbuy.lest100@lestbuy.com"
                 android:textColor="#969696"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@id/NameAd"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/priceAd" />
 
 
@@ -389,31 +375,30 @@
                 android:id="@+id/contBank"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Conta Bancaria"
                 android:textColor="#555555"
-                android:textSize="14sp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/inputEmail" />
 
             <TextView
                 android:id="@+id/Bank"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Banco"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/inputBank"
                 app:layout_constraintTop_toBottomOf="@id/contBank" />
 
             <EditText
                 android:id="@+id/inputBank"
-                android:layout_width="130dp"
+                android:layout_width="300dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
@@ -423,7 +408,8 @@
                 android:text="000000000"
                 android:textColor="#969696"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@id/Bank"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/Bank" />
 
             <ImageView
@@ -454,9 +440,8 @@
 
             <EditText
                 android:id="@+id/inputAg"
-                android:layout_width="134dp"
+                android:layout_width="300dp"
                 android:layout_height="45dp"
-                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
                 android:fontFamily="@font/poppins"
@@ -465,8 +450,9 @@
                 android:text="000000000"
                 android:textColor="#969696"
                 android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@id/inputBank"
-                app:layout_constraintTop_toBottomOf="@id/Bank" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ag" />
 
             <TextView
                 android:id="@+id/ag"
@@ -477,7 +463,7 @@
                 android:text="Agência"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@id/inputAg"
+                app:layout_constraintTop_toBottomOf="@id/inputBank"
                 app:layout_constraintStart_toStartOf="@id/inputAg" />
 
 
@@ -516,14 +502,14 @@
                 android:text="Conta"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@id/inputAg"
-                app:layout_constraintStart_toStartOf="@id/inputCount" />
+                app:layout_constraintTop_toBottomOf="@id/inputAg"
+                app:layout_constraintStart_toStartOf="@id/inputCount"
+                />
 
             <EditText
                 android:id="@+id/inputCount"
-                android:layout_width="87dp"
+                android:layout_width="300dp"
                 android:layout_height="45dp"
-                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
                 android:fontFamily="@font/poppins"
@@ -532,8 +518,9 @@
                 android:text="00000"
                 android:textColor="#969696"
                 android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@id/inputAg"
-                app:layout_constraintTop_toBottomOf="@id/Bank" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/count" />
 
             <ImageView
                 android:visibility="gone"
@@ -565,31 +552,30 @@
                 android:id="@+id/endereco"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="25dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Endereço"
                 android:textColor="#555555"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/inputBank" />
+                app:layout_constraintTop_toBottomOf="@id/inputCount" />
 
             <TextView
                 android:id="@+id/CEP"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="CEP"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/inputCep"
                 app:layout_constraintTop_toBottomOf="@id/endereco" />
 
             <EditText
                 android:id="@+id/inputCep"
-                android:layout_width="350dp"
+                android:layout_width="300dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
@@ -600,7 +586,8 @@
                 android:text="00000-000"
                 android:textColor="#969696"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@id/NameAd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/CEP" />
 
 
@@ -634,19 +621,18 @@
                 android:id="@+id/rua"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Rua"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/inputRua"
                 app:layout_constraintTop_toBottomOf="@id/inputCep" />
 
 
             <EditText
                 android:id="@+id/inputRua"
-                android:layout_width="350dp"
+                android:layout_width="300dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
@@ -657,7 +643,8 @@
                 android:text="Rua Lestbuy lobo"
                 android:textColor="#969696"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@id/NameAd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rua" />
 
             <ImageView
@@ -691,19 +678,18 @@
                 android:id="@+id/number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Número"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/inputNumero"
                 app:layout_constraintTop_toBottomOf="@id/inputRua" />
 
 
             <EditText
                 android:id="@+id/inputNumero"
-                android:layout_width="350dp"
+                android:layout_width="300dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
@@ -714,7 +700,8 @@
                 android:text="00"
                 android:textColor="#969696"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@id/NameAd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/number" />
 
 
@@ -749,19 +736,18 @@
                 android:id="@+id/complement"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Complemento"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/inputComplement"
                 app:layout_constraintTop_toBottomOf="@id/inputNumero" />
 
 
             <EditText
                 android:id="@+id/inputComplement"
-                android:layout_width="350dp"
+                android:layout_width="300dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
@@ -772,7 +758,8 @@
                 android:text="00"
                 android:textColor="#969696"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@id/NameAd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/complement" />
 
             <ProgressBar
@@ -818,19 +805,18 @@
                 android:id="@+id/titlebairro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Bairro"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/inputBairro"
                 app:layout_constraintTop_toBottomOf="@id/inputComplement" />
 
 
             <EditText
                 android:id="@+id/inputBairro"
-                android:layout_width="350dp"
+                android:layout_width="300dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
@@ -841,7 +827,8 @@
                 android:text="00"
                 android:textColor="#969696"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@id/titlebairro"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/titlebairro" />
 
 
@@ -876,19 +863,18 @@
                 android:id="@+id/titleState"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Estado"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/inputState"
                 app:layout_constraintTop_toBottomOf="@id/inputBairro" />
 
 
             <EditText
                 android:id="@+id/inputState"
-                android:layout_width="350dp"
+                android:layout_width="300dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
@@ -899,7 +885,8 @@
                 android:text="00"
                 android:textColor="#969696"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@id/titlebairro"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/titleState" />
 
             <ImageView
@@ -933,19 +920,18 @@
                 android:id="@+id/titleCity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Cidade"
                 android:textColor="#555555"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/inputCity"
                 app:layout_constraintTop_toBottomOf="@id/inputState" />
 
 
             <EditText
                 android:id="@+id/inputCity"
-                android:layout_width="350dp"
+                android:layout_width="300dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
@@ -956,7 +942,8 @@
                 android:text="00"
                 android:textColor="#969696"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@id/titlebairro"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/titleCity" />
 
 
@@ -990,7 +977,7 @@
 
             <Button
                 android:id="@+id/btnUpdate"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="30dp"
                 android:width="329dp"
