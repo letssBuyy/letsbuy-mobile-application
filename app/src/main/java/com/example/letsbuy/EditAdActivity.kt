@@ -63,6 +63,7 @@ class EditAdActivity: AppCompatActivity() {
 
             val isValid = validInputs()
             if(isValid) {
+                binding.progressBar.visibility = View.VISIBLE
                 updateAd()
             }
         }
@@ -173,6 +174,7 @@ class EditAdActivity: AppCompatActivity() {
         api.updateAdversiment(adversimentId.toLong(), adversimentDto).enqueue(object: Callback<AdvertisementResponse> {
             override fun onResponse(call: Call<AdvertisementResponse>, response: Response<AdvertisementResponse>) {
                 if(response.isSuccessful) {
+                    binding.progressBar.visibility = View.INVISIBLE
                     Toast.makeText(this@EditAdActivity, "Anúncio atualizado com sucesso!", Toast.LENGTH_SHORT).show()
                     val publish = Intent(this@EditAdActivity, MyAdvertisementsActivity::class.java)
                     startActivity(publish)
@@ -180,6 +182,7 @@ class EditAdActivity: AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<AdvertisementResponse>, t: Throwable) {
+                binding.progressBar.visibility = View.INVISIBLE
                 Toast.makeText(this@EditAdActivity, "Verifique os campos que não foram preenchidos", Toast.LENGTH_SHORT).show()
             }
         })

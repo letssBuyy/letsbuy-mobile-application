@@ -48,6 +48,7 @@ class BottomSheetWithdrawFragment(userId: Long) : BottomSheetDialogFragment(){
 
         binding.btnWithdraw.setOnClickListener {
             if(binding.editText2.text.isNotBlank() && binding.editText2.text.toString().toDouble() > 0.0){
+                binding.progressBar.visibility = View.VISIBLE
                 createTransaction(idUser, binding.editText2.text.toString().toDouble(), "WITHDRAW")
             } else {
                 binding.textView13.text = "Valor Inválido!"
@@ -71,6 +72,7 @@ class BottomSheetWithdrawFragment(userId: Long) : BottomSheetDialogFragment(){
             override fun onResponse(call: Call<TransactionPayload>, response: Response<TransactionPayload>) {
 
                 if (response.isSuccessful) {
+                    binding.progressBar.visibility = View.INVISIBLE
                     binding.textView13.text = "Valor Sacado!"
                     binding.textView13.setTextColor(Color.parseColor("#05B501"))
                     bottomSheetWithdrawListener?.onWithdrawCompleted()
@@ -79,6 +81,7 @@ class BottomSheetWithdrawFragment(userId: Long) : BottomSheetDialogFragment(){
             }
 
             override fun onFailure(call: Call<TransactionPayload>, t: Throwable) {
+                binding.progressBar.visibility = View.INVISIBLE
                 binding.textView13.text = "Erro durante o saque!"
                 binding.textView13.setTextColor(Color.parseColor("#F14866"))
                 bottomSheetWithdrawListener?.onWithdrawCompleted()

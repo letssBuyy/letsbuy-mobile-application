@@ -37,6 +37,7 @@ class FavoritesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val pref = context?.getSharedPreferences("AUTH", AppCompatActivity.MODE_PRIVATE)
         val id = pref?.getString("ID", null)?.toLong()
+        binding.progressBar.visibility = View.VISIBLE
         getAdvertisementsLiked(id, view)
 
         binding.imageView1.setOnClickListener {
@@ -62,6 +63,7 @@ class FavoritesFragment : Fragment() {
                     response: Response<List<AllAdversimentsAndLikeDtoResponse>>
                 ) {
                     if (response.isSuccessful) {
+                        binding.progressBar.visibility = View.INVISIBLE
                         val advertisements = response.body()
                         if (advertisements.isNullOrEmpty()) {
                             binding.scrollFav.visibility = View.GONE
@@ -78,6 +80,7 @@ class FavoritesFragment : Fragment() {
                     call: Call<List<AllAdversimentsAndLikeDtoResponse>>,
                     t: Throwable
                 ) {
+                    binding.progressBar.visibility = View.INVISIBLE
                     binding.scrollFav.visibility = View.GONE
                     binding.emptyAdvertisementsLiked.visibility = View.VISIBLE
                 }

@@ -52,6 +52,18 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/bg_spinner" />
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            app:layout_constraintBottom_toTopOf="@id/scroll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spinner"
+            android:visibility="gone"
+            />
+
         <androidx.core.widget.NestedScrollView
             android:id="@+id/scroll"
             android:layout_width="350dp"
@@ -62,6 +74,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="vertical" />
+
+
         </androidx.core.widget.NestedScrollView>
 
         <LinearLayout

@@ -100,6 +100,7 @@ class PublishAdActivity : AppCompatActivity() {
             val isValid = validInputs(title, price, color, category, quality)
 
             if(isValid) {
+                binding.progressBar.visibility = View.VISIBLE
                 publishAd(title, description, price, color, category, quality)
             }
         }
@@ -319,6 +320,7 @@ class PublishAdActivity : AppCompatActivity() {
             override fun onResponse(call: Call<AdvertisementResponse>, response: Response<AdvertisementResponse>) {
                 if(response.isSuccessful) {
                     uploadImages(response.body()!!.id)
+                    binding.progressBar.visibility = View.GONE
                     Toast.makeText(this@PublishAdActivity, "Anúncio criado com sucesso!", Toast.LENGTH_SHORT).show()
                     val publish = Intent(this@PublishAdActivity, HomeActivity::class.java)
                     startActivity(publish)

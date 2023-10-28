@@ -108,8 +108,10 @@
             app:layout_constraintTop_toBottomOf="@+id/edit_name"
             android:layout_marginBottom="5dp" />
 
-        <EditText
+        <com.santalu.maskara.widget.MaskEditText
             android:id="@+id/edit_cpf"
+            app:mask="___.___.___-__"
+            app:maskCharacter="_"
             android:layout_width="329dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
@@ -166,6 +168,16 @@
             app:layout_constraintStart_toStartOf="@+id/tv_birth_date"
             app:layout_constraintTop_toBottomOf="@+id/tv_birth_date"
             android:paddingStart="10dp" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/edit_birth_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/edit_phone"
+            android:visibility="invisible" />
 
         <ImageView
             android:id="@+id/iv_icon_error_birth_date"

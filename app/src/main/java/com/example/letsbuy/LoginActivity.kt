@@ -2,6 +2,8 @@ package com.example.letsbuy
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -34,6 +36,7 @@ class LoginActivity : AppCompatActivity() {
         binding.btnEntrar.setOnClickListener {
             val email = findViewById<EditText>(R.id.et_email).text.toString()
             val password = findViewById<EditText>(R.id.et_password).text.toString()
+            binding.progressBar.visibility = View.VISIBLE
             authentication(email, password)
         }
     }
@@ -52,6 +55,7 @@ class LoginActivity : AppCompatActivity() {
                     editor.putString("TIPO", response.body()?.tipo)
                     editor.putString("ID", response.body()?.user?.id.toString())
                     editor.apply()
+                    binding.progressBar.visibility = View.INVISIBLE
                     startActivity(Intent(baseContext, HomeActivity::class.java))
                 } else {
                     toast()
@@ -59,6 +63,8 @@ class LoginActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<TokenDto>, t: Throwable) {
+                binding.progressBar.visibility = View.INVISIBLE
+                Log.d("ERROLOGIN", t.message.toString())
                 Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
             }
         })
