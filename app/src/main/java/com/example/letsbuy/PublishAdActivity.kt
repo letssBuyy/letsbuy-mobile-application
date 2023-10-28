@@ -318,9 +318,9 @@ class PublishAdActivity : AppCompatActivity() {
 
         api.createAdversiment(adversimentDto).enqueue(object: Callback<AdvertisementResponse> {
             override fun onResponse(call: Call<AdvertisementResponse>, response: Response<AdvertisementResponse>) {
+                binding.progressBar.visibility = View.GONE
                 if(response.isSuccessful) {
                     uploadImages(response.body()!!.id)
-                    binding.progressBar.visibility = View.GONE
                     Toast.makeText(this@PublishAdActivity, "Anúncio criado com sucesso!", Toast.LENGTH_SHORT).show()
                     val publish = Intent(this@PublishAdActivity, HomeActivity::class.java)
                     startActivity(publish)
@@ -328,6 +328,7 @@ class PublishAdActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<AdvertisementResponse>, t: Throwable) {
+                binding.progressBar.visibility = View.GONE
                 Toast.makeText(this@PublishAdActivity, "Ocorreu um erro ao publicar o anúncio!", Toast.LENGTH_SHORT).show()
             }
         })

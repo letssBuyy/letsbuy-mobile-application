@@ -129,8 +129,8 @@ class EditProfileActivity : AppCompatActivity() {
                 call: Call<UserDtoResponse>,
                 response: Response<UserDtoResponse>
             ) {
+                binding.progressBar.visibility = View.INVISIBLE
                 if (response.isSuccessful) {
-                    binding.progressBar.visibility = View.INVISIBLE
                     Toast.makeText(
                         this@EditProfileActivity,
                         "Perfil Atualizado com Sucesso :) !",

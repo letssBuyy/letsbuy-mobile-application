@@ -89,8 +89,8 @@ class RegisterActivity : AppCompatActivity() {
                 call: Call<UserDtoResponse>,
                 response: Response<UserDtoResponse>
             ) {
+                binding.progressBar.visibility = View.INVISIBLE
                 if (response.isSuccessful) {
-                    binding.progressBar.visibility = View.INVISIBLE
                     startActivity(Intent(baseContext, LoginActivity::class.java));
                 }
             }

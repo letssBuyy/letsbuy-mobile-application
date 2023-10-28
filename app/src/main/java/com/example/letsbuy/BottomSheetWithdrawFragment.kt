@@ -70,13 +70,11 @@ class BottomSheetWithdrawFragment(userId: Long) : BottomSheetDialogFragment(){
         ).enqueue(object: Callback<TransactionPayload> {
 
             override fun onResponse(call: Call<TransactionPayload>, response: Response<TransactionPayload>) {
-
+                binding.progressBar.visibility = View.INVISIBLE
                 if (response.isSuccessful) {
-                    binding.progressBar.visibility = View.INVISIBLE
                     binding.textView13.text = "Valor Sacado!"
                     binding.textView13.setTextColor(Color.parseColor("#05B501"))
                     bottomSheetWithdrawListener?.onWithdrawCompleted()
-
                 }
             }
 

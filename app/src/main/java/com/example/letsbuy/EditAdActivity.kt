@@ -173,8 +173,8 @@ class EditAdActivity: AppCompatActivity() {
 
         api.updateAdversiment(adversimentId.toLong(), adversimentDto).enqueue(object: Callback<AdvertisementResponse> {
             override fun onResponse(call: Call<AdvertisementResponse>, response: Response<AdvertisementResponse>) {
+                binding.progressBar.visibility = View.INVISIBLE
                 if(response.isSuccessful) {
-                    binding.progressBar.visibility = View.INVISIBLE
                     Toast.makeText(this@EditAdActivity, "Anúncio atualizado com sucesso!", Toast.LENGTH_SHORT).show()
                     val publish = Intent(this@EditAdActivity, MyAdvertisementsActivity::class.java)
                     startActivity(publish)

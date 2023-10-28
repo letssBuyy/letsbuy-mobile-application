@@ -116,6 +116,18 @@
         app:layout_constraintStart_toEndOf="@id/iv_image_back"
         app:layout_constraintTop_toBottomOf="@id/lineTwo">
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/scroll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lineTwo"
+            android:visibility="gone"
+            />
+
         <androidx.core.widget.NestedScrollView
             android:id="@+id/scroll"
             android:layout_width="350dp"
