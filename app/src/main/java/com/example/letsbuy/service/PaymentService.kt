@@ -6,6 +6,6 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface PaymentService {
-    @POST("/payment-user-advertisements")
+    @POST("/api/payment-user-advertisements")
     fun makePayment(@Body paymentRequest: PaymentRequest): Call<Void>
 }

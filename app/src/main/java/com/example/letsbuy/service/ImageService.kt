@@ -12,7 +12,7 @@ import retrofit2.http.Query
 interface ImageService {
 
     @Multipart
-    @POST("/images/adversiment/{id}")
+    @POST("/api/images/adversiment/{id}")
     fun uploadImages(
         @Path("id") id: Long,
         @Part img1: MultipartBody.Part,

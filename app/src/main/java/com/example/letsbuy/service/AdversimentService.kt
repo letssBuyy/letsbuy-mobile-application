@@ -13,18 +13,18 @@ import retrofit2.http.Query
 import java.util.Optional
 
 interface AdversimentService {
-    @GET("/adversiments/like/{idUser}")
+    @GET("/api/adversiments/like/{idUser}")
     fun getAdversimentLike(@Path("idUser") idUser: Long?): Call<List<AllAdversimentsAndLikeDtoResponse>>
 
-    @GET("/adversiments/androidAdversiment/{idUser}")
+    @GET("/api/adversiments/androidAdversiment/{idUser}")
     fun retrieveAdversiment(@Path("idUser") userId: Long?): Call<List<AllAdversimentsAndLikeDtoResponse>>
 
-    @POST("/adversiments")
+    @POST("/api/adversiments")
     fun createAdversiment(@Body adversimentDto: AdversimentDto): Call<AdvertisementResponse>
 
-    @GET("/adversiments/{idAdversiment}")
+    @GET("/api/adversiments/{idAdversiment}")
     fun getAdversimentById(@Path("idAdversiment") idAdversiment: Long, @Query("idUser") idUser: Long? = null): Call<List<AllAdversimentsAndLikeDtoResponse>>
 
-    @PUT("/adversiments/{id}")
+    @PUT("/api/adversiments/{id}")
     fun updateAdversiment(@Path("id") id: Long, @Body adversimentDto: AdversimentDto): Call<AdvertisementResponse>
 }

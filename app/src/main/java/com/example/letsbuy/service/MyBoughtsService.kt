@@ -7,7 +7,7 @@ import retrofit2.http.Path
 
 interface MyBoughtsService {
 
-    @GET("/adversiments/boughts/{userId}")
+    @GET("/api/adversiments/boughts/{userId}")
     fun getBoughts(@Path("userId") userId: Long): Call<List<MyBoughtsResponse>>
 
 }

@@ -7,7 +7,7 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface AdDetailService {
-    @GET("/adversiments/{id}")
+    @GET("/api/adversiments/{id}")
     fun getDetail(@Path("id") id: Long,
                   @Query("idUser") userId: Long): Call<List<DetailAdvertisementResponse>>
 }

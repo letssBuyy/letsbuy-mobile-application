@@ -10,10 +10,10 @@ import retrofit2.http.Path
 
 interface WalletService {
 
-    @GET("/users/transaction/{idUser}")
+    @GET("/api/users/transaction/{idUser}")
     fun getWallet(@Path("idUser") idUser: Long): Call<Wallet>
 
-    @PATCH("/users/transaction")
+    @PATCH("/api/users/transaction")
     fun createTransaction(@Body transactionPayload: TransactionPayload): Call<TransactionPayload>
 
 }

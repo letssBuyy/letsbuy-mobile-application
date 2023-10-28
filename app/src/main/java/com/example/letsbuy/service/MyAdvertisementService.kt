@@ -12,13 +12,13 @@ import retrofit2.http.Path
 
 interface MyAdvertisementService {
 
-    @GET("/adversiments/filters/{id}/{status}")
+    @GET("/api/adversiments/filters/{id}/{status}")
     fun getAdvertisements(@Path("id") id: Long, @Path("status") status: String): Call<List<AdvertisementResponse>>
 
-    @DELETE("/adversiments/{idAd}")
+    @DELETE("/api/adversiments/{idAd}")
     fun deleteAd(@Path("idAd") idAd: Long): Call<Any>
 
-    @POST("/trackings/{userId}/{idAd}")
+    @POST("/api/trackings/{userId}/{idAd}")
     fun createTracking(@Path("userId") userId: Long,
                           @Path("idAd") idAd: Long,
                           @Body trackingPayload: Tracking): Call<List<TrackingResponseDto>>
