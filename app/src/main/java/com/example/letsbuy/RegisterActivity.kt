@@ -53,6 +53,7 @@ class RegisterActivity : AppCompatActivity() {
                     val date = dateFormat.parse(birthDate)
                     val formattedDate = outputDateFormat.format(date)
                     val birth = LocalDate.parse(formattedDate).toString()
+                    binding.progressBar.visibility = View.VISIBLE
                     registerUser(name, email, cpf, password, birth, phoneNumber)
                 } else {
                     toast()
@@ -89,11 +90,13 @@ class RegisterActivity : AppCompatActivity() {
                 response: Response<UserDtoResponse>
             ) {
                 if (response.isSuccessful) {
+                    binding.progressBar.visibility = View.INVISIBLE
                     startActivity(Intent(baseContext, LoginActivity::class.java));
                 }
             }
 
             override fun onFailure(call: Call<UserDtoResponse>, t: Throwable) {
+                binding.progressBar.visibility = View.INVISIBLE
                 Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
             }
         })

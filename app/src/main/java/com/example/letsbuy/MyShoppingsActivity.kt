@@ -23,6 +23,7 @@ class MyShoppingsActivity: AppCompatActivity() {
 
         binding =  ActivityMyShoppingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.progressBar.visibility = View.VISIBLE
 
         binding.imgBack.setOnClickListener {
             val back = Intent(this, HomeActivity::class.java)
@@ -48,6 +49,7 @@ class MyShoppingsActivity: AppCompatActivity() {
 
             override fun onResponse(call: Call<List<MyBoughtsResponse>>, response: Response<List<MyBoughtsResponse>>) {
                 if (response.isSuccessful) {
+                    binding.progressBar.visibility = View.GONE
                     val advertisements = response.body()
                     if (advertisements.isNullOrEmpty()) {
                         binding.scroll.visibility = View.GONE
@@ -61,6 +63,7 @@ class MyShoppingsActivity: AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<List<MyBoughtsResponse>>, t: Throwable) {
+                binding.progressBar.visibility = View.GONE
                 binding.scroll.visibility = View.GONE
                 binding.emptyAdvertisements.visibility = View.VISIBLE
             }

@@ -76,6 +76,7 @@ class EditProfileActivity : AppCompatActivity() {
                 city,
                 bankAccount)
             if(isValid) {
+                binding.progressBar.visibility = View.VISIBLE
                 updateProfile(userUpdateDto)
             }
         }
@@ -129,6 +130,7 @@ class EditProfileActivity : AppCompatActivity() {
                 response: Response<UserDtoResponse>
             ) {
                 if (response.isSuccessful) {
+                    binding.progressBar.visibility = View.INVISIBLE
                     Toast.makeText(
                         this@EditProfileActivity,
                         "Perfil Atualizado com Sucesso :) !",
@@ -140,6 +142,7 @@ class EditProfileActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<UserDtoResponse>, t: Throwable) {
+                binding.progressBar.visibility = View.INVISIBLE
                 Toast.makeText(
                     this@EditProfileActivity,
                     "Verifique os campos que não foram preenchidos",

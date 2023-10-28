@@ -38,6 +38,7 @@ class MyAdvertisementsActivity: AppCompatActivity(), BottomSheetDeleteAdListener
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                binding.progressBar.visibility = View.VISIBLE
                 val type = if (types[position].equals("Publicados")) {
                     "ACTIVE"
                 } else if (types[position].equals("Vendidos")){
@@ -87,11 +88,14 @@ class MyAdvertisementsActivity: AppCompatActivity(), BottomSheetDeleteAdListener
 
             override fun onResponse(call: Call<List<AdvertisementResponse>>, response: Response<List<AdvertisementResponse>>) {
                 if (response.isSuccessful) {
+                    binding.progressBar.visibility = View.GONE
                     val advertisements = response.body()
                     if (advertisements.isNullOrEmpty()) {
+                        binding.progressBar.visibility = View.GONE
                         binding.scroll.visibility = View.GONE
                         binding.emptyAdvertisements.visibility = View.VISIBLE
                     } else {
+                        binding.progressBar.visibility = View.GONE
                         binding.scroll.visibility = View.VISIBLE
                         binding.emptyAdvertisements.visibility = View.GONE
                         initRecyclerView(advertisements, status)
@@ -100,6 +104,7 @@ class MyAdvertisementsActivity: AppCompatActivity(), BottomSheetDeleteAdListener
             }
 
             override fun onFailure(call: Call<List<AdvertisementResponse>>, t: Throwable) {
+                binding.progressBar.visibility = View.GONE
                 binding.scroll.visibility = View.GONE
                 binding.emptyAdvertisements.visibility = View.VISIBLE
             }

@@ -4,10 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.net.toUri
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.letsbuy.adapter.AdapterViewProfile
@@ -15,7 +13,6 @@ import com.example.letsbuy.api.Rest
 import com.example.letsbuy.databinding.ActivityProfileViewBinding
 import com.example.letsbuy.dto.UserAdversimentsDtoResponse
 import com.example.letsbuy.service.UserService
-import com.example.letsbuy.ui.home.sell
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -64,7 +61,8 @@ class ProfileViewActivity : AppCompatActivity() {
                         .into(binding.profileImage)
 
                     binding.tvPersonName.text = userAndAdversiments!!.name
-                    binding.tvPostDate.text = "Na LetsBuy desde ${userAndAdversiments.registrationDate.substring(0, 10)}"
+                    binding.tvPostDate.text =
+                        "Na LetsBuy desde ${userAndAdversiments.registrationDate.substring(0, 10)}"
                     binding.scroll.visibility = View.VISIBLE
                     initRecyclerView(userAndAdversiments)
                 }
