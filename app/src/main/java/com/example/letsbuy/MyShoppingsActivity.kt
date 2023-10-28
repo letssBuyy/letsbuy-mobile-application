@@ -48,8 +48,8 @@ class MyShoppingsActivity: AppCompatActivity() {
         api.getBoughts(userId).enqueue(object: Callback<List<MyBoughtsResponse>> {
 
             override fun onResponse(call: Call<List<MyBoughtsResponse>>, response: Response<List<MyBoughtsResponse>>) {
+                binding.progressBar.visibility = View.GONE
                 if (response.isSuccessful) {
-                    binding.progressBar.visibility = View.GONE
                     val advertisements = response.body()
                     if (advertisements.isNullOrEmpty()) {
                         binding.scroll.visibility = View.GONE

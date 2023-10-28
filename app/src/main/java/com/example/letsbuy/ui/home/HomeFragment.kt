@@ -24,6 +24,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(layoutInflater)
+        binding.progressBar.visibility = View.VISIBLE
 
         val pref = context?.getSharedPreferences("AUTH", AppCompatActivity.MODE_PRIVATE)
         val id = pref?.getString("ID", null)?.toLong()
@@ -47,6 +48,7 @@ class HomeFragment : Fragment() {
                     call: Call<List<AllAdversimentsAndLikeDtoResponse>>,
                     response: Response<List<AllAdversimentsAndLikeDtoResponse>>
                 ) {
+                    binding.progressBar.visibility = View.GONE
                     if (response.isSuccessful) {
                         val adversiments = response.body()
                         if (adversiments.isNullOrEmpty()) {
@@ -62,6 +64,7 @@ class HomeFragment : Fragment() {
                     call: Call<List<AllAdversimentsAndLikeDtoResponse>>,
                     t: Throwable
                 ) {
+                    binding.progressBar.visibility = View.GONE
                     Toast.makeText(context, t.message, Toast.LENGTH_LONG).show()
                 }
             })

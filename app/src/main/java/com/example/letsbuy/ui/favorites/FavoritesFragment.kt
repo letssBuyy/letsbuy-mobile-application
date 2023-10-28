@@ -62,8 +62,8 @@ class FavoritesFragment : Fragment() {
                     call: retrofit2.Call<List<AllAdversimentsAndLikeDtoResponse>>,
                     response: Response<List<AllAdversimentsAndLikeDtoResponse>>
                 ) {
+                    binding.progressBar.visibility = View.INVISIBLE
                     if (response.isSuccessful) {
-                        binding.progressBar.visibility = View.INVISIBLE
                         val advertisements = response.body()
                         if (advertisements.isNullOrEmpty()) {
                             binding.scrollFav.visibility = View.GONE

@@ -27,6 +27,7 @@ class ProfileViewActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val sellerId = intent.getLongExtra("sellerId", 0)
+        binding.progressBar.visibility = View.VISIBLE
         updatePage(sellerId)
 
         binding.ivImageBack.setOnClickListener {
@@ -52,6 +53,7 @@ class ProfileViewActivity : AppCompatActivity() {
                 call: Call<UserAdversimentsDtoResponse>,
                 response: Response<UserAdversimentsDtoResponse>
             ) {
+                binding.progressBar.visibility = View.GONE
                 if (response.isSuccessful) {
                     val userAndAdversiments = response.body()
 
@@ -69,6 +71,7 @@ class ProfileViewActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<UserAdversimentsDtoResponse>, t: Throwable) {
+                binding.progressBar.visibility = View.GONE
                 binding.scroll.visibility = View.GONE
                 Toast.makeText(
                     this@ProfileViewActivity,

@@ -87,15 +87,13 @@ class MyAdvertisementsActivity: AppCompatActivity(), BottomSheetDeleteAdListener
         api.getAdvertisements(id!!, status).enqueue(object: Callback<List<AdvertisementResponse>> {
 
             override fun onResponse(call: Call<List<AdvertisementResponse>>, response: Response<List<AdvertisementResponse>>) {
+                binding.progressBar.visibility = View.GONE
                 if (response.isSuccessful) {
-                    binding.progressBar.visibility = View.GONE
                     val advertisements = response.body()
                     if (advertisements.isNullOrEmpty()) {
-                        binding.progressBar.visibility = View.GONE
                         binding.scroll.visibility = View.GONE
                         binding.emptyAdvertisements.visibility = View.VISIBLE
                     } else {
-                        binding.progressBar.visibility = View.GONE
                         binding.scroll.visibility = View.VISIBLE
                         binding.emptyAdvertisements.visibility = View.GONE
                         initRecyclerView(advertisements, status)
