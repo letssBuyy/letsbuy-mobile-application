@@ -52,6 +52,7 @@ class PerfilFragment : Fragment() {
         binding = FragmentPerfilBinding.inflate(layoutInflater)
         val pref = context?.getSharedPreferences("AUTH", AppCompatActivity.MODE_PRIVATE)
         val id = pref?.getString("ID", null)?.toLong()
+        binding.progressBar.visibility = View.VISIBLE
         getUserById(id)
         binding.tvEdtPerfil.setOnClickListener() {
             val edtPerfil = Intent(context, EditProfileActivity::class.java)
@@ -98,6 +99,7 @@ class PerfilFragment : Fragment() {
                 call: Call<UserAdversimentsDtoResponse>,
                 response: Response<UserAdversimentsDtoResponse>
             ) {
+                binding.progressBar.visibility = View.GONE
                 if (response.isSuccessful) {
                     val user = response.body()
                     Glide.with(this@PerfilFragment)
@@ -109,7 +111,7 @@ class PerfilFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<UserAdversimentsDtoResponse>, t: Throwable) {
-                TODO("Not yet implemented")
+                binding.progressBar.visibility = View.GONE
             }
         })
     }
