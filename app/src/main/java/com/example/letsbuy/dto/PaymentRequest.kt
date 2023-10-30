@@ -2,8 +2,8 @@ package com.example.letsbuy.dto
 
 data class PaymentRequest(
     val isShipment: Boolean,
-    val idAdvertisement: Long,
-    val idUser: Long,
+    val idAdvertisement: String,
+    val idUser: String,
     val cardNumber: String,
     val expMonth: String,
     val expYear: String,
