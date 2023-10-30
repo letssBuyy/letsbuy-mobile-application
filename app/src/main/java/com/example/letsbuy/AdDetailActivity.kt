@@ -38,6 +38,10 @@ class AdDetailActivity: AppCompatActivity() {
         val prefs = getSharedPreferences("AUTH", MODE_PRIVATE)
         idUser = prefs.getString("ID", "")?.toLong() ?: -1
 
+        binding.imageView.setOnClickListener {
+            val back = Intent(this, HomeActivity::class.java)
+            startActivity(back)
+        }
         getDetailData()
         bindLayoutEvents()
     }
