@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.text.isDigitsOnly
 import com.example.letsbuy.api.Rest
 import com.example.letsbuy.databinding.ActivityCheckoutPaymentBinding
 import com.example.letsbuy.dto.ImageDtoResponse
@@ -71,56 +72,80 @@ class CheckoutPaymentActivity: AppCompatActivity() {
         }
     }
 
-    fun payment() {
-        val isShipment: Boolean = when {
-            binding.withdrawRadioButton.isChecked -> false
-            binding.DeliveryRadioButton.isChecked -> true
-            else -> false
-        }
-        val cardName = binding.inputName.text
-        val cardNumber = binding.inputCardNumber
+    private fun validation(): Boolean {
+        val cardName = binding.inputName.text?.toString()
+        val cardNumber = binding.inputCardNumber.unMasked
         val expirationDate = binding.inputDateExpiration.unMasked
-        val month = expirationDate.substring(0, 2)
-        val year = expirationDate.substring(2)
-        val cvc = binding.inputCvC
+        val cvc = binding.inputCvC.unMasked
 
-        if (cardName.isNotEmpty() &&
-            cardNumber.isDone &&
-            month.isNotEmpty() &&
-            year.isNotEmpty() &&
-            cvc.isDone) {
+        if (cardName.isNullOrEmpty()) {
+            showToast("Preencha o nome do cartão")
+            return false
+        }
+
+        if (cardNumber.isEmpty() || cardNumber.length != 16 || !cardNumber.isDigitsOnly()) {
+            showToast("Preencha o número do cartão corretamente (deve conter 16 dígitos)")
+            return false
+        }
+
+        if (expirationDate.isEmpty() || expirationDate.length < 6 || !expirationDate.isDigitsOnly()) {
+            showToast("Preencha uma data válida (deve conter 6 dígitos)")
+            return false
+        }
+
+        if (cvc.isEmpty() || cvc.length < 3 || !cvc.isDigitsOnly()) {
+            showToast("Preencha um CVC válido (deve conter pelo menos 3 dígitos)")
+            return false
+        }
+
+        return true
+    }
+
+    fun payment() {
+        Log.d("respostaApi", validation().toString())
+
+        if (validation()) {
+            val isShipment: Boolean = when {
+                binding.withdrawRadioButton.isChecked -> false
+                binding.DeliveryRadioButton.isChecked -> true
+                else -> false
+            }
+
+            val cardName = binding.inputName.text
+            val cardNumber = binding.inputCardNumber.unMasked
+            val expirationDate = binding.inputDateExpiration.unMasked
+            val month = expirationDate.substring(0, 2)
+            val year = expirationDate.substring(2)
+            val cvc = binding.inputCvC.unMasked
 
             val paymentRequest = PaymentRequest(
                 isShipment = isShipment,
-                idAdvertisement = idAdversiment,
-                idUser = idUser,
-                cardNumber = cardNumber.unMasked,
+                idAdvertisement = idAdversiment.toString(),
+                idUser = idUser.toString(),
+                cardNumber = cardNumber,
                 expMonth = month,
                 expYear = year,
-                securityCode = cvc.unMasked,
+                securityCode = cvc,
                 holderName = cardName.toString()
             )
 
             Log.d("respostaApi", paymentRequest.toString())
 
             val api = Rest.getInstance().create(PaymentService::class.java)
-
             api.makePayment(paymentRequest).enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
-
                     if (response.isSuccessful) {
-                        Log.d("respostaApi", "deu tudo certo"+response.toString())
+                        showToast("Pagamento realizado com sucesso!!")
                     } else {
-                        Log.d("respostaApi", "deu tudo certo mas caiu no else"+response.toString())
+                        val errorResponse = response.toString()
+                        showToast("Erro ao realizar o pagamento $errorResponse")
+                        Log.d("respostaApi", errorResponse)
                     }
                 }
-
                 override fun onFailure(call: Call<Void>, t: Throwable) {
-                    Log.d("respostaApi", "caiu no catch")
+                    showToast("Ocorreu um erro ao realizar o pagamento")
                 }
             })
-        } else {
-            Toast.makeText(this, "Preencha os campos corretamente", Toast.LENGTH_LONG)
         }
     }
 
@@ -159,8 +184,15 @@ class CheckoutPaymentActivity: AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<List<DetailAdvertisementResponse>>, t: Throwable) {
-                Log.e("getDetailData", "Falha na requisição: ${t.message}")
+                showToast("Erro ao carregar anúncio")
             }
         })
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(
+            this,
+            message,
+            Toast.LENGTH_LONG).show()
     }
 }
