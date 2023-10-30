@@ -13,6 +13,7 @@ import com.example.letsbuy.dto.UserAdversimentsDtoResponse
 import com.example.letsbuy.dto.UserDtoResponse
 import com.example.letsbuy.dto.UserUpdateDto
 import com.example.letsbuy.service.UserService
+import com.example.letsbuy.ui.perfil.PerfilFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,7 +32,7 @@ class EditProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
         getUserById(userId!!)
         binding.imageBack.setOnClickListener() {
-            val back = Intent(this, PerfilActivity::class.java)
+            val back = Intent(this, HomeActivity::class.java)
             startActivity(back)
         }
         binding.btnUpdate.setOnClickListener {
@@ -136,7 +137,7 @@ class EditProfileActivity : AppCompatActivity() {
                         "Perfil Atualizado com Sucesso :) !",
                         Toast.LENGTH_SHORT
                     ).show()
-                    val black = Intent(this@EditProfileActivity, PerfilActivity::class.java)
+                    val black = Intent(this@EditProfileActivity, HomeActivity::class.java)
                     startActivity(black)
                 }
             }
