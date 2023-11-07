@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LetsBuy"
         tools:targetApi="31">
-
+        <activity
+            android:name=".SplashActivity"
+            android:exported="false" />
         <activity
             android:name=".FavoritesActivity"
             android:exported="false" />
@@ -29,6 +32,9 @@
             android:exported="false" />
         <activity
             android:name=".EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditAdActivity"
             android:exported="false" />
         <activity
             android:name=".CheckoutPaymentActivity"
@@ -66,10 +72,12 @@
             android:name=".RedefinePasswordActivity"
             android:exported="false" />
         <activity
+            android:name=".MyShoppingsTrackingActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

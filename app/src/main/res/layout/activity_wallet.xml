@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="50dp"
-        android:text="R$ 150,00"
+        android:text="••••••••"
         android:textSize="33sp"
         android:fontFamily="@font/poppins_bold"
         android:textStyle="bold"
@@ -50,11 +50,23 @@
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <ImageView
+        android:id="@+id/eye"
         android:layout_width="35dp"
         android:layout_height="25dp"
         android:layout_marginTop="11dp"
         android:layout_marginLeft="18dp"
         android:src="@drawable/eye"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+    <ImageView
+        android:id="@+id/eye_closed"
+        android:layout_width="35dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginLeft="18dp"
+        android:visibility="gone"
+        android:src="@drawable/icon_eye_closed"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="@+id/textView2" />
 
@@ -85,117 +97,47 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_withdraw" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/empty_transactions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="15dp"
-        android:layout_marginTop="7dp"
-        android:background="@drawable/bg_transaction"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:text="Saque"
-                android:textColor="@color/dark_gray"
-                android:textSize="18sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/poppins"
-                android:text="Conta bancária: 0122110383-5"
-                android:textColor="@color/dark_gray" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/poppins"
-                android:text="Realizado em:"
-                android:textColor="@color/primary_gray" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:text="10/05/2024"
-                android:textColor="@color/primary_gray" />
-        </LinearLayout>
+        <ImageView
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@drawable/zzz" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="- R$200"
-            android:textColor="@color/red"
-            android:textSize="23sp" />
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins"
+            android:text="Você ainda não possui histórico"
+            android:textColor="@color/primary_gray" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="15dp"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/bg_transaction"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="350dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_transactions"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:scrollbars="vertical" />
+    </androidx.core.widget.NestedScrollView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:text="Depósito"
-                android:textColor="@color/dark_gray"
-                android:textSize="18sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/poppins"
-                android:text="Conta bancária: 0122110383-5"
-                android:textColor="@color/dark_gray" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/poppins"
-                android:text="Realizado em:"
-                android:textColor="@color/primary_gray" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:text="10/05/2024"
-                android:textColor="@color/primary_gray" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="+ R$200"
-            android:textColor="@color/green"
-            android:textSize="23sp" />
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

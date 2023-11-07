@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_adversiment"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_transaction"
+        android:paddingTop="20dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:src="@drawable/badge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/iv_adversiment"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R$200"
+        android:fontFamily="@font/poppins_bold"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:id="@+id/tv_price_ad"
+        android:textColor="@color/red"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@id/iv_adversiment"
+        app:layout_constraintTop_toBottomOf="@id/iv_adversiment"/>
+
+    <TextView
+        android:text="Bolsa marrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:textStyle="bold"
+        android:textColor="#555555"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="@id/tv_price_ad"
+        app:layout_constraintTop_toBottomOf="@id/tv_price_ad"
+        android:id="@+id/tv_title_ad"/>
+
+    <TextView
+        android:text="Acessórios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:textColor="#555555"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="@id/tv_title_ad"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_ad"
+        android:id="@+id/tv_category_ad"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/curti"
+        app:layout_constraintEnd_toEndOf="@id/iv_adversiment"
+        app:layout_constraintTop_toBottomOf="@id/iv_adversiment"
+        android:id="@+id/likeOne"
+        android:layout_marginTop="57dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

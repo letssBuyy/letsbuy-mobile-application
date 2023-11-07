@@ -9,7 +9,9 @@
     <color name="semi">#C8DFDFDF</color>
     <color name="secondary_black">#555555</color>
     <color name="primary_gray">#969696</color>
-    <color name="green">#05FF00</color>
+    <color name="green">#05B501</color>
     <color name="very_light_gray">#D1D1D1</color>
     <color name="light_gray2">#E6E1DD</color>
+    <color name="light_gray3">#ECECEC</color>
+    <color name="light_gray4">#E9E9E9</color>
 </resources>

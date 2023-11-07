@@ -12,10 +12,10 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -25,485 +25,970 @@
                 android:id="@+id/imageBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="37dp"
+                android:layout_marginTop="30dp"
                 android:src="@drawable/back_button"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="37dp"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/publishAdTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_gravity="bottom"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Editar Anúncio"
-                android:id="@+id/publishAdTitle"
-                app:layout_constraintStart_toStartOf="parent"
+                android:text="Editar Perfil"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:textSize="20sp"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <View
+                android:id="@+id/line"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/semi"
-                android:id="@+id/line"
                 android:layout_marginTop="20dp"
+                android:background="@color/semi"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/publishAdTitle"/>
+                app:layout_constraintTop_toBottomOf="@id/publishAdTitle" />
 
             <TextView
-                android:text="Dados Cadastrais"
                 android:id="@+id/phraseAd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/poppins_bold"
+                android:text="Dados Cadastrais"
                 android:textColor="#555555"
                 android:textSize="20sp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/line"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line" />
 
             <ImageView
-                android:text="Título"
                 android:id="@+id/titleAd"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:fontFamily="@font/poppins_bold"
-                android:textSize="14sp"
-                android:textColor="#555555"
-                android:layout_marginTop="25dp"
-                android:src="@drawable/perfil_image"
                 android:layout_marginLeft="30dp"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/poppins_bold"
+                android:src="@drawable/perfil_image"
+                android:text="Título"
+                android:textColor="#555555"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/phraseAd"/>
+                app:layout_constraintTop_toBottomOf="@id/phraseAd" />
 
             <TextView
                 android:id="@+id/tituloedit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Alterar foto de perfil"
                 android:textColor="#555555"
                 android:textSize="18sp"
-                android:layout_marginStart="15dp"
                 app:layout_constraintStart_toEndOf="@+id/titleAd"
                 app:layout_constraintTop_toTopOf="@id/titleAd" />
 
 
             <TextView
-                android:text="Nome"
                 android:id="@+id/NameAd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:textSize="14sp"
-                android:textColor="#555555"
                 android:layout_marginTop="25dp"
-                android:layout_marginLeft="30dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/titleAd"/>
+                android:fontFamily="@font/poppins_bold"
+                android:text="Nome"
+                android:textColor="#555555"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/inputName"
+                app:layout_constraintTop_toBottomOf="@id/titleAd" />
 
 
             <EditText
-                android:layout_width="350dp"
-                android:layout_marginTop="10dp"
-                android:text="Carlos"
-                android:fontFamily="@font/poppins"
-                android:textColor="#969696"
+                android:id="@+id/inputName"
+                android:layout_width="300dp"
                 android:layout_height="45dp"
-                android:inputType="text"
-                android:id="@+id/inputTitle"
-                android:padding="10dp"
-                android:textSize="15sp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
-                app:layout_constraintStart_toStartOf="@id/NameAd"
+                android:fontFamily="@font/poppins"
+                android:inputType="text"
+                android:padding="10dp"
+                android:text="Carlos"
+                android:textColor="#969696"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/NameAd" />
 
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/inputName"
+                app:layout_constraintTop_toBottomOf="@id/inputName"
+                />
+
             <TextView
-                android:text="CPF"
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Digite o nome"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_name"
+                app:layout_constraintTop_toBottomOf="@id/inputName"
+                />
+
+            <TextView
                 android:id="@+id/descriptionAd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:textSize="14sp"
-                android:textColor="#555555"
                 android:layout_marginTop="25dp"
-                android:layout_marginLeft="30dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/inputTitle"/>
+                android:fontFamily="@font/poppins_bold"
+                android:text="CPF"
+                android:textColor="#555555"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/inputCpf"
+                app:layout_constraintTop_toBottomOf="@id/inputName" />
 
             <EditText
-                android:layout_width="350dp"
-                android:layout_marginTop="10dp"
-                android:text="000.000.00-00"
-                android:gravity="start"
-                android:fontFamily="@font/poppins"
-                android:textColor="#969696"
+                android:id="@+id/inputCpf"
+                android:layout_width="300dp"
                 android:layout_height="45dp"
-                android:inputType="text"
-                android:id="@+id/inputDescription"
-                android:textSize="15sp"
-                android:padding="10dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
-                app:layout_constraintStart_toStartOf="@id/NameAd"
-                app:layout_constraintTop_toBottomOf="@id/descriptionAd"
+                android:fontFamily="@font/poppins"
+                android:gravity="start"
+                android:inputType="text"
+                android:padding="10dp"
+                android:text="000.000.00-00"
+                android:textColor="#969696"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/descriptionAd" />
+
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_cpf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/inputName"
+                app:layout_constraintTop_toBottomOf="@id/inputCpf"
                 />
 
             <TextView
-                android:text="Data de nascimento"
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_cpf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Digite o cpf"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_cpf"
+                app:layout_constraintTop_toBottomOf="@id/inputCpf"
+                />
+
+
+            <TextView
                 android:id="@+id/colorAd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:textSize="14sp"
-                android:textColor="#555555"
                 android:layout_marginTop="25dp"
-                android:layout_marginLeft="30dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/inputDescription"/>
+                android:fontFamily="@font/poppins_bold"
+                android:text="Data de nascimento"
+                android:textColor="#555555"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/inputDtBirth"
+                app:layout_constraintTop_toBottomOf="@id/inputCpf" />
 
             <EditText
-                android:layout_width="350dp"
-                android:layout_marginTop="10dp"
-                android:text="00/00/0000"
-                android:fontFamily="@font/poppins"
-                android:textColor="#969696"
+                android:id="@+id/inputDtBirth"
+                android:layout_width="300dp"
                 android:layout_height="45dp"
-                android:inputType="text"
-                android:id="@+id/inputColor"
-                android:textSize="15sp"
-                android:padding="10dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
-                app:layout_constraintStart_toStartOf="@id/NameAd"
-                app:layout_constraintTop_toBottomOf="@id/colorAd"
-                />
+                android:fontFamily="@font/poppins"
+                android:inputType="text"
+                android:padding="10dp"
+                android:text="00/00/0000"
+                android:textColor="#969696"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/colorAd" />
 
             <TextView
-                android:text="Número de celular"
                 android:id="@+id/categoryAd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:textSize="14sp"
-                android:textColor="#555555"
                 android:layout_marginTop="25dp"
-                android:layout_marginLeft="30dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/inputColor"/>
+                android:fontFamily="@font/poppins_bold"
+                android:text="Número de celular"
+                android:textColor="#555555"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/inputPhNumber"
+                app:layout_constraintTop_toBottomOf="@id/inputDtBirth" />
 
-            <EditText
-                android:layout_width="350dp"
-                android:layout_marginTop="10dp"
-                android:text="00 00000-0000"
-                android:fontFamily="@font/poppins"
-                android:textColor="#969696"
-                android:layout_height="45dp"
-                android:inputType="text"
-                android:id="@+id/inputCategory"
-                android:textSize="15sp"
-                android:padding="10dp"
-                android:background="@drawable/input_publish_edit_ad"
-                app:layout_constraintStart_toStartOf="@id/NameAd"
-                app:layout_constraintTop_toBottomOf="@id/categoryAd"
-                />
-
-
-            <TextView
-                android:text="Seguraça e privacidade"
-                android:id="@+id/security"
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_dtNasc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:textColor="#555555"
-                android:textSize="20sp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/inputCategory"/>
-
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/inputName"
+                app:layout_constraintTop_toBottomOf="@id/inputDtBirth"
+                />
 
             <TextView
-                android:text="Email"
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_dtNasc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Digite a data de nascimento"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_dtNasc"
+                app:layout_constraintTop_toBottomOf="@id/inputDtBirth"
+                />
+
+            <EditText
+                android:id="@+id/inputPhNumber"
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_publish_edit_ad"
+                android:fontFamily="@font/poppins"
+                android:inputType="text"
+                android:padding="10dp"
+                android:text="00 00000-0000"
+                android:textColor="#969696"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/categoryAd" />
+
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_phNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/inputName"
+                app:layout_constraintTop_toBottomOf="@id/inputPhNumber"
+                />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_phNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Digite o número"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_phNumber"
+                app:layout_constraintTop_toBottomOf="@id/inputPhNumber"
+                />
+
+            <TextView
                 android:id="@+id/priceAd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:textSize="14sp"
-                android:textColor="#555555"
                 android:layout_marginTop="25dp"
-                android:layout_marginLeft="30dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/security"/>
+                android:fontFamily="@font/poppins_bold"
+                android:text="Email"
+                android:textColor="#555555"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/inputEmail"
+                app:layout_constraintTop_toBottomOf="@id/inputPhNumber" />
 
             <EditText
-                android:layout_width="350dp"
+                android:id="@+id/inputEmail"
+                android:layout_width="300dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="10dp"
+                android:background="@drawable/input_publish_edit_ad"
                 android:fontFamily="@font/poppins"
+                android:inputType="text"
+                android:padding="10dp"
                 android:text="lestbuy.lest100@lestbuy.com"
                 android:textColor="#969696"
-                android:layout_height="45dp"
-                android:inputType="text"
-                android:id="@+id/inputPrice"
                 android:textSize="15sp"
-                android:padding="10dp"
-                android:background="@drawable/input_publish_edit_ad"
-                app:layout_constraintStart_toStartOf="@id/NameAd"
-                app:layout_constraintTop_toBottomOf="@id/priceAd"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/priceAd" />
+
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/inputName"
+                app:layout_constraintTop_toBottomOf="@id/inputEmail"
                 />
 
             <TextView
-                android:text="Conta Bancaria"
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Digite o email"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_email"
+                app:layout_constraintTop_toBottomOf="@id/inputEmail"
+                />
+
+            <TextView
                 android:id="@+id/contBank"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:textSize="14sp"
-                android:textColor="#555555"
                 android:layout_marginTop="25dp"
-                android:layout_marginLeft="30dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Conta Bancaria"
+                android:textColor="#555555"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/inputPrice"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputEmail" />
 
             <TextView
-                android:text="Banco"
                 android:id="@+id/Bank"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:textSize="14sp"
-                android:textColor="#555555"
                 android:layout_marginTop="25dp"
-                android:layout_marginLeft="30dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/contBank"/>
+                android:fontFamily="@font/poppins_bold"
+                android:text="Banco"
+                android:textColor="#555555"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/inputBank"
+                app:layout_constraintTop_toBottomOf="@id/contBank" />
 
             <EditText
-                android:layout_width="130dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/poppins"
-                android:text="000000000"
-                android:textColor="#969696"
-                android:layout_height="45dp"
-                android:inputType="text"
                 android:id="@+id/inputBank"
-                android:textSize="15sp"
-                android:padding="10dp"
-                android:background="@drawable/input_publish_edit_ad"
-                app:layout_constraintStart_toStartOf="@id/Bank"
-                app:layout_constraintTop_toBottomOf="@id/Bank"
-                />
-
-            <EditText
-                android:layout_width="134dp"
+                android:layout_width="300dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="10dp"
+                android:background="@drawable/input_publish_edit_ad"
                 android:fontFamily="@font/poppins"
+                android:inputType="text"
+                android:padding="10dp"
                 android:text="000000000"
                 android:textColor="#969696"
-                android:layout_height="45dp"
-                android:inputType="text"
-                android:id="@+id/inputAg"
                 android:textSize="15sp"
-                android:layout_marginStart="5dp"
-                android:padding="10dp"
-                android:background="@drawable/input_publish_edit_ad"
-                app:layout_constraintStart_toEndOf="@id/inputBank"
-                app:layout_constraintTop_toBottomOf="@id/Bank"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Bank" />
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_bkBank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/inputName"
+                app:layout_constraintTop_toBottomOf="@id/inputBank"
                 />
 
             <TextView
-                android:text="Agência"
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_bkBank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Digite o banco"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_bkBank"
+                app:layout_constraintTop_toBottomOf="@id/inputBank"
+                />
+
+            <EditText
+                android:id="@+id/inputAg"
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_publish_edit_ad"
+                android:fontFamily="@font/poppins"
+                android:inputType="text"
+                android:padding="10dp"
+                android:text="000000000"
+                android:textColor="#969696"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ag" />
+
+            <TextView
                 android:id="@+id/ag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:textSize="14sp"
-                android:textColor="#555555"
                 android:layout_marginTop="25dp"
-                app:layout_constraintStart_toStartOf="@id/inputAg"
-                app:layout_constraintBottom_toTopOf="@id/inputAg"/>
+                android:fontFamily="@font/poppins_bold"
+                android:text="Agência"
+                android:textColor="#555555"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/inputBank"
+                app:layout_constraintStart_toStartOf="@id/inputAg" />
 
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_bkAgencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/inputAg"
+                app:layout_constraintTop_toBottomOf="@id/inputAg"
+                />
 
             <TextView
-                android:text="Conta"
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_bkAgencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Digite a agência"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_bkAgencia"
+                app:layout_constraintTop_toBottomOf="@id/inputAg"
+                />
+
+            <TextView
                 android:id="@+id/count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:textSize="14sp"
-                android:textColor="#555555"
                 android:layout_marginTop="25dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Conta"
+                android:textColor="#555555"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/inputAg"
                 app:layout_constraintStart_toStartOf="@id/inputCount"
-                app:layout_constraintBottom_toTopOf="@id/inputAg"/>
+                />
 
             <EditText
-                android:layout_width="87dp"
+                android:id="@+id/inputCount"
+                android:layout_width="300dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="10dp"
+                android:background="@drawable/input_publish_edit_ad"
                 android:fontFamily="@font/poppins"
+                android:inputType="text"
+                android:padding="10dp"
                 android:text="00000"
                 android:textColor="#969696"
-                android:layout_height="45dp"
-                android:inputType="text"
-                android:id="@+id/inputCount"
                 android:textSize="15sp"
-                android:layout_marginStart="5dp"
-                android:padding="10dp"
-                android:background="@drawable/input_publish_edit_ad"
-                app:layout_constraintStart_toEndOf="@id/inputAg"
-                app:layout_constraintTop_toBottomOf="@id/Bank"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/count" />
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_bkCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/inputCount"
+                app:layout_constraintTop_toBottomOf="@id/inputCount"
                 />
 
             <TextView
-                android:text="Endereço"
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_bkCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Digite a conta"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_bkCount"
+                app:layout_constraintTop_toBottomOf="@id/inputCount"
+                />
+
+            <TextView
                 android:id="@+id/endereco"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
                 android:fontFamily="@font/poppins_bold"
+                android:text="Endereço"
                 android:textColor="#555555"
                 android:textSize="20sp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/inputBank"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputCount" />
 
             <TextView
-                android:text="CEP"
                 android:id="@+id/CEP"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:textSize="14sp"
-                android:textColor="#555555"
                 android:layout_marginTop="25dp"
-                android:layout_marginLeft="30dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/endereco"/>
+                android:fontFamily="@font/poppins_bold"
+                android:text="CEP"
+                android:textColor="#555555"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/inputCep"
+                app:layout_constraintTop_toBottomOf="@id/endereco" />
 
             <EditText
-                android:layout_width="350dp"
-                android:layout_marginTop="10dp"
-                android:text="00000-000"
-                android:gravity="start"
-                android:fontFamily="@font/poppins"
-                android:textColor="#969696"
-                android:layout_height="45dp"
-                android:inputType="text"
                 android:id="@+id/inputCep"
-                android:textSize="15sp"
-                android:padding="10dp"
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
-                app:layout_constraintStart_toStartOf="@id/NameAd"
-                app:layout_constraintTop_toBottomOf="@id/CEP"
-               />
+                android:fontFamily="@font/poppins"
+                android:gravity="start"
+                android:inputType="text"
+                android:padding="10dp"
+                android:text="00000-000"
+                android:textColor="#969696"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/CEP" />
 
-            <TextView
-                android:text="Rua"
-                android:id="@+id/rua"
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_cep"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:textSize="14sp"
-                android:textColor="#555555"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="30dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/inputCep"/>
-
-
-            <EditText
-                android:layout_width="350dp"
-                android:layout_marginTop="10dp"
-                android:text="Rua Lestbuy lobo"
-                android:gravity="start"
-                android:fontFamily="@font/poppins"
-                android:textColor="#969696"
-                android:layout_height="45dp"
-                android:inputType="text"
-                android:id="@+id/inputRua"
-                android:textSize="15sp"
-                android:padding="10dp"
-                android:background="@drawable/input_publish_edit_ad"
-                app:layout_constraintStart_toStartOf="@id/NameAd"
-                app:layout_constraintTop_toBottomOf="@id/rua"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/inputName"
+                app:layout_constraintTop_toBottomOf="@id/inputCep"
                 />
 
             <TextView
-                android:text="Número"
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_cep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Digite o cep"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_cep"
+                app:layout_constraintTop_toBottomOf="@id/inputCep"
+                />
+
+            <TextView
+                android:id="@+id/rua"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Rua"
+                android:textColor="#555555"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/inputRua"
+                app:layout_constraintTop_toBottomOf="@id/inputCep" />
+
+
+            <EditText
+                android:id="@+id/inputRua"
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_publish_edit_ad"
+                android:fontFamily="@font/poppins"
+                android:gravity="start"
+                android:inputType="text"
+                android:padding="10dp"
+                android:text="Rua Lestbuy lobo"
+                android:textColor="#969696"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rua" />
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_rua"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/inputName"
+                app:layout_constraintTop_toBottomOf="@id/inputRua"
+                />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_rua"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Digite a rua"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_rua"
+                app:layout_constraintTop_toBottomOf="@id/inputRua"
+                />
+
+
+            <TextView
                 android:id="@+id/number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:textSize="14sp"
-                android:textColor="#555555"
                 android:layout_marginTop="25dp"
-                android:layout_marginLeft="30dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/inputRua"/>
+                android:fontFamily="@font/poppins_bold"
+                android:text="Número"
+                android:textColor="#555555"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/inputNumero"
+                app:layout_constraintTop_toBottomOf="@id/inputRua" />
 
 
             <EditText
-                android:layout_width="350dp"
-                android:layout_marginTop="10dp"
-                android:text="00"
-                android:gravity="start"
-                android:fontFamily="@font/poppins"
-                android:textColor="#969696"
-                android:layout_height="45dp"
-                android:inputType="text"
                 android:id="@+id/inputNumero"
-                android:textSize="15sp"
-                android:padding="10dp"
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
-                app:layout_constraintStart_toStartOf="@id/NameAd"
+                android:fontFamily="@font/poppins"
+                android:gravity="start"
+                android:inputType="text"
+                android:padding="10dp"
+                android:text="00"
+                android:textColor="#969696"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/number" />
 
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/inputName"
+                app:layout_constraintTop_toBottomOf="@id/inputNumero"
+                />
+
             <TextView
-                android:text="Complemento"
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Digite o número"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_number"
+                app:layout_constraintTop_toBottomOf="@id/inputNumero"
+                />
+
+
+            <TextView
                 android:id="@+id/complement"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:textSize="14sp"
-                android:textColor="#555555"
                 android:layout_marginTop="25dp"
-                android:layout_marginLeft="30dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/inputNumero"/>
+                android:fontFamily="@font/poppins_bold"
+                android:text="Complemento"
+                android:textColor="#555555"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/inputComplement"
+                app:layout_constraintTop_toBottomOf="@id/inputNumero" />
 
 
             <EditText
-                android:layout_width="350dp"
-                android:layout_marginTop="10dp"
-                android:text="00"
-                android:gravity="start"
-                android:fontFamily="@font/poppins"
-                android:textColor="#969696"
-                android:layout_height="45dp"
-                android:inputType="text"
                 android:id="@+id/inputComplement"
-                android:textSize="15sp"
-                android:padding="10dp"
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/input_publish_edit_ad"
-                app:layout_constraintStart_toStartOf="@id/NameAd"
+                android:fontFamily="@font/poppins"
+                android:gravity="start"
+                android:inputType="text"
+                android:padding="10dp"
+                android:text="00"
+                android:textColor="#969696"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/complement" />
 
-            <Button
-                android:id="@+id/btnPublish"
+            <ProgressBar
+                android:id="@+id/progress_bar"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputComplement"
+                app:layout_constraintBottom_toTopOf="@id/inputBairro"
+                android:visibility="invisible"
+                />
+
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_comp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/inputName"
+                app:layout_constraintTop_toBottomOf="@id/inputComplement"
+                />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_comp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Digite o complemento"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_comp"
+                app:layout_constraintTop_toBottomOf="@id/inputComplement"
+                />
+
+
+            <TextView
+                android:id="@+id/titlebairro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Bairro"
+                android:textColor="#555555"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/inputBairro"
+                app:layout_constraintTop_toBottomOf="@id/inputComplement" />
+
+
+            <EditText
+                android:id="@+id/inputBairro"
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_publish_edit_ad"
+                android:fontFamily="@font/poppins"
+                android:gravity="start"
+                android:inputType="text"
+                android:padding="10dp"
+                android:text="00"
+                android:textColor="#969696"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/titlebairro" />
+
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_bairro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/inputName"
+                app:layout_constraintTop_toBottomOf="@id/inputBairro"
+                />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_bairro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Digite o bairro"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_bairro"
+                app:layout_constraintTop_toBottomOf="@id/inputBairro"
+                />
+
+
+            <TextView
+                android:id="@+id/titleState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Estado"
+                android:textColor="#555555"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/inputState"
+                app:layout_constraintTop_toBottomOf="@id/inputBairro" />
+
+
+            <EditText
+                android:id="@+id/inputState"
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_publish_edit_ad"
+                android:fontFamily="@font/poppins"
+                android:gravity="start"
+                android:inputType="text"
+                android:padding="10dp"
+                android:text="00"
+                android:textColor="#969696"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/titleState" />
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/inputName"
+                app:layout_constraintTop_toBottomOf="@id/inputState"
+                />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Digite o estado"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_state"
+                app:layout_constraintTop_toBottomOf="@id/inputState"
+                />
+
+
+            <TextView
+                android:id="@+id/titleCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Cidade"
+                android:textColor="#555555"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/inputCity"
+                app:layout_constraintTop_toBottomOf="@id/inputState" />
+
+
+            <EditText
+                android:id="@+id/inputCity"
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_publish_edit_ad"
+                android:fontFamily="@font/poppins"
+                android:gravity="start"
+                android:inputType="text"
+                android:padding="10dp"
+                android:text="00"
+                android:textColor="#969696"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/titleCity" />
+
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_icon_error_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_error_png"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/inputName"
+                app:layout_constraintTop_toBottomOf="@id/inputCity"
+                />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_message_error_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Digite a cidade"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/iv_icon_error_city"
+                app:layout_constraintTop_toBottomOf="@id/inputCity"
+                />
+
+
+
+            <Button
+                android:id="@+id/btnUpdate"
+                android:layout_width="300dp"
                 android:layout_height="60dp"
+                android:layout_marginTop="30dp"
                 android:width="329dp"
                 android:backgroundTint="@color/red"
                 android:text="@string/atualizar"
                 android:textSize="19sp"
                 android:textStyle="bold"
                 app:cornerRadius="5dp"
-                android:layout_marginTop="30dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/inputComplement" />
+                app:layout_constraintTop_toBottomOf="@+id/inputCity" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

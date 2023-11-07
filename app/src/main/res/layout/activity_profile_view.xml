@@ -7,22 +7,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ProfileViewActivity">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
             <ImageView
-                android:id="@+id/imageView1"
+                android:id="@+id/iv_image_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/back_button"
@@ -32,16 +18,16 @@
                 android:layout_marginLeft="37dp"/>
 
             <TextView
-                android:id="@+id/personName"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="100dp"
-                android:layout_marginTop="20dp"
-                android:text="Tommy"
+                android:id="@+id/tv_person_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text=""
                 android:fontFamily="@font/poppins"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@id/imageView1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <View
@@ -51,17 +37,18 @@
                 android:id="@+id/line"
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/personName"/>
+                app:layout_constraintTop_toBottomOf="@id/tv_person_name"/>
 
             <ImageView
+                android:id="@+id/profileImage"
+                android:scaleType="centerCrop"
+                android:background="@drawable/circle_profile_image"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/line"
-                android:layout_marginLeft="40dp"
-                android:id="@+id/profileImage"
-                android:layout_marginTop="15dp"
-                android:src="@drawable/perfil_image" />
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="30dp"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -69,9 +56,9 @@
                 android:src="@drawable/icon_shield_pink"
                 app:layout_constraintStart_toEndOf="@id/profileImage"
                 app:layout_constraintTop_toBottomOf="@id/line"
-                android:id="@+id/imageShieldPink"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="22dp"/>
+                android:id="@+id/iv_shield_pink"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="30dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -79,10 +66,10 @@
                 android:text="Vendedor verificado"
                 android:fontFamily="@font/poppins"
                 android:textStyle="bold"
-                android:id="@+id/verifiedSeller"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="5dp"
-                app:layout_constraintStart_toEndOf="@id/imageShieldPink"
+                android:id="@+id/tv_verified_seller"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="5dp"
+                app:layout_constraintStart_toEndOf="@id/iv_shield_pink"
                 app:layout_constraintTop_toBottomOf="@id/line"/>
 
             <TextView
@@ -91,23 +78,24 @@
                 android:text="São Paulo, SP"
                 android:fontFamily="@font/poppins"
                 android:textStyle="bold"
-                android:layout_marginLeft="50dp"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="6dp"
                 android:textSize="12sp"
-                android:id="@+id/citySeller"
+                android:id="@+id/tv_city_seller"
                 app:layout_constraintStart_toEndOf="@id/profileImage"
-                app:layout_constraintTop_toBottomOf="@id/imageShieldPink" />
+                app:layout_constraintTop_toBottomOf="@id/iv_shield_pink" />
 
             <TextView
+                android:id="@+id/tv_post_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Na LetsBuy desde 2023"
+                android:text=""
                 android:textSize="12sp"
                 android:fontFamily="@font/poppins"
                 android:textStyle="bold"
-                android:layout_marginLeft="50dp"
+                android:layout_marginStart="40dp"
                 app:layout_constraintStart_toEndOf="@id/profileImage"
-                app:layout_constraintTop_toBottomOf="@id/citySeller" />
+                app:layout_constraintTop_toBottomOf="@id/tv_city_seller" />
 
             <View
                 android:layout_width="match_parent"
@@ -118,254 +106,40 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/profileImage"/>
 
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_image_back"
+        app:layout_constraintTop_toBottomOf="@id/lineTwo">
 
-            <ImageView
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:src="@drawable/badge"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/lineTwo"
-                android:id="@+id/badgeImageOne"
-                android:layout_marginLeft="57dp"
-                android:layout_marginTop="30dp"/>
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/scroll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lineTwo"
+            android:visibility="gone"
+            />
 
-            <TextView
-                android:layout_width="50dp"
-                android:layout_height="20dp"
-                android:text="R$200"
-                android:fontFamily="@font/poppins"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:id="@+id/priceImageOne"
-                android:textColor="#F14866"
-                android:layout_marginLeft="57dp"
-                android:layout_marginTop="5dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/badgeImageOne"/>
-            
-            <TextView
-                android:text="bolsa marrom"
-                android:layout_width="100dp"
-                android:layout_height="18dp"
-                android:fontFamily="@font/poppins"
-                android:textStyle="bold"
-                android:textColor="#555555"
-                android:textSize="12sp"
-                android:layout_marginLeft="57dp"
-                android:layout_marginTop="2dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/priceImageOne"
-                android:id="@+id/nameAdOne"/>
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:text="Tommy"
-                android:layout_width="50dp"
-                android:layout_height="18dp"
-                android:fontFamily="@font/poppins"
-                android:textColor="#555555"
-                android:textSize="12sp"
-                android:layout_marginLeft="57dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/nameAdOne"
-                android:id="@+id/brandAdOne"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_advertisements_seller"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical" />
 
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/curti"
-                app:layout_constraintStart_toEndOf="@id/nameAdOne"
-                app:layout_constraintTop_toBottomOf="@id/badgeImageOne"
-                android:id="@+id/likeOne"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"/>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
 
-            <ImageView
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:src="@drawable/badge"
-                app:layout_constraintStart_toEndOf="@id/badgeImageOne"
-                app:layout_constraintTop_toBottomOf="@id/lineTwo"
-                android:id="@+id/badgeImageTwo"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="30dp"/>
-
-            <TextView
-                android:layout_width="50dp"
-                android:layout_height="20dp"
-                android:text="R$200"
-                android:fontFamily="@font/poppins"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:id="@+id/priceImageTwo"
-                android:textColor="#F14866"
-                android:layout_marginRight="130dp"
-                android:layout_marginTop="5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/badgeImageTwo"/>
-
-            <TextView
-                android:text="bolsa marrom"
-                android:layout_width="100dp"
-                android:layout_height="18dp"
-                android:fontFamily="@font/poppins"
-                android:textStyle="bold"
-                android:textColor="#555555"
-                android:textSize="12sp"
-                android:layout_marginRight="80dp"
-                android:layout_marginTop="2dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/priceImageTwo"
-                android:id="@+id/nameAdTwo"/>
-
-            <TextView
-                android:text="Tommy"
-                android:layout_width="50dp"
-                android:layout_height="18dp"
-                android:fontFamily="@font/poppins"
-                android:textColor="#555555"
-                android:textSize="12sp"
-                android:layout_marginRight="130dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/nameAdTwo"
-                android:id="@+id/brandAdTwo"/>
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/curti"
-                app:layout_constraintStart_toEndOf="@id/nameAdTwo"
-                app:layout_constraintTop_toBottomOf="@id/badgeImageTwo"
-                android:id="@+id/likeTwo"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"/>
-
-            <ImageView
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:src="@drawable/badge"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/brandAdOne"
-                android:id="@+id/badgeImageThree"
-                android:layout_marginLeft="57dp"
-                android:layout_marginTop="40dp"/>
-
-            <TextView
-                android:layout_width="50dp"
-                android:layout_height="20dp"
-                android:text="R$200"
-                android:fontFamily="@font/poppins"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:id="@+id/priceImageThree"
-                android:textColor="#F14866"
-                android:layout_marginLeft="57dp"
-                android:layout_marginTop="5dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/badgeImageThree"/>
-
-            <TextView
-                android:text="bolsa marrom"
-                android:layout_width="100dp"
-                android:layout_height="18dp"
-                android:fontFamily="@font/poppins"
-                android:textStyle="bold"
-                android:textColor="#555555"
-                android:textSize="12sp"
-                android:layout_marginLeft="57dp"
-                android:layout_marginTop="2dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/priceImageThree"
-                android:id="@+id/nameAdThree"/>
-
-            <TextView
-                android:text="Tommy"
-                android:layout_width="50dp"
-                android:layout_height="18dp"
-                android:fontFamily="@font/poppins"
-                android:textColor="#555555"
-                android:textSize="12sp"
-                android:layout_marginLeft="57dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/nameAdThree"
-                android:id="@+id/brandAdThree"/>
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/curti"
-                app:layout_constraintStart_toEndOf="@id/nameAdThree"
-                app:layout_constraintTop_toBottomOf="@id/badgeImageThree"
-                android:id="@+id/likeThree"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"/>
-
-
-            <ImageView
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:src="@drawable/badge"
-                app:layout_constraintStart_toEndOf="@id/badgeImageThree"
-                app:layout_constraintTop_toBottomOf="@id/brandAdTwo"
-                android:id="@+id/badgeImageFour"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="40dp"/>
-
-            <TextView
-                android:layout_width="50dp"
-                android:layout_height="20dp"
-                android:text="R$200"
-                android:fontFamily="@font/poppins"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:id="@+id/priceImageFour"
-                android:textColor="#F14866"
-                android:layout_marginRight="130dp"
-                android:layout_marginTop="5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/badgeImageFour"/>
-
-            <TextView
-                android:text="bolsa marrom"
-                android:layout_width="100dp"
-                android:layout_height="18dp"
-                android:fontFamily="@font/poppins"
-                android:textStyle="bold"
-                android:textColor="#555555"
-                android:textSize="12sp"
-                android:layout_marginRight="80dp"
-                android:layout_marginTop="2dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/priceImageFour"
-                android:id="@+id/nameAdFour"/>
-
-            <TextView
-                android:text="Tommy"
-                android:layout_width="50dp"
-                android:layout_height="18dp"
-                android:fontFamily="@font/poppins"
-                android:textColor="#555555"
-                android:textSize="12sp"
-                android:layout_marginRight="130dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/nameAdFour"
-                android:id="@+id/brandAdFour"/>
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/curti"
-                app:layout_constraintStart_toEndOf="@id/nameAdFour"
-                app:layout_constraintTop_toBottomOf="@id/badgeImageFour"
-                android:id="@+id/likeFour"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"/>
-
-
-
-
-
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

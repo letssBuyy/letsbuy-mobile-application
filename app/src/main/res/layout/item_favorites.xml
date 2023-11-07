@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="25dp">
+
+
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:src="@drawable/badge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/imageViewAdversement"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R$200"
+        android:fontFamily="@font/poppins"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:id="@+id/textViewPrice"
+        android:textColor="#F14866"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@+id/imageViewAdversement"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewAdversement"/>
+
+
+    <TextView
+        android:text="bolsa marrom"
+        android:layout_width="100dp"
+        android:layout_height="18dp"
+        android:fontFamily="@font/poppins"
+        android:textStyle="bold"
+        android:textColor="#555555"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/imageViewAdversement"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPrice"
+        android:id="@+id/textViewTittle"/>
+
+    <TextView
+        android:id="@+id/textViewCategory"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/imageViewAdversement"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTittle" />
+
+
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/curti"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewAdversement"
+        app:layout_constraintTop_toTopOf="@+id/textViewPrice"
+        android:id="@+id/imageViewLike"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
