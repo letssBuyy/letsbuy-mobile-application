@@ -136,17 +136,30 @@ class CheckoutPaymentActivity: AppCompatActivity() {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if (response.isSuccessful) {
                         showToast("Pagamento realizado com sucesso!!")
+                        sendSuccessScreen()
                     } else {
                         val errorResponse = response.toString()
                         showToast("Erro ao realizar o pagamento $errorResponse")
                         Log.d("respostaApi", errorResponse)
+                        sendErrorScreen()
                     }
                 }
                 override fun onFailure(call: Call<Void>, t: Throwable) {
                     showToast("Ocorreu um erro ao realizar o pagamento")
+                    sendErrorScreen()
                 }
             })
         }
+    }
+
+    fun sendSuccessScreen() {
+        val success = Intent(this, PaymentCompletedActivity::class.java)
+        startActivity(success)
+    }
+
+    fun sendErrorScreen() {
+        val error = Intent(this, PaymentFailureActivity::class.java)
+        startActivity(error)
     }
 
     private fun loadProductImage(image: ImageDtoResponse?) {
