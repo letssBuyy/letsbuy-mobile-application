@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Handler().postDelayed({
-            val redirecionar = Intent(this, LoginActivity::class.java)
+            val redirecionar = Intent(this, SplashActivity::class.java)
             startActivity(redirecionar)
             finishActivity(1)
         }, 2000)
