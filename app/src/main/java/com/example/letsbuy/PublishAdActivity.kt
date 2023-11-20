@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -15,8 +14,6 @@ import android.widget.ArrayAdapter
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatActivity.MODE_PRIVATE
-import androidx.core.net.toUri
 import com.example.letsbuy.api.Rest
 import com.example.letsbuy.databinding.ActivityPublishAdBinding
 import com.example.letsbuy.dto.AdversimentDto
@@ -30,11 +27,8 @@ import com.example.letsbuy.model.enums.QualityEnum
 import com.example.letsbuy.model.enums.QualityEnum.Companion.qualityToEnum
 import com.example.letsbuy.service.AdversimentService
 import com.example.letsbuy.service.ImageService
-import com.example.letsbuy.ui.perfil.PerfilFragment
-import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -42,7 +36,6 @@ import retrofit2.Response
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
-import java.net.URI
 
 class PublishAdActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPublishAdBinding

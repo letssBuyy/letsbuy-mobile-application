@@ -1,6 +1,5 @@
 package com.example.letsbuy.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +7,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.letsbuy.AdDetailActivity
 import com.example.letsbuy.R
 import com.example.letsbuy.api.Rest
 import com.example.letsbuy.dto.AllAdversimentsAndLikeDtoResponse
@@ -18,20 +16,18 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AdapterProduto(private val produtos: List<AllAdversimentsAndLikeDtoResponse>) :
-    RecyclerView.Adapter<AdapterProduto.ProdutoViewHolder>() {
+class AdapterSearch(private val listSearch: List<AllAdversimentsAndLikeDtoResponse>) :
+    RecyclerView.Adapter<AdapterSearch.SearchViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProdutoViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.activity_produto_item, parent, false)
-        val holder = ProdutoViewHolder(view)
-        return holder
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
+        return SearchViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item_search, parent, false)
+        )
     }
 
-    override fun getItemCount(): Int = produtos.size
-
-    override fun onBindViewHolder(holder: ProdutoViewHolder, position: Int) {
-        val advertisement = produtos[position]
+    override fun getItemCount(): Int = listSearch.size
+    override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
+        val advertisement = listSearch[position]
 
         if (advertisement.adversiments.images.isNullOrEmpty()) {
             holder.imagem.setImageResource(R.drawable.broke_image)
@@ -40,32 +36,25 @@ class AdapterProduto(private val produtos: List<AllAdversimentsAndLikeDtoRespons
                 .into(holder.imagem)
         }
 
-        holder.name.text = produtos[position].adversiments.title
-        holder.category.text =
-            CategoryEnum.enumCategoryToDescription(produtos[position].adversiments.category)
-        holder.price.text = "R$ ${produtos[position].adversiments.price.toString()}"
+        holder.tittle.text = advertisement.adversiments.title
+        holder.category.text = CategoryEnum.enumCategoryToDescription(advertisement.adversiments.category)
+        holder.price.text = "R$ ${advertisement.adversiments.price.toString()}"
         holder.like.setImageResource(if (advertisement.isLike) R.drawable.icon_heart_selected else R.drawable.heart)
 
         holder.like.setOnClickListener {
             islike(holder, advertisement)
         }
-
-        holder.imagem.setOnClickListener {
-            val intent = Intent(holder.itemView.context, AdDetailActivity::class.java)
-            intent.putExtra("ID_AD", advertisement.adversiments.id)
-            holder.itemView.context.startActivity(intent)
-        }
     }
 
-    inner class ProdutoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imagem = itemView.findViewById<ImageView>(R.id.img_advertisement)
-        val name = itemView.findViewById<TextView>(R.id.tv_name_advertisement)
+    inner class SearchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val imagem = itemView.findViewById<ImageView>(R.id.img_adversement)
+        val tittle = itemView.findViewById<TextView>(R.id.tv_title)
+        val price = itemView.findViewById<TextView>(R.id.tv_price)
         val category = itemView.findViewById<TextView>(R.id.tv_category)
-        val price = itemView.findViewById<TextView>(R.id.tv_price_advertisement)
         val like = itemView.findViewById<ImageView>(R.id.img_like)
     }
 
-    private fun islike(holder: ProdutoViewHolder, advertisement: AllAdversimentsAndLikeDtoResponse) {
+    private fun islike(holder: AdapterSearch.SearchViewHolder, advertisement: AllAdversimentsAndLikeDtoResponse) {
         if (advertisement.isLike) {
             holder.like.setImageResource(R.drawable.heart)
             val api = Rest.getInstance().create(LikeService::class.java)
