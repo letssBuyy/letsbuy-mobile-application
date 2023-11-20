@@ -24,13 +24,32 @@
                 android:background="@drawable/search_edittext"
                 android:drawableRight="@drawable/search"
                 android:ems="10"
-                android:gravity="center"
                 android:hint="@string/search_hint"
                 android:padding="10dp"
                 android:textSize="14sp"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_filter"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/light_gray2"
+                android:drawableLeft="@drawable/filter"
+                android:drawablePadding="-50dp"
+                android:paddingStart="110dp"
+                android:paddingEnd="110dp"
+                android:text="Filtrar"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editMobileNo" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -42,7 +61,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editMobileNo" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_filter" />
 
             <LinearLayout
                 android:id="@+id/nestedScrollView"
@@ -63,10 +82,12 @@
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
                             <ImageView
-                                android:id="@+id/imageView4"
+                                android:id="@+id/img_fashion_acessories"
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
                                 android:background="@drawable/bg_category"
@@ -75,73 +96,76 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <ImageView
-                                android:id="@+id/imageView5"
+                                android:id="@+id/img_electronis"
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
                                 android:layout_marginStart="15dp"
                                 android:background="@drawable/bg_category"
                                 android:src="@drawable/eletronics"
-                                app:layout_constraintStart_toEndOf="@+id/imageView4"
-                                app:layout_constraintTop_toTopOf="@+id/imageView4" />
+                                app:layout_constraintStart_toEndOf="@+id/img_fashion_acessories"
+                                app:layout_constraintTop_toTopOf="@+id/img_fashion_acessories" />
 
                             <ImageView
-                                android:id="@+id/imageView9"
+                                android:id="@+id/img_house_deoratioNn"
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
                                 android:layout_marginStart="15dp"
                                 android:background="@drawable/bg_category"
                                 android:src="@drawable/homeanddecor"
-                                app:layout_constraintStart_toEndOf="@+id/imageView4"
-                                app:layout_constraintTop_toTopOf="@+id/imageView4" />
+                                app:layout_constraintStart_toEndOf="@+id/img_fashion_acessories"
+                                app:layout_constraintTop_toTopOf="@+id/img_fashion_acessories" />
 
 
                             <ImageView
-                                android:id="@+id/imageView6"
+                                android:id="@+id/img_books"
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
                                 android:layout_marginStart="15dp"
                                 android:background="@drawable/bg_category"
                                 android:src="@drawable/hobbies"
-                                app:layout_constraintStart_toEndOf="@+id/imageView5"
-                                app:layout_constraintTop_toTopOf="@+id/imageView5" />
+                                app:layout_constraintStart_toEndOf="@+id/img_electronis"
+                                app:layout_constraintTop_toTopOf="@+id/img_electronis" />
 
                             <ImageView
-                                android:id="@+id/imageView7"
+                                android:id="@+id/img_vehicles"
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
                                 android:layout_marginStart="15dp"
                                 android:background="@drawable/bg_category"
                                 android:src="@drawable/car"
-                                app:layout_constraintStart_toEndOf="@+id/imageView6"
-                                app:layout_constraintTop_toTopOf="@+id/imageView6" />
+                                app:layout_constraintStart_toEndOf="@+id/img_books"
+                                app:layout_constraintTop_toTopOf="@+id/img_books" />
 
                             <ImageView
+                                android:id="@+id/img_sports_leisure"
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
                                 android:layout_marginStart="15dp"
                                 android:background="@drawable/bg_category"
                                 android:src="@drawable/sport"
-                                app:layout_constraintStart_toEndOf="@+id/imageView7"
-                                app:layout_constraintTop_toTopOf="@+id/imageView7" />
+                                app:layout_constraintStart_toEndOf="@+id/img_vehicles"
+                                app:layout_constraintTop_toTopOf="@+id/img_vehicles" />
 
                             <ImageView
+                                android:id="@+id/img_pets"
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
                                 android:layout_marginStart="15dp"
                                 android:background="@drawable/bg_category"
                                 android:src="@drawable/pets"
-                                app:layout_constraintStart_toEndOf="@+id/imageView7"
-                                app:layout_constraintTop_toTopOf="@+id/imageView7" />
+                                app:layout_constraintStart_toEndOf="@+id/img_vehicles"
+                                app:layout_constraintTop_toTopOf="@+id/img_vehicles" />
 
                             <ImageView
+                                android:id="@+id/img_children"
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
                                 android:layout_marginStart="15dp"
                                 android:layout_marginEnd="30dp"
                                 android:background="@drawable/bg_category"
                                 android:src="@drawable/baby"
-                                app:layout_constraintStart_toEndOf="@+id/imageView7"
-                                app:layout_constraintTop_toTopOf="@+id/imageView7" />
+                                app:layout_constraintStart_toEndOf="@+id/img_vehicles"
+                                app:layout_constraintTop_toTopOf="@+id/img_vehicles" />
 
                         </LinearLayout>
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -149,7 +173,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/tv_filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
@@ -167,7 +191,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textView6"
+                app:layout_constraintTop_toBottomOf="@id/tv_filter"
                 android:visibility="gone"
                 />
 
@@ -178,7 +202,7 @@
                 android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6"
+                app:layout_constraintTop_toBottomOf="@+id/tv_filter"
                 app:layout_constraintVertical_weight="1"
                 tools:listitem="@layout/activity_produto_item" />
 
@@ -191,14 +215,14 @@
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_filter" />
 
             <TextView
                 android:id="@+id/error_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
-                android:text="Nenhum anÃºncio encontrado"
+                android:text="Nenhum anúncio encontrado"
                 android:textColor="@color/primary_gray"
                 android:textSize="16sp"
                 android:visibility="gone"
