@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity.MODE_PRIVATE
 import com.example.letsbuy.api.Rest
 import com.example.letsbuy.databinding.ActivityEditProfileBinding
 import com.example.letsbuy.dto.BankAccount
@@ -26,7 +27,7 @@ class EditProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
-        val pref = getSharedPreferences("AUTH", AppCompatActivity.MODE_PRIVATE)
+        val pref = getSharedPreferences("AUTH", MODE_PRIVATE)
         val userId = pref?.getString("ID", null)?.toLong()
         binding = ActivityEditProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -42,18 +43,18 @@ class EditProfileActivity : AppCompatActivity() {
             val neighboring = findViewById<EditText>(R.id.inputBairro).text.toString()
             val phoneNumber = findViewById<EditText>(R.id.inputPhNumber).text.toString()
             val email = findViewById<EditText>(R.id.inputEmail).text.toString()
-            // val bankNumber = findViewById<EditText>(R.id.inputBank).text.toString()
-            // val bankAg = findViewById<EditText>(R.id.inputAg).text.toString()
+            val bankNumber = findViewById<EditText>(R.id.inputBank).text.toString()
+            val bankAg = findViewById<EditText>(R.id.inputAg).text.toString()
             val number = findViewById<EditText>(R.id.inputNumero).text.toString().toLong()
             val cep = findViewById<EditText>(R.id.inputCep).text.toString()
             val complement = findViewById<EditText>(R.id.inputComplement).text.toString()
             val road = findViewById<EditText>(R.id.inputRua).text.toString()
-            // val bankCount = findViewById<EditText>(R.id.inputCount).text.toString()
+            val bankCount = findViewById<EditText>(R.id.inputCount).text.toString()
             val state = findViewById<EditText>(R.id.inputState).text.toString()
             val city = findViewById<EditText>(R.id.inputCity).text.toString()
             //val id = idUser.toLong()
             //Log.w("id",id.toString())
-            val bankAccount = null
+            val bankAccount = BankAccount(null, bankNumber, bankAg, bankCount)
             val userUpdateDto = UserUpdateDto(
                 name,
                 email,
@@ -104,10 +105,10 @@ class EditProfileActivity : AppCompatActivity() {
                         binding.inputPhNumber.setText(user.phoneNumber)
                         binding.inputBairro.setText(user.neighborhood)
                         binding.inputEmail.setText(user.email)
-                        binding.inputBank.setText(user.bankAccount?.bankNumber.toString())
-                        binding.inputAg.setText(user.bankAccount?.agencyNumber.toString())
+                        binding.inputBank.setText(user?.bankAccount?.bankNumber?.toString() ?: "")
+                        binding.inputAg.setText(user.bankAccount?.agencyNumber?.toString() ?: "")
                         binding.inputNumero.setText(user.number.toString())
-                        binding.inputCount.setText(user.bankAccount?.accountNumber.toString())
+                        binding.inputCount.setText(user.bankAccount?.accountNumber?.toString() ?: "")
                         binding.inputCep.setText(user.cep)
                         binding.inputComplement.setText(user.complement)
                         binding.inputRua.setText(user.road)
@@ -123,7 +124,7 @@ class EditProfileActivity : AppCompatActivity() {
 
     private fun updateProfile(userUpdateDto: UserUpdateDto) {
         val api = Rest.getInstance().create(UserService::class.java)
-        val pref = getSharedPreferences("AUTH", AppCompatActivity.MODE_PRIVATE)
+        val pref = getSharedPreferences("AUTH", MODE_PRIVATE)
         val userId = pref?.getString("ID", null)?.toLong()
         api.updateUser(userId, userUpdateDto).enqueue(object : Callback<UserDtoResponse> {
             override fun onResponse(
@@ -165,7 +166,7 @@ class EditProfileActivity : AppCompatActivity() {
                             complement: String,
                             state: String,
                             city: String,
-                            bankAccount: BankAccount?): Boolean {
+                            bankAccount: BankAccount): Boolean {
         var valid = true
         val ivIconErrorName = binding.ivIconErrorName
         val tvMessageErrorName = binding.tvMessageErrorName
@@ -257,32 +258,32 @@ class EditProfileActivity : AppCompatActivity() {
             tvMessageErrorPhNumber.visibility = View.GONE
         }
 
-//        if(bankAccount.accountNumber.isEmpty()) {
-//            valid = false
-//            ivIconErrorBkCount.visibility = View.VISIBLE
-//            tvMessageErrorBkCount.visibility = View.VISIBLE
-//        } else {
-//            ivIconErrorBkCount.visibility = View.GONE
-//            tvMessageErrorBkCount.visibility = View.GONE
-//        }
-//
-//        if(bankAccount.bankNumber.isEmpty()) {
-//            valid = false
-//            ivIconErrorBkBank.visibility = View.VISIBLE
-//            tvMessageErrorBkBank.visibility = View.VISIBLE
-//        } else {
-//            ivIconErrorBkBank.visibility = View.GONE
-//            tvMessageErrorBkBank.visibility = View.GONE
-//        }
-//
-//        if(bankAccount.agencyNumber.isEmpty()) {
-//            valid = false
-//            ivIconErrorBkAgency.visibility = View.VISIBLE
-//            tvMessageErrorBkAgency.visibility = View.VISIBLE
-//        } else {
-//            ivIconErrorBkAgency.visibility = View.GONE
-//            tvMessageErrorBkAgency.visibility = View.GONE
-//        }
+        if(bankAccount.accountNumber.isEmpty()) {
+            valid = false
+            ivIconErrorBkCount.visibility = View.VISIBLE
+            tvMessageErrorBkCount.visibility = View.VISIBLE
+        } else {
+            ivIconErrorBkCount.visibility = View.GONE
+            tvMessageErrorBkCount.visibility = View.GONE
+        }
+
+        if(bankAccount.bankNumber.isEmpty()) {
+            valid = false
+            ivIconErrorBkBank.visibility = View.VISIBLE
+            tvMessageErrorBkBank.visibility = View.VISIBLE
+        } else {
+            ivIconErrorBkBank.visibility = View.GONE
+            tvMessageErrorBkBank.visibility = View.GONE
+        }
+
+        if(bankAccount.agencyNumber.isEmpty()) {
+            valid = false
+            ivIconErrorBkAgency.visibility = View.VISIBLE
+            tvMessageErrorBkAgency.visibility = View.VISIBLE
+        } else {
+            ivIconErrorBkAgency.visibility = View.GONE
+            tvMessageErrorBkAgency.visibility = View.GONE
+        }
 
         if(cep.isEmpty()) {
             valid = false
