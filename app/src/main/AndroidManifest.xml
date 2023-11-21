@@ -43,6 +43,9 @@
             android:name=".ChatActivity"
             android:exported="false" />
         <activity
+            android:name=".ChatMessageActivity"
+            android:exported="false" />
+        <activity
             android:name=".AdDetailActivity"
             android:exported="false" />
         <activity

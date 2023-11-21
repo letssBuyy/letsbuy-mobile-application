@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:src="@drawable/badge"
+        android:id="@+id/badgeImageOne"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="55dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+       />
+
+    <TextView
+        android:text="Bolsa Marrom"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:fontFamily="@font/poppins_extra_bold"
+        android:textStyle="bold"
+        android:textColor="#555555"
+        android:textSize="15sp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toEndOf="@+id/badgeImageOne"
+        app:layout_constraintTop_toTopOf="@id/badgeImageOne"
+        android:id="@+id/nameAdOne"/>
+
+    <TextView
+        android:text="Tommy"
+        android:layout_width="50dp"
+        android:layout_height="18dp"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="#555555"
+        android:textSize="12sp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@+id/nameAdOne"
+        app:layout_constraintTop_toBottomOf="@id/nameAdOne"
+        android:id="@+id/brandAdTwo"/>
+
+    <TextView
+        android:text="Ontem"
+        android:layout_width="50dp"
+        android:layout_height="18dp"
+        android:fontFamily="@font/poppins"
+        android:textColor="#555555"
+        android:textSize="12sp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@+id/brandAdTwo"
+        app:layout_constraintTop_toBottomOf="@id/brandAdTwo"
+        android:id="@+id/brandAdThree"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/semi"
+        android:id="@+id/lineTwo"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/badgeImageOne"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
