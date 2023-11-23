@@ -8,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingBottom="30dp">
 
         <TextView
             android:id="@+id/tv_location"
@@ -26,6 +27,7 @@
             android:layout_width="320dp"
             android:layout_height="45dp"
             android:layout_marginTop="10dp"
+            android:inputType="text"
             android:background="@drawable/input_publish_edit_ad"
             android:hint="Digite sua cidade"
             android:padding="10dp"
@@ -50,8 +52,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Min"
-            android:textColor="@color/light_gray2"
-            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
             app:layout_constraintStart_toStartOf="@+id/tv_price"
             app:layout_constraintTop_toBottomOf="@+id/tv_price" />
 
@@ -60,6 +62,7 @@
             android:layout_width="140dp"
             android:layout_height="45dp"
             android:layout_marginTop="5dp"
+            android:inputType="numberDecimal"
             android:background="@drawable/input_publish_edit_ad"
             android:hint="R$ 0,00"
             android:padding="10dp"
@@ -71,8 +74,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Min"
-            android:textColor="@color/light_gray2"
-            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
             app:layout_constraintStart_toStartOf="@+id/edit_priceMax"
             app:layout_constraintTop_toTopOf="@+id/tv_priceMin" />
 
@@ -80,6 +83,7 @@
             android:id="@+id/edit_priceMax"
             android:layout_width="140dp"
             android:layout_height="45dp"
+            android:inputType="numberDecimal"
             android:background="@drawable/input_publish_edit_ad"
             android:hint="R$ 0,00"
             android:padding="10dp"
@@ -169,6 +173,7 @@
             android:fontFamily="@font/poppins"
             android:text="Categoria"
             android:textSize="15sp"
+            android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="@+id/spinner_color"
             app:layout_constraintTop_toBottomOf="@+id/spinner_color" />
 
@@ -182,6 +187,7 @@
             android:paddingStart="10dp"
             android:textColor="#969696"
             android:textSize="15sp"
+            android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="@+id/tv_category"
             app:layout_constraintTop_toBottomOf="@+id/tv_category" />
 

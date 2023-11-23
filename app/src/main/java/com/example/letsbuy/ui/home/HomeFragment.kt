@@ -32,7 +32,6 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         binding.progressBar.visibility = View.VISIBLE
 
-        Log.w("TESTE", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
         val pref = context?.getSharedPreferences("AUTH", AppCompatActivity.MODE_PRIVATE)
         var id = pref?.getString("ID", null)?.toLong()
 
@@ -43,15 +42,26 @@ class HomeFragment : Fragment() {
                         event.keyCode == KeyEvent.KEYCODE_ENTER)
             ) {
                 if (binding.editMobileNo.text.isNullOrEmpty()) {
+                    binding.progressBar.visibility = View.VISIBLE
+                    binding.imgError.visibility = View.GONE
+                    binding.errorMessage.visibility = View.GONE
                     initFilter(id!!)
                     false
                 } else {
+                    binding.progressBar.visibility = View.VISIBLE
+                    binding.recyclerViewProdutos.visibility = View.GONE
                     val title = binding.editMobileNo.text.toString()
                     search(id!!, title)
                     return@setOnEditorActionListener true
                 }
             }
             false
+        }
+
+        binding.btnFilter.setOnClickListener {
+            val filter = Intent(context, SearchActivity::class.java)
+            filter.putExtra("CATEGORY", "")
+            startActivity(filter)
         }
 
         binding.imgFashionAcessories.setOnClickListener {
@@ -108,7 +118,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun initRecyclerView(listProduct: List<AllAdversimentsAndLikeDtoResponse>) {
-        Log.w("List init", listProduct.toString())
         binding.recyclerViewProdutos.layoutManager = LinearLayoutManager(context)
         binding.recyclerViewProdutos.setHasFixedSize(true)
         binding.recyclerViewProdutos.adapter = AdapterProduto(listProduct)
@@ -129,6 +138,9 @@ class HomeFragment : Fragment() {
                             binding.imgError.visibility = View.VISIBLE
                             binding.errorMessage.visibility = View.VISIBLE
                         } else {
+                            binding.imgError.visibility = View.GONE
+                            binding.errorMessage.visibility = View.GONE
+                            binding.recyclerViewProdutos.visibility = View.VISIBLE
                             binding.tvFilter.text = "${adversiment.size} anúnios encontrados"
                             initRecyclerView(adversiment)
                         }
@@ -165,7 +177,11 @@ class HomeFragment : Fragment() {
                         if (adversiments.isNullOrEmpty()) {
                             binding.imgError.visibility = View.VISIBLE
                             binding.errorMessage.visibility = View.VISIBLE
+                            binding.recyclerViewProdutos.visibility = View.GONE
                         } else {
+                            binding.imgError.visibility = View.GONE
+                            binding.errorMessage.visibility = View.GONE
+                            binding.recyclerViewProdutos.visibility = View.VISIBLE
                             initRecyclerView(adversiments)
                         }
                     }
