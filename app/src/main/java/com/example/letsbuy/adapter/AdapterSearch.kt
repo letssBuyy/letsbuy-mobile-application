@@ -1,5 +1,6 @@
 package com.example.letsbuy.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.letsbuy.AdDetailActivity
 import com.example.letsbuy.R
 import com.example.letsbuy.api.Rest
 import com.example.letsbuy.dto.AllAdversimentsAndLikeDtoResponse
@@ -43,6 +45,12 @@ class AdapterSearch(private val listSearch: List<AllAdversimentsAndLikeDtoRespon
 
         holder.like.setOnClickListener {
             islike(holder, advertisement)
+        }
+
+        holder.imagem.setOnClickListener {
+            val intent = Intent(holder.itemView.context, AdDetailActivity::class.java)
+            intent.putExtra("ID_AD", advertisement.adversiments.id)
+            holder.itemView.context.startActivity(intent)
         }
     }
 

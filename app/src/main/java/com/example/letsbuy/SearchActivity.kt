@@ -28,6 +28,7 @@ class SearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.progressBar.visibility = View.VISIBLE
 
         val pref = this.getSharedPreferences("AUTH", AppCompatActivity.MODE_PRIVATE)
         var id = pref?.getString("ID", null)?.toLong()
@@ -43,6 +44,10 @@ class SearchActivity : AppCompatActivity() {
                 (event != null && event.action == KeyEvent.ACTION_DOWN &&
                         event.keyCode == KeyEvent.KEYCODE_ENTER)
             ) {
+                binding.progressBar.visibility = View.VISIBLE
+                binding.recyclerViewSearch.visibility = View.GONE
+                binding.imgError.visibility = View.GONE
+                binding.errorMessage.visibility = View.GONE
                 filterSearch(id!!)
                 return@setOnEditorActionListener true
             }
@@ -98,12 +103,18 @@ class SearchActivity : AppCompatActivity() {
                     call: Call<List<AllAdversimentsAndLikeDtoResponse>>,
                     response: Response<List<AllAdversimentsAndLikeDtoResponse>>
                 ) {
+                    binding.progressBar.visibility = View.GONE
                     if (response.isSuccessful) {
                         val adversiments = response.body()
                         if (adversiments.isNullOrEmpty()) {
                             binding.imgError.visibility = View.VISIBLE
                             binding.errorMessage.visibility = View.VISIBLE
+                            binding.tvQtdAdversiments.text =
+                                "0 anúnios encontrados"
                         } else {
+                            binding.imgError.visibility = View.GONE
+                            binding.errorMessage.visibility = View.GONE
+                            binding.recyclerViewSearch.visibility = View.VISIBLE
                             binding.tvQtdAdversiments.text =
                                 "${adversiments.size} anúnios encontrados"
                             initRecyclerView(adversiments)
