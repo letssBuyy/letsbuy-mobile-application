@@ -1,6 +1,7 @@
 package com.example.letsbuy.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ class AdapterChatMessage(
     private val context: Context,
 ) : RecyclerView.Adapter<AdapterChatMessage.MyViewHolder>() {
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterChatMessage.MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_chat_message,parent,false)
         return MyViewHolder(itemView)
@@ -21,6 +23,8 @@ class AdapterChatMessage(
 
     override fun onBindViewHolder(holder: AdapterChatMessage.MyViewHolder, position: Int) {
         val message = myList[0].messages[position]
+        Log.w("MESSAGE DO POSITION DO MYLIST", myList[0].messages[position].toString())
+        Log.w("MENSAGEMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM", message.message)
         holder.textMessage.text = message.message
     }
 
@@ -30,4 +34,6 @@ class AdapterChatMessage(
         val textMessage : TextView = itemView.findViewById(R.id.textMsg)
         val textNome : TextView = itemView.findViewById(R.id.nome)
     }
+
+
 }

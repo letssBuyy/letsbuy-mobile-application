@@ -5,12 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:src="@drawable/badge"
         android:id="@+id/badgeImageOne"
         android:layout_marginTop="30dp"
-        android:layout_marginStart="55dp"
+        android:layout_marginStart="35dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
        />
@@ -18,7 +18,7 @@
     <TextView
         android:text="Bolsa Marrom"
         android:layout_width="wrap_content"
-        android:layout_height="18dp"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_extra_bold"
         android:textStyle="bold"
         android:textColor="#555555"
@@ -31,8 +31,8 @@
 
     <TextView
         android:text="Tommy"
-        android:layout_width="50dp"
-        android:layout_height="18dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_bold"
         android:textColor="#555555"
         android:textSize="12sp"
@@ -43,8 +43,8 @@
 
     <TextView
         android:text="Ontem"
-        android:layout_width="50dp"
-        android:layout_height="18dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
         android:textColor="#555555"
         android:textSize="12sp"

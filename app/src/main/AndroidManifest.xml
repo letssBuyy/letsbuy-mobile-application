@@ -16,6 +16,9 @@
         android:theme="@style/Theme.LetsBuy"
         tools:targetApi="31">
         <activity
+            android:name=".ChatMessageActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
             android:exported="false" />
         <activity
@@ -41,9 +44,6 @@
             android:exported="false" />
         <activity
             android:name=".ChatActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ChatMessageActivity"
             android:exported="false" />
         <activity
             android:name=".AdDetailActivity"
