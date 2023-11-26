@@ -1,6 +1,11 @@
 package com.example.letsbuy
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapShader
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.Shader
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +22,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import com.squareup.picasso.Picasso
+import com.squareup.picasso.Transformation
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -151,7 +157,43 @@ class AdDetailActivity: AppCompatActivity() {
 
     private fun loadUserProfileImage(image: ImageDtoResponse?) {
         image?.let { userProfileImage ->
-            Picasso.get().load(userProfileImage.url).into(binding.userProfileImageView)
+            Picasso.get()
+                .load(userProfileImage.url)
+                .transform(CircleTransform()) // Aplica a transformação para tornar a imagem redonda
+                .into(binding.userProfileImageView)
+        }
+    }
+
+    class CircleTransform : Transformation {
+        override fun transform(source: Bitmap): Bitmap {
+            val size = Math.min(source.width, source.height)
+
+            val x = (source.width - size) / 2
+            val y = (source.height - size) / 2
+
+            val squaredBitmap = Bitmap.createBitmap(source, x, y, size, size)
+            if (squaredBitmap != source) {
+                source.recycle()
+            }
+
+            val bitmap = Bitmap.createBitmap(size, size, source.config)
+
+            val canvas = Canvas(bitmap)
+            val paint = Paint()
+            val shader = BitmapShader(squaredBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
+
+            paint.shader = shader
+            paint.isAntiAlias = true
+
+            val radius = size / 2f
+            canvas.drawCircle(radius, radius, radius, paint)
+
+            squaredBitmap.recycle()
+            return bitmap
+        }
+
+        override fun key(): String {
+            return "circle"
         }
     }
 
