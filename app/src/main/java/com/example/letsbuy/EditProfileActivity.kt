@@ -58,6 +58,7 @@ class EditProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEditProfileBinding
     private lateinit var bankAccount: BankAccount
     private lateinit var imageViewProfile: ImageView
+    private var changeImage = false
     private lateinit var imageUri: Uri
     private val PICK_MULTIPLE_IMAGES_FROM_GALLERY_REQUEST_CODE = 400
 
@@ -69,6 +70,7 @@ class EditProfileActivity : AppCompatActivity() {
         binding = ActivityEditProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
         imageViewProfile = binding.titleAd
+
         binding.progressBarPhoto.visibility = View.VISIBLE
         getUserById(userId!!)
         binding.imageBack.setOnClickListener() {
@@ -164,6 +166,7 @@ class EditProfileActivity : AppCompatActivity() {
             val selectedImageUri: Uri? = result.data?.data
             //imageViewProfile.setImageURI(selectedImageUri)
             imageUri = selectedImageUri!!
+            changeImage = true
             setImage(selectedImageUri)
         }
     }
@@ -234,7 +237,9 @@ class EditProfileActivity : AppCompatActivity() {
             ) {
                 binding.progressBar.visibility = View.INVISIBLE
                 if (response.isSuccessful) {
-                    uploadUserImage(response.body()!!.id)
+                    if(changeImage) {
+                        uploadUserImage(response.body()!!.id)
+                    }
                     Toast.makeText(
                         this@EditProfileActivity,
                         "Perfil Atualizado com Sucesso :) !",
