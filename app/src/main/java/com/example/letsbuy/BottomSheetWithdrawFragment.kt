@@ -3,7 +3,6 @@ package com.example.letsbuy
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,10 +16,11 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class BottomSheetWithdrawFragment(userId: Long) : BottomSheetDialogFragment(){
+class BottomSheetWithdrawFragment(userId: Long, balance: Double) : BottomSheetDialogFragment(){
 
     private lateinit var binding: BottomsheetWithdrawFragmentBinding
     private val idUser = userId
+    private val balanceUser = balance
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -47,7 +47,11 @@ class BottomSheetWithdrawFragment(userId: Long) : BottomSheetDialogFragment(){
 
 
         binding.btnWithdraw.setOnClickListener {
-            if(binding.editText2.text.isNotBlank() && binding.editText2.text.toString().toDouble() > 0.0){
+            if(
+                binding.editText2.text.isNotBlank() &&
+                binding.editText2.text.toString().toDouble() > 0.0 &&
+                binding.editText2.text.toString().toDouble() <= balanceUser
+                ){
                 binding.progressBar.visibility = View.VISIBLE
                 createTransaction(idUser, binding.editText2.text.toString().toDouble(), "WITHDRAW")
             } else {
