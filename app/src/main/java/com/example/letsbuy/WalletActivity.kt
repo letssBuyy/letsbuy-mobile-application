@@ -2,7 +2,6 @@ package com.example.letsbuy
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,12 +20,14 @@ class WalletActivity: AppCompatActivity(), BottomSheetWithdrawListener {
     private lateinit var binding: ActivityWalletBinding
     private var amount = "R$ 0.00"
     private lateinit var idUser: String
+    private var balance: Double = 0.0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding =  ActivityWalletBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val pref = getSharedPreferences("AUTH", MODE_PRIVATE)
         val userId = pref?.getString("ID", null)?.toLong()
+
         idUser = userId.toString()
         getWalletData(userId!!)
 
@@ -47,8 +48,9 @@ class WalletActivity: AppCompatActivity(), BottomSheetWithdrawListener {
             binding.eyeClosed.visibility = View.GONE
         }
 
-        val bottomSheetWithdrawFragment = BottomSheetWithdrawFragment(userId)
+
         binding.tvWithdraw.setOnClickListener {
+            val bottomSheetWithdrawFragment = BottomSheetWithdrawFragment(userId, balance)
             bottomSheetWithdrawFragment.show(supportFragmentManager, "BottomSheetDialog")
         }
 
@@ -72,6 +74,7 @@ class WalletActivity: AppCompatActivity(), BottomSheetWithdrawListener {
                 if (response.isSuccessful) {
                     val wallet = response.body()
                     amount = "R$ ${wallet?.balance}"
+                    balance = wallet?.balance ?: 0.0
                     val transactions = wallet?.transactions
                     if (transactions.isNullOrEmpty()) {
                         binding.scroll.visibility = View.GONE
