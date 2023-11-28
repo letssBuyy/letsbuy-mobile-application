@@ -28,7 +28,6 @@ class AdapterChat(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_chat,parent,false)
         return MyViewHolder(itemView)
-
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
@@ -39,7 +38,6 @@ class AdapterChat(
         nameSeller = chats.seller.name
         imageProf = Glide.with(holder.itemView.context).load(chats.adversiment.images!!.first().url).into(holder.imgadversiment)
 
-
         if (chats.adversiment.images.isNullOrEmpty()){
             holder.imgadversiment.setImageResource(R.drawable.broke_image)
         } else {
@@ -48,11 +46,14 @@ class AdapterChat(
 
         holder.imgadversiment.setOnClickListener {
             val intent = Intent(holder.itemView.context, ChatMessageActivity::class.java)
-            intent.putExtra("NAME_SELLER", nameSeller.toString()!!)
-//            intent.putExtra("IMG_SELLER", imageProf)
+            intent.putExtra("CHAT_ID", chats.id)
+            intent.putExtra("PARTNER_ID", chats.seller.id)
+            intent.putExtra("PARTNER_NAME", chats.seller.name)
+            intent.putExtra("PARTNER_IMAGE", chats.seller.profileImage)
+            intent.putExtra("ADVERSIMENT_IMAGE", chats.adversiment.images?.first()?.url)
+            intent.putExtra("ADVERSIMENT_TITLE", chats.adversiment.title)
             context.startActivity(intent)
         }
-
     }
 
     override fun getItemCount() = myList.size

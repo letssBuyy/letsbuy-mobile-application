@@ -10,8 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.letsbuy.adapter.AdapterChat
 import com.example.letsbuy.api.Rest
 import com.example.letsbuy.databinding.FragmentChatBinding
+import com.example.letsbuy.dto.ChatRequest
 import com.example.letsbuy.dto.ChatResponseDto
 import com.example.letsbuy.service.ChatService
+import com.example.letsbuy.service.LikeService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,8 +33,6 @@ class ChatFragment : Fragment() {
         val id = pref?.getString("ID", null)?.toLong()
         binding.progressBar.visibility = View.VISIBLE
         getChats(id)
-
-
     }
 
     private fun initRecyclerView(myList: List<ChatResponseDto>) {
@@ -72,4 +72,4 @@ class ChatFragment : Fragment() {
                 }
             })
     }
-    }
+}
