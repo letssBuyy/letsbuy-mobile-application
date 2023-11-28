@@ -1,6 +1,7 @@
 package com.example.letsbuy.service
 
 import com.example.letsbuy.dto.AdversimentDto
+import com.example.letsbuy.dto.AdversimentsLikeDtoResponse
 import com.example.letsbuy.dto.AdvertisementResponse
 import com.example.letsbuy.dto.AllAdversimentsAndLikeDtoResponse
 import retrofit2.Call
@@ -14,7 +15,7 @@ import java.util.Optional
 
 interface AdversimentService {
     @GET("/api/adversiments/like/{idUser}")
-    fun getAdversimentLike(@Path("idUser") idUser: Long?): Call<List<AllAdversimentsAndLikeDtoResponse>>
+    fun getAdversimentLike(@Path("idUser") idUser: Long?): Call<List<AdversimentsLikeDtoResponse>>
 
     @GET("/api/adversiments/androidAdversiment/{idUser}")
     fun retrieveAdversiment(@Path("idUser") userId: Long?): Call<List<AllAdversimentsAndLikeDtoResponse>>
