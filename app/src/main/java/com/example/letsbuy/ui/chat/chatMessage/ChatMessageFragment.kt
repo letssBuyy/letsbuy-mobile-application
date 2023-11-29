@@ -1,5 +1,6 @@
 package com.example.letsbuy.ui.chat.chatMessage
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,11 +9,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
-import com.denzcoskun.imageslider.ImageSlider
+import com.bumptech.glide.Glide
 import com.example.letsbuy.R
-import com.squareup.picasso.Picasso
 import java.text.NumberFormat
 import java.util.Locale
 
@@ -20,10 +19,14 @@ class ChatMessageFragment(
     private val isUserSessionMessage: Boolean,
     private val datetime: String,
     private val message: String,
+    private val messageId: Long,
     private val isProposal: Boolean,
     private val amount: Double,
     private val adversimentTitle: String,
     private val adversimentImage: String,
+    private val context: Context,
+    private val acceptProposal: (id: Long, isUserSessionMessage: Boolean) -> Unit,
+    private val declineProposal: (id: Long, isUserSessionMessage: Boolean) -> Unit
 ): Fragment(){
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -44,6 +47,7 @@ class ChatMessageFragment(
         super.onViewCreated(view, savedInstanceState)
 
         if (isProposal) {
+            Log.w("VARIAVEIS", adversimentImage + "       " + adversimentTitle + "       " + currencyFormater(amount))
             val productImageView: ImageView = view.findViewById(R.id.productImageView)
             val titleProductTextView: TextView = view.findViewById(R.id.productTitle)
             val priceProductTextView: TextView = view.findViewById(R.id.productPrice)
@@ -51,7 +55,11 @@ class ChatMessageFragment(
             val closePoposalButton: Button = view.findViewById(R.id.closeProposalButton)
 
             titleProductTextView.text = adversimentTitle
-            Picasso.get().load(adversimentImage).into(productImageView)
+            if (adversimentImage.isEmpty()){
+                productImageView.setImageResource(R.drawable.broke_image)
+            } else {
+                Glide.with(context).load(adversimentImage).into(productImageView)
+            }
             priceProductTextView.text = currencyFormater(amount)
 
             if (isUserSessionMessage) {
@@ -63,11 +71,11 @@ class ChatMessageFragment(
                 closePoposalButton.visibility = View.VISIBLE
 
                 acceptProposalButton.setOnClickListener {
-                    acceptProposal()
+                    acceptProposal(messageId, isUserSessionMessage)
                 }
 
                 closePoposalButton.setOnClickListener {
-                    closeProposal()
+                    declineProposal(messageId, isUserSessionMessage)
                 }
             }
         } else {
@@ -84,15 +92,5 @@ class ChatMessageFragment(
         return formatoMoeda.format(valor)
     }
 
-    fun acceptProposal() {
-        if (!isUserSessionMessage) {
-            //TODO: implements accept proposal
-        }
-    }
 
-    fun closeProposal() {
-        if (!isUserSessionMessage) {
-            //TODO: implements cancel proposal
-        }
-    }
 }

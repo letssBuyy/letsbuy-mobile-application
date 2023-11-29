@@ -1,37 +1,22 @@
 package com.example.letsbuy.adapter
 
 import android.content.Context
-import android.content.Intent
-import android.graphics.drawable.Drawable
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentContainer
-import androidx.fragment.app.FragmentContainerView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.ViewTarget
-import com.example.letsbuy.ChatMessageActivity
 import com.example.letsbuy.R
-import com.example.letsbuy.dto.ChatResponseDto
-import com.bumptech.glide.request.target.Target;
 import com.example.letsbuy.dto.MapMessage
 import com.example.letsbuy.dto.MessageResponseDto
 import com.example.letsbuy.ui.chat.chatMessage.ChatMessageFragment
-import okhttp3.internal.format
 import java.text.ParseException
 import java.text.SimpleDateFormat
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
-import java.util.concurrent.ExecutionException;
 
 class AdapterChatMessage(
     private val myList: List<MapMessage>,
@@ -39,6 +24,8 @@ class AdapterChatMessage(
     private val adversimentTitle: String,
     private val adversimentImage: String,
     private val context: Context,
+    private val acceptProposal: (id: Long, isUserSessionMessage: Boolean) -> Unit,
+    private val declineProposal: (id: Long, isUserSessionMessage: Boolean) -> Unit
 ) : RecyclerView.Adapter<AdapterChatMessage.MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_chat_message,parent,false)
@@ -62,12 +49,16 @@ class AdapterChatMessage(
         for (message in messages) {
             val chatFragment = ChatMessageFragment(
                 currentUserId == message.idUser,
-                message.message,
-                formatDateTime(message.postedAt),
-                message.isProposal,
-                message.amount,
-                adversimentTitle,
-                adversimentImage
+                message = message.message,
+                messageId = message.id,
+                datetime = formatDateTime(message.postedAt),
+                isProposal = message.isProposal,
+                amount = message.amount,
+                adversimentTitle = adversimentTitle,
+                adversimentImage = adversimentImage,
+                context = context,
+                acceptProposal = acceptProposal,
+                declineProposal = declineProposal
             )
 
             fragmentTransaction.add(containerId, chatFragment)
