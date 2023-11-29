@@ -14,8 +14,6 @@ import com.bumptech.glide.request.target.ViewTarget
 import com.example.letsbuy.ChatMessageActivity
 import com.example.letsbuy.R
 import com.example.letsbuy.dto.ChatResponseDto
-import com.bumptech.glide.request.target.Target;
-import java.util.concurrent.ExecutionException;
 
 
 class AdapterChat(
@@ -33,7 +31,7 @@ class AdapterChat(
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val chats = myList[position]
         holder.textTittle.text = chats.adversiment.title
-        holder.textData.text = chats.adversiment.postDate.toString()
+        holder.textData.text = chats.adversiment.postDate
         holder.textName.text = chats.seller.name
         nameSeller = chats.seller.name
         imageProf = Glide.with(holder.itemView.context).load(chats.adversiment.images!!.first().url).into(holder.imgadversiment)
@@ -51,6 +49,7 @@ class AdapterChat(
             intent.putExtra("PARTNER_NAME", chats.seller.name)
             intent.putExtra("PARTNER_IMAGE", chats.seller.profileImage)
             intent.putExtra("ADVERSIMENT_IMAGE", chats.adversiment.images?.first()?.url)
+            intent.putExtra("ADVERSIMENT_ID", chats.adversiment.id)
             intent.putExtra("ADVERSIMENT_TITLE", chats.adversiment.title)
             context.startActivity(intent)
         }

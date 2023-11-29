@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="25dp"
+    android:layout_marginBottom="20dp">
+
+    <ImageView
+        android:id="@+id/img_adversement"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:src="@drawable/badge"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R$200"
+        android:fontFamily="@font/poppins"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textColor="#F14866"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@+id/img_adversement"
+        app:layout_constraintTop_toBottomOf="@+id/img_adversement"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:text="bolsa marrom"
+        android:layout_width="100dp"
+        android:layout_height="18dp"
+        android:fontFamily="@font/poppins"
+        android:textStyle="bold"
+        android:textColor="#555555"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/img_adversement"
+        app:layout_constraintTop_toBottomOf="@+id/tv_price" />
+
+    <TextView
+        android:id="@+id/tv_category"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:hint="Tommy"
+        app:layout_constraintStart_toStartOf="@+id/tv_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <ImageView
+        android:id="@+id/img_like"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/heart"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/img_adversement"
+        app:layout_constraintTop_toTopOf="@+id/tv_price" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

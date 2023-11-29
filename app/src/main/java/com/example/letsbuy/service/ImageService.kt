@@ -1,6 +1,7 @@
 package com.example.letsbuy.service
 
 import com.example.letsbuy.dto.AdvertisementResponse
+import com.example.letsbuy.dto.UserDtoResponse
 import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.Multipart
@@ -20,4 +21,12 @@ interface ImageService {
         @Part img3: MultipartBody.Part,
         @Part img4: MultipartBody.Part
     ): Call<AdvertisementResponse>
+
+
+    @Multipart
+    @POST("/api/images/user/{id}")
+    fun uploadUserImage(
+        @Path("id") id: Long,
+        @Part img: MultipartBody.Part,
+    ): Call<UserDtoResponse>
 }

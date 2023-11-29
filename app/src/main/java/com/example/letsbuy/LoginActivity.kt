@@ -55,6 +55,7 @@ class LoginActivity : AppCompatActivity() {
                     editor.putString("TOKEN", response.body()?.token)
                     editor.putString("TIPO", response.body()?.tipo)
                     editor.putString("ID", response.body()?.user?.id.toString())
+                    editor.putBoolean("LOGADO", true)
                     editor.apply()
                     startActivity(Intent(baseContext, HomeActivity::class.java))
                 } else {

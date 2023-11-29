@@ -12,7 +12,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Handler().postDelayed({
-            val redirecionar = Intent(this, SplashActivity::class.java)
+            val pref = getSharedPreferences("AUTH", MODE_PRIVATE)
+            val userId = pref?.getString("ID", null)?.toLong()
+            val login = pref?.getBoolean("LOGADO", false)
+            val redirecionar = when {
+                login == true -> Intent(this, HomeActivity::class.java)
+                login == false && userId != null -> Intent(this, LoginActivity::class.java)
+                login == false && userId == null -> Intent(this, SplashActivity::class.java)
+                else -> Intent(this, LoginActivity::class.java)
+            }
+
             startActivity(redirecionar)
             finishActivity(1)
         }, 2000)

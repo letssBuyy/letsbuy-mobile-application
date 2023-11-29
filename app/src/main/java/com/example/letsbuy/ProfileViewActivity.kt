@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
+import com.bumptech.glide.request.RequestOptions
 import com.example.letsbuy.adapter.AdapterViewProfile
 import com.example.letsbuy.api.Rest
 import com.example.letsbuy.databinding.ActivityProfileViewBinding
@@ -59,10 +61,15 @@ class ProfileViewActivity : AppCompatActivity() {
 
                     Glide.with(this@ProfileViewActivity)
                         .load(userAndAdversiments!!.profileImage)
-                        .error(R.drawable.broke_image)
+                        .error(
+                            Glide.with(this@ProfileViewActivity)
+                                .load(R.drawable.broke_image)
+                                .apply(RequestOptions.bitmapTransform(CircleCrop()))
+                        )
+                        .apply(RequestOptions.bitmapTransform(CircleCrop()))
                         .into(binding.profileImage)
 
-                    binding.tvPersonName.text = userAndAdversiments!!.name
+                    binding.tvPersonName.text = userAndAdversiments.name
                     binding.tvPostDate.text =
                         "Na LetsBuy desde ${userAndAdversiments.registrationDate.substring(0, 10)}"
                     binding.scroll.visibility = View.VISIBLE

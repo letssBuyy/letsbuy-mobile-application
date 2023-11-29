@@ -3,17 +3,20 @@ package com.example.letsbuy
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.letsbuy.adapter.AdapterChatMessage
 import com.example.letsbuy.api.Rest
 import com.example.letsbuy.databinding.ActivityChatMessageBinding
+import com.example.letsbuy.dto.AdvertisementResponse
 import com.example.letsbuy.dto.ImageDtoResponse
 import com.example.letsbuy.dto.MapMessage
 import com.example.letsbuy.dto.MessageRequest
+import com.example.letsbuy.listener.BottomSheetChatMenuListener
 import com.example.letsbuy.service.ChatService
-import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -25,14 +28,15 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ChatMessageActivity : AppCompatActivity() {
+class ChatMessageActivity : AppCompatActivity(), BottomSheetChatMenuListener {
     private lateinit var binding: ActivityChatMessageBinding
     private var chatPartnerId: Long? = null
     private var userId: Long? = null
     private var chatId: Long? = null
+    private var adId: Long? = null
 
-    private var AdversimentImage: String? = null
-    private var AdversimentTitle: String? = null
+    private var adversimentImage: String? = null
+    private var adversimentTitle: String? = null
 
     private var messagesJob: Job? = null
     private val coroutineScope = CoroutineScope(Dispatchers.Unconfined)
@@ -54,8 +58,9 @@ class ChatMessageActivity : AppCompatActivity() {
         val partnerImage = intent.getStringExtra("PARTNER_IMAGE")
         val partnerId = intent.getLongExtra("PARTNER_ID", -1)
 
-        AdversimentImage = intent.getStringExtra("ADVERSIMENT_IMAGE")
-        AdversimentTitle = intent.getStringExtra("ADVERSIMENT_TITLE")
+        adversimentImage = intent.getStringExtra("ADVERSIMENT_IMAGE")
+        adversimentTitle = intent.getStringExtra("ADVERSIMENT_TITLE")
+        adId = intent.getLongExtra("ADVERSIMENT_ID",-1)
 
         loadUserData(partnerImage, partnerName, partnerId)
         bindLayoutEvents()
@@ -89,6 +94,12 @@ class ChatMessageActivity : AppCompatActivity() {
 
         binding.imageShowMoreOptions.setOnClickListener {
            // TODO: Open actionsheet
+            val bottomSheetFragment = BottomSheetChatMenuFragment(
+                userId = userId ?: -1,
+                chatId = chatId ?: -1,
+                adId = adId ?: -1
+            )
+            bottomSheetFragment.show(supportFragmentManager, "BottomSheetDialog")
         }
 
         binding.buttonEnviar.setOnClickListener {
@@ -114,8 +125,8 @@ class ChatMessageActivity : AppCompatActivity() {
 
     private fun loadUserData(image: String?, name: String?, id: Long) {
         if (image != null) {
-            ImageDtoResponse(url = image)?.let { userProfileImage ->
-                Picasso.get().load(userProfileImage.url).into(binding.imageProfile)
+            ImageDtoResponse(url = image).let { userProfileImage ->
+               Glide.with(baseContext).load(userProfileImage.url).into(binding.imageProfile)
             }
         }
         binding.editTextName.text = name ?: ""
@@ -159,9 +170,54 @@ class ChatMessageActivity : AppCompatActivity() {
         binding.containerMessages.setHasFixedSize(true)
         binding.containerMessages.adapter = AdapterChatMessage(myList,
             userId ?: -1,
-            AdversimentImage ?: "",
-            AdversimentTitle ?: "",
-            this)
+            adversimentTitle ?: "",
+            adversimentImage ?: "",
+            this,
+            this::acceptProposal,
+            this::closeProposal
+            )
+    }
+
+    private fun acceptProposal(idProposal: Long, isUserSessionMessage: Boolean) {
+        if (!isUserSessionMessage) {
+            val api = Rest.getInstance().create(ChatService::class.java)
+
+            api.acceptProposal(idProposal).enqueue(object : Callback<AdvertisementResponse> {
+
+                override fun onResponse(call: Call<AdvertisementResponse>, response: Response<AdvertisementResponse>) {
+                    Log.w("RESPOSTA", response.toString())
+                    if (response.isSuccessful) {
+                        closeProposal(idProposal,  false)
+                        loadMessages()
+                    } else {
+                        showToast("Não foi aceitar a proposta")
+                    }
+                }
+
+                override fun onFailure(call: Call<AdvertisementResponse>, t: Throwable) {
+                    showToast("Não foi aceitar a proposta")
+                }
+            })
+        }
+    }
+
+    private fun closeProposal(idProposal: Long, isUserSessionMessage: Boolean) {
+        if (!isUserSessionMessage) {
+            val api = Rest.getInstance().create(ChatService::class.java)
+            api.deleteProposal(idProposal).enqueue(object : Callback<Void> {
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    if (response.isSuccessful) {
+                        loadMessages()
+                    } else {
+                        showToast("Não foi recusar a proposta")
+                    }
+                }
+
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                    showToast("Não foi recusar a proposta")
+                }
+            })
+        }
     }
 
     private fun sendMessage() {
@@ -188,5 +244,9 @@ class ChatMessageActivity : AppCompatActivity() {
             this,
             message,
             Toast.LENGTH_LONG).show()
+    }
+
+    override fun onSendCompleted() {
+        loadMessages()
     }
 }

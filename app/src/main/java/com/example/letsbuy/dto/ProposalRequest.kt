@@ -1,7 +1,7 @@
 package com.example.letsbuy.dto
 
 data class ProposalRequest(
-    val idChat: String,
-    val idUser: String,
-    val amount: String
+    val idChat: Long,
+    val idUser: Long,
+    val amount: Double
 )
