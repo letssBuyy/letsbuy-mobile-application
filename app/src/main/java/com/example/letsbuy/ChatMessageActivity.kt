@@ -3,10 +3,8 @@ package com.example.letsbuy
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.letsbuy.adapter.AdapterChatMessage
 import com.example.letsbuy.api.Rest
@@ -85,7 +83,8 @@ class ChatMessageActivity : AppCompatActivity() {
 
     private fun bindLayoutEvents() {
         binding.imageBack.setOnClickListener {
-            // TODO: implements back to chat
+            val back = Intent(this, HomeActivity::class.java)
+            startActivity(back)
         }
 
         binding.imageShowMoreOptions.setOnClickListener {
@@ -135,8 +134,6 @@ class ChatMessageActivity : AppCompatActivity() {
 
                     val data = response.body()
 
-                    Log.d("chatLOG", data.toString())
-
                     if (response.isSuccessful) {
                         if (data.isNullOrEmpty()) {
                             binding.emptyAdvertisementsLiked.visibility = View.VISIBLE
@@ -173,7 +170,6 @@ class ChatMessageActivity : AppCompatActivity() {
         val messageRequest = MessageRequest(chatId ?: -1, message, userId ?: -1)
         api.sendMessage(messageRequest).enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                Log.d("chatLOG", response.toString())
                 if (response.isSuccessful) {
                     loadMessages()
                 } else {
