@@ -2,6 +2,7 @@ package com.example.letsbuy.ui.favorites
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,11 +21,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-private lateinit var listFavorites: MutableList<AllAdversimentsAndLikeDtoResponse>
 
 class FavoritesFragment : Fragment() {
     private lateinit var binding: FragmentFavoritesBinding
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,7 +50,7 @@ class FavoritesFragment : Fragment() {
         binding.recyclerViewLike.layoutManager =
             GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
         binding.recyclerViewLike.setHasFixedSize(true)
-        binding.recyclerViewLike.adapter = AdapterFavorites(myList, context!!)
+        binding.recyclerViewLike.adapter = AdapterFavorites(myList, requireContext())
     }
 
     private fun getAdvertisementsLiked(id: Long?, view: View) {
@@ -69,6 +68,7 @@ class FavoritesFragment : Fragment() {
                             binding.scrollFav.visibility = View.GONE
                             binding.emptyAdvertisementsLiked.visibility = View.VISIBLE
                         } else {
+                            Log.w("LISTA DE CURTIDOS", response.body().toString())
                             binding.scrollFav.visibility = View.VISIBLE
                             binding.emptyAdvertisementsLiked.visibility = View.GONE
                             initRecyclerView(advertisements)

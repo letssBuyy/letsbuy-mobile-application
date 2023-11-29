@@ -19,6 +19,9 @@
             android:name=".SearchActivity"
             android:exported="false" />
         <activity
+            android:name=".ChatMessageActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
             android:exported="false" />
         <activity
