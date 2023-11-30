@@ -10,10 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.letsbuy.adapter.AdapterChat
 import com.example.letsbuy.api.Rest
 import com.example.letsbuy.databinding.FragmentChatBinding
-import com.example.letsbuy.dto.ChatRequest
 import com.example.letsbuy.dto.ChatResponseDto
 import com.example.letsbuy.service.ChatService
-import com.example.letsbuy.service.LikeService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -38,7 +36,7 @@ class ChatFragment : Fragment() {
     private fun initRecyclerView(myList: List<ChatResponseDto>) {
         binding.recyclerViewChat.layoutManager = LinearLayoutManager(context)
         binding.recyclerViewChat.setHasFixedSize(true)
-        binding.recyclerViewChat.adapter = AdapterChat(myList, requireContext())
+        binding.recyclerViewChat.adapter = AdapterChat(myList, context)
     }
 
     private fun getChats(id: Long?) {
@@ -46,7 +44,7 @@ class ChatFragment : Fragment() {
         api.getChats(id)
             .enqueue(object : Callback<List<ChatResponseDto>> {
                 override fun onResponse(
-                    call: retrofit2.Call<List<ChatResponseDto>>,
+                    call: Call<List<ChatResponseDto>>,
                     response: Response<List<ChatResponseDto>>
                 ) {
                     binding.progressBar.visibility = View.INVISIBLE
