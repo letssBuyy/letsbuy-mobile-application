@@ -19,12 +19,13 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class BottomSheetChatMenuFragment(userId: Long, adId: Long, chatId: Long) : BottomSheetDialogFragment(){
+class BottomSheetChatMenuFragment(userId: Long, adId: Long, chatId: Long, partnerId: Long) : BottomSheetDialogFragment(){
 
     private lateinit var binding: BottomsheetChatMenuFragmentBinding
     private val idUser = userId
     private val idAd = adId
     private val idChat = chatId
+    private val idPartner = partnerId
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -48,6 +49,9 @@ class BottomSheetChatMenuFragment(userId: Long, adId: Long, chatId: Long) : Bott
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (idPartner == idUser) {
+            binding.btnRedirect.visibility = View.GONE
+        }
         binding.btnSend.setOnClickListener {
             if(
                 binding.value.text.isNotBlank() &&
