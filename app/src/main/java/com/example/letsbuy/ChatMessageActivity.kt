@@ -146,8 +146,10 @@ class ChatMessageActivity : AppCompatActivity(), BottomSheetChatMenuListener {
                     val data = response.body()
 
                     if (response.isSuccessful) {
+                        Log.w("DATA", data.toString())
                         if (data.isNullOrEmpty()) {
                             binding.emptyAdvertisementsLiked.visibility = View.VISIBLE
+                            initRecyclerView(emptyList())
                         } else {
                             binding.emptyAdvertisementsLiked.visibility = View.GONE
                             initRecyclerView(data)

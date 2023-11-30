@@ -18,7 +18,7 @@ import com.example.letsbuy.dto.ChatResponseDto
 
 class AdapterChat(
     private val myList: List<ChatResponseDto>,
-    private val context: Context,
+    private val context: Context?,
 ) : RecyclerView.Adapter<AdapterChat.MyViewHolder>() {
 
     private lateinit var nameSeller: String
@@ -51,7 +51,7 @@ class AdapterChat(
             intent.putExtra("ADVERSIMENT_IMAGE", chats.adversiment.images?.first()?.url)
             intent.putExtra("ADVERSIMENT_ID", chats.adversiment.id)
             intent.putExtra("ADVERSIMENT_TITLE", chats.adversiment.title)
-            context.startActivity(intent)
+            context?.startActivity(intent)
         }
     }
 
