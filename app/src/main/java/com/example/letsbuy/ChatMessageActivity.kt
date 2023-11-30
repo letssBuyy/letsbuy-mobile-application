@@ -97,7 +97,8 @@ class ChatMessageActivity : AppCompatActivity(), BottomSheetChatMenuListener {
             val bottomSheetFragment = BottomSheetChatMenuFragment(
                 userId = userId ?: -1,
                 chatId = chatId ?: -1,
-                adId = adId ?: -1
+                adId = adId ?: -1,
+                partnerId = chatPartnerId!!
             )
             bottomSheetFragment.show(supportFragmentManager, "BottomSheetDialog")
         }
