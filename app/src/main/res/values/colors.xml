@@ -14,4 +14,9 @@
     <color name="light_gray2">#E6E1DD</color>
     <color name="light_gray3">#ECECEC</color>
     <color name="light_gray4">#E9E9E9</color>
+    <color name="light_gray_border">#C2C2C2</color>
+    <color name="light_gray_button_chat">#E0E0E0</color>
+
+    <color name="chat_background">#E5E5E5</color>
+    <color name="chat_text_color">#686868</color>
 </resources>

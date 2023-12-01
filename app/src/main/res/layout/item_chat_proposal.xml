@@ -1,0 +1,137 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/containerConstraintLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+    <TextView
+        android:id="@+id/textFieldHour"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="13:00"
+        android:textColor="@color/chat_text_color"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:textAlignment="textEnd"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/titleLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:fontFamily="@font/poppins_bold"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_marginTop="10dp"
+        android:text="Você tem uma nova proposta"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textFieldHour" />
+
+    <TextView
+        android:id="@+id/subTitleLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_bold"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:text="O comprador sugeriu o valor de:"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleLabel"/>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/light_gray_border"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subTitleLabel" />
+
+    <ImageView
+        android:id="@+id/productImageView"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/badge"
+        app:layout_constraintTop_toBottomOf="@id/line"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/productTitle"/>
+
+    <TextView
+        android:id="@+id/productTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_bold"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginLeft="20dp"
+        android:text="Bolsa marrom"
+        app:layout_constraintTop_toTopOf="@id/productImageView"
+        app:layout_constraintBottom_toTopOf="@id/productPrice"
+        app:layout_constraintLeft_toRightOf="@+id/productImageView"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/productPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:fontFamily="@font/poppins_bold"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginLeft="20dp"
+        android:text="R$ 200,00"
+        app:layout_constraintTop_toBottomOf="@id/productTitle"
+        app:layout_constraintBottom_toBottomOf="@id/productImageView"
+        app:layout_constraintLeft_toRightOf="@+id/productImageView"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <View
+        android:id="@+id/lineButtons"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/red"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/productImageView"/>
+
+    <Button
+        android:id="@+id/acceptProposalButton"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:background="@drawable/shape_chat_button_left"
+        android:text="Aceitar proposta"
+        android:clipToOutline="true"
+        app:layout_constraintTop_toBottomOf="@id/lineButtons"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/closeProposalButton"/>
+
+    <Button
+        android:id="@+id/closeProposalButton"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:text="Recusar"
+        android:clipToOutline="true"
+        app:layout_constraintTop_toBottomOf="@id/lineButtons"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/acceptProposalButton"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,7 @@
 package com.example.letsbuy.adapter
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,18 +10,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.letsbuy.R
-import com.example.letsbuy.dto.AllAdversimentsAndLikeDtoResponse
-import android.content.Context
-import android.content.Intent
-import androidx.fragment.app.Fragment
 import com.example.letsbuy.AdDetailActivity
-import com.example.letsbuy.EditAdActivity
-import com.example.letsbuy.HomeActivity
 import com.example.letsbuy.api.Rest
 import com.example.letsbuy.dto.AdversimentsLikeDtoResponse
 import com.example.letsbuy.model.enums.CategoryEnum
 import com.example.letsbuy.service.LikeService
-import com.example.letsbuy.ui.favorites.FavoritesFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,21 +25,28 @@ class AdapterFavorites(
 ) : RecyclerView.Adapter<AdapterFavorites.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_favorites,parent,false)
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_favorites, parent, false)
         return MyViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+
         val adversiment = myList[position]
 
-        holder.textPrice.text ="R$ " + adversiment.adversiments.price.toString()
+        holder.textPrice.text = "R$ " + adversiment.adversiments.price.toString()
         holder.textTittle.text = adversiment.adversiments.title
-        holder.textCategory.text = CategoryEnum.enumCategoryToDescription(adversiment.adversiments.category)
+        holder.textCategory.text =
+            CategoryEnum.enumCategoryToDescription(adversiment.adversiments.category)
+        holder.like.setOnClickListener {
+            islike(holder, adversiment)
+        }
 
-        if (adversiment.adversiments.images.isNullOrEmpty()){
+        if (adversiment.adversiments.images.isNullOrEmpty()) {
             holder.imgAdvertisement.setImageResource(R.drawable.broke_image)
         } else {
-            Glide.with(holder.itemView.context).load(adversiment.adversiments.images.first().url).into(holder.imgAdvertisement)
+            Glide.with(holder.itemView.context).load(adversiment.adversiments.images.first().url)
+                .into(holder.imgAdvertisement)
         }
 
         holder.imgAdvertisement.setOnClickListener {
@@ -61,8 +63,7 @@ class AdapterFavorites(
 
     override fun getItemCount() = myList.size
 
-
-    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imgAdvertisement: ImageView = itemView.findViewById(R.id.imageViewAdversement)
         val textPrice : TextView = itemView.findViewById(R.id.textViewPrice)
         val textTittle : TextView = itemView.findViewById(R.id.textViewTittle)
