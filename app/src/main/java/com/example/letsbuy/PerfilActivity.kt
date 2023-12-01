@@ -41,6 +41,10 @@ class PerfilActivity: AppCompatActivity() {
         }
 
         binding.texExit.setOnClickListener() {
+            val prefs = getSharedPreferences("AUTH", MODE_PRIVATE)
+            val editor = prefs.edit()
+            editor.putBoolean("LOGADO", false)
+            editor.apply()
             val exit = Intent(this, LoginActivity::class.java)
             startActivity(exit)
         }

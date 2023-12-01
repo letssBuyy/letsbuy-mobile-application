@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResult
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
+import com.bumptech.glide.request.RequestOptions
 import com.example.letsbuy.EditProfileActivity
 import com.example.letsbuy.LoginActivity
 import com.example.letsbuy.MyAdvertisementsActivity
@@ -18,12 +18,9 @@ import com.example.letsbuy.PublishAdActivity
 import com.example.letsbuy.R
 import com.example.letsbuy.WalletActivity
 import com.example.letsbuy.api.Rest
-import com.example.letsbuy.databinding.ActivityEditProfileBinding
-import com.example.letsbuy.databinding.ActivityPerfilBinding
 import com.example.letsbuy.databinding.FragmentPerfilBinding
 import com.example.letsbuy.dto.UserAdversimentsDtoResponse
 import com.example.letsbuy.service.UserService
-import org.w3c.dom.Text
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -85,6 +82,10 @@ class PerfilFragment : Fragment() {
         }
 
         binding.btnExit.setOnClickListener {
+            val prefs = requireActivity().getSharedPreferences("AUTH", AppCompatActivity.MODE_PRIVATE)
+            val editor = prefs.edit()
+            editor.putBoolean("LOGADO", false)
+            editor.apply()
             val exit = Intent(context, LoginActivity::class.java)
             startActivity(exit)
         }
@@ -104,8 +105,14 @@ class PerfilFragment : Fragment() {
                     val user = response.body()
                     Glide.with(this@PerfilFragment)
                         .load(user!!.profileImage)
-                        .error(R.drawable.broke_image)
+                        .error(
+                            Glide.with(this@PerfilFragment)
+                                .load(R.drawable.broke_image)
+                                .apply(RequestOptions.bitmapTransform(CircleCrop()))
+                        )
+                        .apply(RequestOptions.bitmapTransform(CircleCrop()))
                         .into(binding.profileImage)
+
                     binding.profileName.text = user.name
                 }
             }

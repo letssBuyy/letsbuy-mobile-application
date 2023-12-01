@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="30dp">
+
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins"
+            android:text="Localização"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/edit_location"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edit_location"
+            android:layout_width="320dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:inputType="text"
+            android:background="@drawable/input_publish_edit_ad"
+            android:hint="Digite sua cidade"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_location" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins"
+            android:text="Preço"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/edit_location"
+            app:layout_constraintTop_toBottomOf="@+id/edit_location" />
+
+        <TextView
+            android:id="@+id/tv_priceMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Min"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_price"
+            app:layout_constraintTop_toBottomOf="@+id/tv_price" />
+
+        <EditText
+            android:id="@+id/edit_priceMin"
+            android:layout_width="140dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="5dp"
+            android:inputType="numberDecimal"
+            android:background="@drawable/input_publish_edit_ad"
+            android:hint="R$ 0,00"
+            android:padding="10dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_priceMin"
+            app:layout_constraintTop_toBottomOf="@+id/tv_priceMin" />
+
+        <TextView
+            android:id="@+id/tv_priceMax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Min"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/edit_priceMax"
+            app:layout_constraintTop_toTopOf="@+id/tv_priceMin" />
+
+        <EditText
+            android:id="@+id/edit_priceMax"
+            android:layout_width="140dp"
+            android:layout_height="45dp"
+            android:inputType="numberDecimal"
+            android:background="@drawable/input_publish_edit_ad"
+            android:hint="R$ 0,00"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/edit_location"
+            app:layout_constraintTop_toTopOf="@+id/edit_priceMin" />
+
+        <TextView
+            android:id="@+id/tv_quality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins"
+            android:text="Qualidade"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/edit_priceMin"
+            app:layout_constraintTop_toBottomOf="@+id/edit_priceMin" />
+
+        <RadioButton
+            android:id="@+id/rd_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:fontFamily="@font/poppins"
+            android:text="Todas qualidades"
+            app:layout_constraintStart_toStartOf="@+id/tv_quality"
+            app:layout_constraintTop_toBottomOf="@+id/tv_quality" />
+
+        <RadioButton
+            android:id="@+id/rd_good"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:fontFamily="@font/poppins"
+            android:text="Em bom estado"
+            app:layout_constraintStart_toStartOf="@+id/rd_all"
+            app:layout_constraintTop_toBottomOf="@+id/rd_all" />
+
+        <RadioButton
+            android:id="@+id/rd_average"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:fontFamily="@font/poppins"
+            android:text="Em médio estado"
+            app:layout_constraintStart_toStartOf="@+id/rd_good"
+            app:layout_constraintTop_toBottomOf="@+id/rd_good" />
+
+        <RadioButton
+            android:id="@+id/rd_bad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:fontFamily="@font/poppins"
+            android:text="Em ruim estado"
+            app:layout_constraintStart_toStartOf="@+id/rd_average"
+            app:layout_constraintTop_toBottomOf="@+id/rd_average" />
+
+        <TextView
+            android:id="@+id/tv_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins"
+            android:text="Cor"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/rd_bad"
+            app:layout_constraintTop_toBottomOf="@+id/rd_bad" />
+
+        <Spinner
+            android:id="@+id/spinner_color"
+            android:layout_width="330dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_spinner"
+            android:fontFamily="@font/poppins"
+            android:inputType="text"
+            android:paddingStart="10dp"
+            android:textColor="#969696"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_color"
+            app:layout_constraintTop_toBottomOf="@+id/tv_color" />
+
+        <TextView
+            android:id="@+id/tv_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Categoria"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/spinner_color"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_color" />
+
+        <Spinner
+            android:id="@+id/spinner_category"
+            android:layout_width="330dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_spinner"
+            android:fontFamily="@font/poppins"
+            android:inputType="text"
+            android:paddingStart="10dp"
+            android:textColor="#969696"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_category"
+            app:layout_constraintTop_toBottomOf="@+id/tv_category" />
+
+        <Button
+            android:id="@+id/btn_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:width="329dp"
+            android:backgroundTint="@color/red"
+            android:text="Limpar Filtros"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_category" />
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:width="329dp"
+            android:backgroundTint="@color/red"
+            android:text="Pesquisar"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_clear" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

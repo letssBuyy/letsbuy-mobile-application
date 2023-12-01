@@ -30,7 +30,10 @@ class MyShoppingsActivity: AppCompatActivity() {
             startActivity(back)
         }
 
-        getBoughts(8)
+        val pref = getSharedPreferences("AUTH", MODE_PRIVATE)
+        val id = pref?.getString("ID", null)?.toLong()
+
+        getBoughts(id!!)
     }
 
     private fun initRecyclerView(advertisements: List<MyBoughtsResponse>, userId: Long) {

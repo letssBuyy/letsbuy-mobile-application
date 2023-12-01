@@ -40,6 +40,7 @@ class CheckoutPaymentActivity: AppCompatActivity() {
 
     private fun bindLayoutEvents() {
         binding.finalizedPaymentButton.setOnClickListener {
+            binding.progressBar.visibility = View.VISIBLE
             payment()
         }
 
@@ -79,21 +80,25 @@ class CheckoutPaymentActivity: AppCompatActivity() {
         val cvc = binding.inputCvC.unMasked
 
         if (cardName.isNullOrEmpty()) {
+            binding.progressBar.visibility = View.GONE
             showToast("Preencha o nome do cartão")
             return false
         }
 
         if (cardNumber.isEmpty() || cardNumber.length != 16 || !cardNumber.isDigitsOnly()) {
+            binding.progressBar.visibility = View.GONE
             showToast("Preencha o número do cartão corretamente (deve conter 16 dígitos)")
             return false
         }
 
         if (expirationDate.isEmpty() || expirationDate.length < 6 || !expirationDate.isDigitsOnly()) {
+            binding.progressBar.visibility = View.GONE
             showToast("Preencha uma data válida (deve conter 6 dígitos)")
             return false
         }
 
         if (cvc.isEmpty() || cvc.length < 3 || !cvc.isDigitsOnly()) {
+            binding.progressBar.visibility = View.GONE
             showToast("Preencha um CVC válido (deve conter pelo menos 3 dígitos)")
             return false
         }
@@ -105,6 +110,7 @@ class CheckoutPaymentActivity: AppCompatActivity() {
         Log.d("respostaApi", validation().toString())
 
         if (validation()) {
+            binding.finalizedPaymentButton.isEnabled = false
             val isShipment: Boolean = when {
                 binding.withdrawRadioButton.isChecked -> false
                 binding.DeliveryRadioButton.isChecked -> true
@@ -134,6 +140,7 @@ class CheckoutPaymentActivity: AppCompatActivity() {
             val api = Rest.getInstance().create(PaymentService::class.java)
             api.makePayment(paymentRequest).enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    binding.progressBar.visibility = View.GONE
                     if (response.isSuccessful) {
                         showToast("Pagamento realizado com sucesso!!")
                         sendSuccessScreen()
@@ -145,6 +152,7 @@ class CheckoutPaymentActivity: AppCompatActivity() {
                     }
                 }
                 override fun onFailure(call: Call<Void>, t: Throwable) {
+                    binding.progressBar.visibility = View.GONE
                     showToast("Ocorreu um erro ao realizar o pagamento")
                     sendErrorScreen()
                 }
