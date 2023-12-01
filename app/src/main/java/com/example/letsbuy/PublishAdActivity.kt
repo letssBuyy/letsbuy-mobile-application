@@ -27,6 +27,7 @@ import com.example.letsbuy.model.enums.QualityEnum
 import com.example.letsbuy.model.enums.QualityEnum.Companion.qualityToEnum
 import com.example.letsbuy.service.AdversimentService
 import com.example.letsbuy.service.ImageService
+import com.example.letsbuy.ui.perfil.PerfilFragment
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -65,7 +66,7 @@ class PublishAdActivity : AppCompatActivity() {
         getImages()
 
         binding.ivImageBack.setOnClickListener {
-            val back = Intent(this, PerfilActivity::class.java)
+            val back = Intent(this, HomeActivity::class.java)
             startActivity(back)
         }
 

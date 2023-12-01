@@ -15,12 +15,14 @@ import com.example.letsbuy.PublishAdActivity
 import com.example.letsbuy.adapter.AdapterFavorites
 import com.example.letsbuy.api.Rest
 import com.example.letsbuy.databinding.FragmentFavoritesBinding
+import com.example.letsbuy.dto.AdversimentsLikeDtoResponse
 import com.example.letsbuy.dto.AllAdversimentsAndLikeDtoResponse
 import com.example.letsbuy.service.AdversimentService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+private lateinit var listFavorites: MutableList<AdversimentsLikeDtoResponse>
 
 class FavoritesFragment : Fragment() {
     private lateinit var binding: FragmentFavoritesBinding
@@ -46,7 +48,7 @@ class FavoritesFragment : Fragment() {
 
     }
 
-    private fun initRecyclerView(myList: List<AllAdversimentsAndLikeDtoResponse>) {
+    private fun initRecyclerView(myList: List<AdversimentsLikeDtoResponse>) {
         binding.recyclerViewLike.layoutManager =
             GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
         binding.recyclerViewLike.setHasFixedSize(true)
@@ -56,10 +58,10 @@ class FavoritesFragment : Fragment() {
     private fun getAdvertisementsLiked(id: Long?, view: View) {
         val api = Rest.getInstance().create(AdversimentService::class.java)
         api.getAdversimentLike(id)
-            .enqueue(object : Callback<List<AllAdversimentsAndLikeDtoResponse>> {
+            .enqueue(object : Callback<List<AdversimentsLikeDtoResponse>> {
                 override fun onResponse(
-                    call: retrofit2.Call<List<AllAdversimentsAndLikeDtoResponse>>,
-                    response: Response<List<AllAdversimentsAndLikeDtoResponse>>
+                    call: retrofit2.Call<List<AdversimentsLikeDtoResponse>>,
+                    response: Response<List<AdversimentsLikeDtoResponse>>
                 ) {
                     binding.progressBar.visibility = View.INVISIBLE
                     if (response.isSuccessful) {
@@ -77,7 +79,7 @@ class FavoritesFragment : Fragment() {
                 }
 
                 override fun onFailure(
-                    call: Call<List<AllAdversimentsAndLikeDtoResponse>>,
+                    call: Call<List<AdversimentsLikeDtoResponse>>,
                     t: Throwable
                 ) {
                     binding.progressBar.visibility = View.INVISIBLE

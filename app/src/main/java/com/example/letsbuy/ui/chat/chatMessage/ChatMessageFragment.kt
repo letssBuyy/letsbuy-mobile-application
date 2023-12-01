@@ -47,7 +47,6 @@ class ChatMessageFragment(
         super.onViewCreated(view, savedInstanceState)
 
         if (isProposal) {
-            Log.w("VARIAVEIS", adversimentImage + "       " + adversimentTitle + "       " + currencyFormater(amount))
             val productImageView: ImageView = view.findViewById(R.id.productImageView)
             val titleProductTextView: TextView = view.findViewById(R.id.productTitle)
             val priceProductTextView: TextView = view.findViewById(R.id.productPrice)
@@ -79,8 +78,8 @@ class ChatMessageFragment(
                 }
             }
         } else {
-            val messageTextView: TextView = view.findViewById(R.id.textFieldHour)
-            val datetimeTextView: TextView = view.findViewById(R.id.textFieldMessage)
+            val messageTextView: TextView = view.findViewById(R.id.textFieldMessage)
+            val datetimeTextView: TextView = view.findViewById(R.id.textFieldHour)
 
             messageTextView.text = message
             datetimeTextView.text = datetime
@@ -91,6 +90,4 @@ class ChatMessageFragment(
         val formatoMoeda = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
         return formatoMoeda.format(valor)
     }
-
-
 }
