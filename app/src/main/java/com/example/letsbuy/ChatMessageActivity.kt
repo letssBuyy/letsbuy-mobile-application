@@ -1,11 +1,13 @@
 package com.example.letsbuy
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.core.view.size
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.letsbuy.adapter.AdapterChatMessage
@@ -27,6 +29,8 @@ import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class ChatMessageActivity : AppCompatActivity(), BottomSheetChatMenuListener {
     private lateinit var binding: ActivityChatMessageBinding
@@ -93,7 +97,6 @@ class ChatMessageActivity : AppCompatActivity(), BottomSheetChatMenuListener {
         }
 
         binding.imageShowMoreOptions.setOnClickListener {
-           // TODO: Open actionsheet
             val bottomSheetFragment = BottomSheetChatMenuFragment(
                 userId = userId ?: -1,
                 chatId = chatId ?: -1,
@@ -117,7 +120,7 @@ class ChatMessageActivity : AppCompatActivity(), BottomSheetChatMenuListener {
     }
 
     private fun sendToUserProfile() {
-        val profile = Intent(this, ChatActivity::class.java)
+        val profile = Intent(this, ProfileViewActivity::class.java)
         if (chatPartnerId != null) {
             profile.putExtra("sellerId", chatPartnerId)
             startActivity(profile)
@@ -144,16 +147,20 @@ class ChatMessageActivity : AppCompatActivity(), BottomSheetChatMenuListener {
                 ) {
                     binding.progressBar.visibility = View.INVISIBLE
 
-                    val data = response.body()
+                    var data = response.body()
 
                     if (response.isSuccessful) {
-                        Log.w("DATA", data.toString())
                         if (data.isNullOrEmpty()) {
                             binding.emptyAdvertisementsLiked.visibility = View.VISIBLE
                             initRecyclerView(emptyList())
                         } else {
                             binding.emptyAdvertisementsLiked.visibility = View.GONE
-                            initRecyclerView(data)
+                            val messageGroup : List<MapMessage> = data
+                            val messageGroupSorted = messageGroup.sortedBy {
+                                val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                                sdf.parse(it.date)
+                            }
+                            initRecyclerView(messageGroupSorted)
                         }
                     } else {
                         showToast("Não foi possivel carregar as mensagens")
@@ -169,16 +176,20 @@ class ChatMessageActivity : AppCompatActivity(), BottomSheetChatMenuListener {
     }
 
     private fun initRecyclerView(myList: List<MapMessage>) {
-        binding.containerMessages.layoutManager = LinearLayoutManager(this)
-        binding.containerMessages.setHasFixedSize(true)
-        binding.containerMessages.adapter = AdapterChatMessage(myList,
+        val recyclerView = binding.containerMessages
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        val adapter = AdapterChatMessage(
+            myList,
             userId ?: -1,
             adversimentTitle ?: "",
             adversimentImage ?: "",
             this,
             this::acceptProposal,
             this::closeProposal
-            )
+        )
+
+        recyclerView.adapter = adapter
     }
 
     private fun acceptProposal(idProposal: Long, isUserSessionMessage: Boolean) {
@@ -188,7 +199,6 @@ class ChatMessageActivity : AppCompatActivity(), BottomSheetChatMenuListener {
             api.acceptProposal(idProposal).enqueue(object : Callback<AdvertisementResponse> {
 
                 override fun onResponse(call: Call<AdvertisementResponse>, response: Response<AdvertisementResponse>) {
-                    Log.w("RESPOSTA", response.toString())
                     if (response.isSuccessful) {
                         closeProposal(idProposal,  false)
                         loadMessages()
@@ -231,6 +241,8 @@ class ChatMessageActivity : AppCompatActivity(), BottomSheetChatMenuListener {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
                     loadMessages()
+                    binding.inputMenssager.text.clear()
+                    closeKeyboard()
                 } else {
                     showToast("Não foi possivel enviar e mensagem")
                 }
@@ -240,6 +252,14 @@ class ChatMessageActivity : AppCompatActivity(), BottomSheetChatMenuListener {
                 showToast("Não foi possivel enviar e mensagem")
             }
         })
+    }
+
+    private fun closeKeyboard() {
+        val view = this.currentFocus
+        if (view != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
     }
 
     private fun showToast(message: String) {

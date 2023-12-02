@@ -71,6 +71,10 @@ class BottomSheetFilterFragment(): BottomSheetDialogFragment() {
         }
 
         binding.btnClear.setOnClickListener {
+            binding.spinnerCategory.setSelection(0)
+            binding.spinnerColor.setSelection(0)
+            //binding.spinnerColor.getItemAtPosition(0)
+            //binding.spinnerColor.getItemAtPosition(0)
             binding.editLocation.setText("")
             binding.editPriceMin.setText("")
             binding.editPriceMax.setText("")
@@ -98,8 +102,8 @@ class BottomSheetFilterFragment(): BottomSheetDialogFragment() {
             val filter = 1
             val search = Intent(context, SearchActivity::class.java)
             search.putExtra("LOCATION", location)
-            search.putExtra("PRICEMIN", priceMin)
-            search.putExtra("PRICEMAX", priceMax)
+            search.putExtra("PRICEMIN", if(priceMin.isNullOrEmpty()) null else priceMin.toDouble())
+            search.putExtra("PRICEMAX", if(priceMax.isNullOrEmpty()) null else priceMax.toDouble())
             search.putExtra("QUALITY", if (quality == ("Selecione a qualidade")) null else quality)
             search.putExtra("CATEGORY", if (category == ("Selecione uma categoria")) null else category)
             search.putExtra("COLOR", if(color == ("Selecione uma cor")) null else color)
