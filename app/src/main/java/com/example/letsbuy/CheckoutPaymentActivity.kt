@@ -11,29 +11,32 @@ import com.example.letsbuy.api.Rest
 import com.example.letsbuy.databinding.ActivityCheckoutPaymentBinding
 import com.example.letsbuy.dto.ImageDtoResponse
 import com.example.letsbuy.dto.PaymentRequest
+import com.example.letsbuy.dto.UserAdversimentsDtoResponse
 import com.example.letsbuy.model.DetailAdvertisementResponse
 import com.example.letsbuy.model.enums.CategoryEnum
 import com.example.letsbuy.service.AdDetailService
 import com.example.letsbuy.service.PaymentService
+import com.example.letsbuy.service.UserService
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CheckoutPaymentActivity: AppCompatActivity() {
+class CheckoutPaymentActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCheckoutPaymentBinding
     var idAdversiment: Long = -1
     private var idUser: Long = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding =  ActivityCheckoutPaymentBinding.inflate(layoutInflater)
+        binding = ActivityCheckoutPaymentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         idAdversiment = intent.getLongExtra("ID_AD", -1)
         val prefs = getSharedPreferences("AUTH", MODE_PRIVATE)
         idUser = prefs.getString("ID", "")?.toLong() ?: -1
 
+        getUserById(idUser)
         getDetailData()
         bindLayoutEvents()
     }
@@ -151,6 +154,7 @@ class CheckoutPaymentActivity: AppCompatActivity() {
                         sendErrorScreen()
                     }
                 }
+
                 override fun onFailure(call: Call<Void>, t: Throwable) {
                     binding.progressBar.visibility = View.GONE
                     showToast("Ocorreu um erro ao realizar o pagamento")
@@ -176,44 +180,76 @@ class CheckoutPaymentActivity: AppCompatActivity() {
         }
     }
 
-    fun getDetailData() {
-        val api = Rest.getInstance().create(AdDetailService::class.java)
-
-        api.getDetail(idAdversiment, idUser).enqueue(object: Callback<List<DetailAdvertisementResponse>> {
+    private fun getUserById(id: Long) {
+        val api = Rest.getInstance().create(UserService::class.java)
+        api.getAdversimentsByUser(id, null).enqueue(object : Callback<UserAdversimentsDtoResponse> {
             override fun onResponse(
-                call: Call<List<DetailAdvertisementResponse>>,
-                response: Response<List<DetailAdvertisementResponse>>
+                call: Call<UserAdversimentsDtoResponse>,
+                response: Response<UserAdversimentsDtoResponse>
             ) {
                 if (response.isSuccessful) {
-                    val data = response.body()?.first()
-                    val road = data?.adversiments?.userSellerLikeDto?.road
-                    val number = data?.adversiments?.userSellerLikeDto?.number
-                    val neighborhood = data?.adversiments?.userSellerLikeDto?.neighborhood
-                    val city = data?.adversiments?.userSellerLikeDto?.city
-                    val state = data?.adversiments?.userSellerLikeDto?.state
-                    val name = data?.adversiments?.userSellerLikeDto?.name
-                    val cpf = data?.adversiments?.userSellerLikeDto?.cpf
-                    val price = data?.adversiments?.price.toString()
-
-                    loadProductImage(data?.adversiments?.images?.get(0))
-                    binding.adressRoadTextView.text = "$road, $number \n$neighborhood, $city - $state"
-                    binding.productNameTextView.text = data?.adversiments?.title
-                    binding.CategoryNameTextView.text = CategoryEnum.enumCategoryToDescription(data?.adversiments!!.category)
-                    binding.ownerNameTextView.text = "Vendido por: $name \nCPF: ${cpf?.take(3) + "-***-***-**"}"
-                    binding.PriceTextView.text = "R$ $price"
+                    val userData = response.body()
+                    val road = userData?.road
+                    val number = userData?.number
+                    val neighborhood = userData?.neighborhood
+                    val city = userData?.city
+                    val state = userData?.state
+                    binding.adressRoadTextView.text =
+                        "$road, $number \n$neighborhood, $city - $state"
                 }
             }
 
-            override fun onFailure(call: Call<List<DetailAdvertisementResponse>>, t: Throwable) {
-                showToast("Erro ao carregar anúncio")
+            override fun onFailure(call: Call<UserAdversimentsDtoResponse>, t: Throwable) {
+                showToast("Erro ao carregar endereço")
             }
         })
+    }
+
+    fun getDetailData() {
+        val api = Rest.getInstance().create(AdDetailService::class.java)
+
+        api.getDetail(idAdversiment, idUser)
+            .enqueue(object : Callback<List<DetailAdvertisementResponse>> {
+                override fun onResponse(
+                    call: Call<List<DetailAdvertisementResponse>>,
+                    response: Response<List<DetailAdvertisementResponse>>
+                ) {
+                    if (response.isSuccessful) {
+                        val data = response.body()?.first()
+//                    val road = data?.adversiments?.userSellerLikeDto?.road
+//                    val number = data?.adversiments?.userSellerLikeDto?.number
+//                    val neighborhood = data?.adversiments?.userSellerLikeDto?.neighborhood
+//                    val city = data?.adversiments?.userSellerLikeDto?.city
+//                    val state = data?.adversiments?.userSellerLikeDto?.state
+                        val name = data?.adversiments?.userSellerLikeDto?.name
+                        val cpf = data?.adversiments?.userSellerLikeDto?.cpf
+                        val price = data?.adversiments?.price.toString()
+
+                        loadProductImage(data?.adversiments?.images?.get(0))
+//                    binding.adressRoadTextView.text = "$road, $number \n$neighborhood, $city - $state"
+                        binding.productNameTextView.text = data?.adversiments?.title
+                        binding.CategoryNameTextView.text =
+                            CategoryEnum.enumCategoryToDescription(data?.adversiments!!.category)
+                        binding.ownerNameTextView.text =
+                            "Vendido por: $name \nCPF: ${cpf?.take(3) + "-***-***-**"}"
+                        binding.PriceTextView.text = "R$ $price"
+                    }
+                }
+
+                override fun onFailure(
+                    call: Call<List<DetailAdvertisementResponse>>,
+                    t: Throwable
+                ) {
+                    showToast("Erro ao carregar anúncio")
+                }
+            })
     }
 
     private fun showToast(message: String) {
         Toast.makeText(
             this,
             message,
-            Toast.LENGTH_LONG).show()
+            Toast.LENGTH_LONG
+        ).show()
     }
 }
