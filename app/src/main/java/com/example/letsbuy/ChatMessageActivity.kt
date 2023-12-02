@@ -4,10 +4,10 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.core.view.size
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.letsbuy.adapter.AdapterChatMessage
@@ -150,7 +150,6 @@ class ChatMessageActivity : AppCompatActivity(), BottomSheetChatMenuListener {
                     var data = response.body()
 
                     if (response.isSuccessful) {
-                        Log.w("chatLog", data.toString())
                         if (data.isNullOrEmpty()) {
                             binding.emptyAdvertisementsLiked.visibility = View.VISIBLE
                             initRecyclerView(emptyList())
@@ -177,16 +176,20 @@ class ChatMessageActivity : AppCompatActivity(), BottomSheetChatMenuListener {
     }
 
     private fun initRecyclerView(myList: List<MapMessage>) {
-        binding.containerMessages.layoutManager = LinearLayoutManager(this)
-        binding.containerMessages.setHasFixedSize(true)
-        binding.containerMessages.adapter = AdapterChatMessage(myList,
+        val recyclerView = binding.containerMessages
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        val adapter = AdapterChatMessage(
+            myList,
             userId ?: -1,
             adversimentTitle ?: "",
             adversimentImage ?: "",
             this,
             this::acceptProposal,
             this::closeProposal
-            )
+        )
+
+        recyclerView.adapter = adapter
     }
 
     private fun acceptProposal(idProposal: Long, isUserSessionMessage: Boolean) {
@@ -196,7 +199,6 @@ class ChatMessageActivity : AppCompatActivity(), BottomSheetChatMenuListener {
             api.acceptProposal(idProposal).enqueue(object : Callback<AdvertisementResponse> {
 
                 override fun onResponse(call: Call<AdvertisementResponse>, response: Response<AdvertisementResponse>) {
-                    Log.w("RESPOSTA", response.toString())
                     if (response.isSuccessful) {
                         closeProposal(idProposal,  false)
                         loadMessages()
