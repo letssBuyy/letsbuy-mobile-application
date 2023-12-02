@@ -141,7 +141,7 @@ class HomeFragment : Fragment() {
                             binding.imgError.visibility = View.GONE
                             binding.errorMessage.visibility = View.GONE
                             binding.recyclerViewProdutos.visibility = View.VISIBLE
-                            binding.tvFilter.text = "${adversiment.size} anúnios encontrados"
+                            binding.tvFilter.text = "${adversiment.size} anúncios encontrados"
                             initRecyclerView(adversiment)
                         }
                     } else {

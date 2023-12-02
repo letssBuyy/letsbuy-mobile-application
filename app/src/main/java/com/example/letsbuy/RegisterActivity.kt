@@ -90,6 +90,7 @@ class RegisterActivity : AppCompatActivity() {
             ) {
                 binding.progressBar.visibility = View.INVISIBLE
                 if (response.isSuccessful) {
+                    Toast.makeText(baseContext, "Cadastro realizado com sucesso!", Toast.LENGTH_LONG).show()
                     startActivity(Intent(baseContext, LoginActivity::class.java));
                 }
             }

@@ -11,8 +11,8 @@ class PaymentFailureActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_payment_failure)
         binding = ActivityPaymentFailureBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         binding.imageView1.setOnClickListener {
             val back = Intent(this, HomeActivity::class.java)

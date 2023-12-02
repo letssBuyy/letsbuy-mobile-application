@@ -94,6 +94,8 @@ class SearchActivity : AppCompatActivity() {
         ) null else AdversimentColorEnum.colorToEnum(intent.getStringExtra("COLOR")!!)
         val typeFilter = intent.getIntExtra("FILTER", 1)
 
+        Log.d("PRECOMIN", priceMin.toString())
+        Log.d("PRECOMAX", priceMax.toString())
         val filter =
             AdversimentFilterDto(location, priceMin, priceMax, quality, category, color, typeFilter)
 
@@ -110,13 +112,13 @@ class SearchActivity : AppCompatActivity() {
                             binding.imgError.visibility = View.VISIBLE
                             binding.errorMessage.visibility = View.VISIBLE
                             binding.tvQtdAdversiments.text =
-                                "0 anúnios encontrados"
+                                "0 anúncios encontrados"
                         } else {
                             binding.imgError.visibility = View.GONE
                             binding.errorMessage.visibility = View.GONE
                             binding.recyclerViewSearch.visibility = View.VISIBLE
                             binding.tvQtdAdversiments.text =
-                                "${adversiments.size} anúnios encontrados"
+                                "${adversiments.size} anúncios encontrados"
                             initRecyclerView(adversiments)
                         }
                     }
