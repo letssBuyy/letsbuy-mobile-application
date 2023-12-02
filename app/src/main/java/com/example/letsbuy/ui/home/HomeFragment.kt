@@ -137,6 +137,7 @@ class HomeFragment : Fragment() {
                         if (adversiment.isNullOrEmpty()) {
                             binding.imgError.visibility = View.VISIBLE
                             binding.errorMessage.visibility = View.VISIBLE
+                            binding.tvFilter.text = "0 anúncios encontrados"
                         } else {
                             binding.imgError.visibility = View.GONE
                             binding.errorMessage.visibility = View.GONE
